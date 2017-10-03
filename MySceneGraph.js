@@ -1425,19 +1425,21 @@ MySceneGraph.prototype.esbetacl = function(argnode) {
     }*/
 
     this.scene.pushMatrix();
-
     this.scene.multMatrix(argnode.transformMatrix);
+
+
+    //nodes
     for(var i = 0; i < argnode.children.length; i++){
         this.esbetacl(this.nodes[argnode.children[i]]);    
     }
-
     for(var i = 0; i < argnode.leaves.length; i++){
         argnode.leaves[i].display();
     }
 
-    this.scene.popMatrix();
 
-   
+
+
+    this.scene.popMatrix();
 }
 /**
  * Displays the scene, processing each node, starting in the root node.

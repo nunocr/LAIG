@@ -30,6 +30,7 @@ function MyGraphLeaf(graph, info) {
            //this.obj.display();
             break;
         case "cylinder":
+            this.obj = new MyCylinder(graph.scene, String(this.args));
             break;
         case "triangle":
             //console.log("eu aprecio memes: " + this.args);
@@ -37,6 +38,7 @@ function MyGraphLeaf(graph, info) {
             //graph.nodes.push(tri);
             break;
         case "sphere":
+            this.obj = new MySphere(graph.scene, String(this.args));
             break;
         default:
             break;
