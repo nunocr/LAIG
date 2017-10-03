@@ -1418,6 +1418,27 @@ MySceneGraph.generateRandomString = function(length) {
     return String.fromCharCode.apply(null, numbers);
 }
 
+
+MySceneGraph.prototype.esbetacl = function(argnode) {
+    /*if(argnode.children.length == 0){
+        console.log("dank meme");
+    }*/
+
+    this.scene.pushMatrix();
+
+    this.scene.multMatrix(argnode.transformMatrix);
+    for(var i = 0; i < argnode.children.length; i++){
+        this.esbetacl(this.nodes[argnode.children[i]]);    
+    }
+
+    for(var i = 0; i < argnode.leaves.length; i++){
+        argnode.leaves[i].display();
+    }
+
+    this.scene.popMatrix();
+
+   
+}
 /**
  * Displays the scene, processing each node, starting in the root node.
  */
@@ -1426,13 +1447,14 @@ MySceneGraph.prototype.displayScene = function() {
 	// remove log below to avoid performance issues
 	//this.log("Graph should be rendered here...");
 
+/*
     for (var i = 0; i < this.nodes.length; i++) {
         this.scene.pushMatrix();
-        //this.scene.multMatrix(this.nodes[i].transformMatrix);
+        this.scene.multMatrix(this.nodes[i].transformMatrix);
         this.nodes[i].display();
         this.scene.popMatrix();
         //console.log("meme" + i);
     }
-
-
+*/
+    this.esbetacl(this.nodes["root"]);
 }
