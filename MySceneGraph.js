@@ -1427,7 +1427,11 @@ MySceneGraph.prototype.displayScene = function() {
 	//this.log("Graph should be rendered here...");
 
     for (var i = 0; i < this.nodes.length; i++) {
-        console.log("meme" + i);
+        this.scene.pushMatrix();
+        //this.scene.multMatrix(this.nodes[i].transformMatrix);
+        this.nodes[i].display();
+        this.scene.popMatrix();
+        //console.log("meme" + i);
     }
 
 
