@@ -1,6 +1,12 @@
 function MyRectangle(scene, args) { //first 2 args: coordinates of top left vertex
 	CGFobject.call(this,scene);		  //second 2 args: coordinates of bottom right vertex
 	this.args = args;
+
+    this.minS = 0;
+    this.maxS = 1;
+    this.minT = 0;
+    this.maxT = 1;
+	
 	this.initBuffers();
 };
 
@@ -29,6 +35,13 @@ MyRectangle.prototype.initBuffers = function () {
 			0, 1, 0,
 			0, 1, 0
     	];
+
+    this.texCoords = [    
+		this.minS, this.maxT,
+		this.maxS, this.maxT,
+		this.minS, this.minT,
+		this.maxS, this.minT,    
+    ];
 		
 	this.primitiveType=this.scene.gl.TRIANGLES;
 	this.initGLBuffers();

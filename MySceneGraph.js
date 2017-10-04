@@ -1419,10 +1419,21 @@ MySceneGraph.generateRandomString = function(length) {
 }
 
 
-MySceneGraph.prototype.esbetacl = function(argnode) {
-    /*if(argnode.children.length == 0){
-        console.log("dank meme");
-    }*/
+MySceneGraph.prototype.esbetacl = function(argnode, argmat, argtex) {
+
+    var material = argmat;
+    var textura  = argtex;
+
+    if(argnode.materialID != "null"){
+        material = this.materials[argnode.materialID];
+    }
+
+    if(argnode.textureID != "null" && argnode.textureID != "clear"){
+        textura = this.textures[argnode.textureID][0];
+    }
+    else
+        if(argnode.textureID == "clear")
+            textura = null;
 
     this.scene.pushMatrix();
     this.scene.multMatrix(argnode.transformMatrix);
@@ -1432,12 +1443,19 @@ MySceneGraph.prototype.esbetacl = function(argnode) {
     for(var i = 0; i < argnode.children.length; i++){
         this.esbetacl(this.nodes[argnode.children[i]]);    
     }
+
     for(var i = 0; i < argnode.leaves.length; i++){
+
+        if(material != null){
+            material.apply();
+        }
+        
+        if(textura != null){
+            textura.bind();
+        }
+
         argnode.leaves[i].display();
     }
-
-
-
 
     this.scene.popMatrix();
 }
@@ -1445,18 +1463,7 @@ MySceneGraph.prototype.esbetacl = function(argnode) {
  * Displays the scene, processing each node, starting in the root node.
  */
 MySceneGraph.prototype.displayScene = function() {
-	// entry point for graph rendering
-	// remove log below to avoid performance issues
 	//this.log("Graph should be rendered here...");
 
-/*
-    for (var i = 0; i < this.nodes.length; i++) {
-        this.scene.pushMatrix();
-        this.scene.multMatrix(this.nodes[i].transformMatrix);
-        this.nodes[i].display();
-        this.scene.popMatrix();
-        //console.log("meme" + i);
-    }
-*/
-    this.esbetacl(this.nodes["root"]);
+    this.esbetacl(this.nodes[this.idRoot], null, null);
 }
