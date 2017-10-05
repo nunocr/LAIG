@@ -1441,7 +1441,7 @@ MySceneGraph.prototype.esbetacl = function(argnode, argmat, argtex) {
 
     //nodes
     for(var i = 0; i < argnode.children.length; i++){
-        this.esbetacl(this.nodes[argnode.children[i]]);    
+        this.esbetacl(this.nodes[argnode.children[i]], material, textura);    
     }
 
     for(var i = 0; i < argnode.leaves.length; i++){

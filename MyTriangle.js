@@ -8,6 +8,13 @@
 
 function MyTriangle(scene, args) {
 	CGFobject.call(this,scene);
+
+	this.args = args.split(" ");
+	for(var i = 0; i < this.args.length; i++){
+		this.args[i] = parseFloat(this.args[i]);
+	}
+
+
 	this.args = args;
 	this.initBuffers();
 };
@@ -35,7 +42,14 @@ MyTriangle.prototype.initBuffers = function () {
     		0, 1, 0,
     		0, 1, 0
     	];
-		
+
+
+	this.texCoords = [
+			0, 0,
+			0, 1,
+			1, 1
+		];
+
 	this.primitiveType=this.scene.gl.TRIANGLES;
 	this.initGLBuffers();
 };
