@@ -1,9 +1,11 @@
 function MySphere(scene, args) {
  	CGFobject.call(this,scene);
+
+ 	args = args.split(" ");
 	
-	this.radius = args[0];
-	this.slices = args[1];
-	this.stacks = args[2];
+	this.radius = parseFloat(args[0]);
+	this.slices = parseFloat(args[1]);
+	this.stacks = parseFloat(args[2]);
 	this.minS = 0.0;
 	this.maxS = 1.0;
 	this.minT = 0.0;
@@ -29,7 +31,7 @@ function MySphere(scene, args) {
 
 	//base
    for(i = 0; i < this.slices; i++){
-   	this.vertices.push(Math.sin(i*Math.PI*2/this.slices),0,Math.cos(i*Math.PI*2/this.slices));
+   	this.vertices.push(this.radius * Math.sin(i*Math.PI*2/this.slices), 0, this.radius * Math.cos(i*Math.PI*2/this.slices));
    	this.normals.push(0,1,0);
    }
 
@@ -46,8 +48,8 @@ for(i = 0; i < this.stacks; i++){
 	this.tCoord = this.minT;
 
 	for(j = 0; j < this.slices; j++){
-		this.vertices.push(Math.sin(j*Math.PI*2/this.slices)*Math.cos(i*Math.PI/2/this.stacks),-Math.sin(i*Math.PI/2/this.stacks),Math.cos(j*Math.PI*2/this.slices)*Math.cos(i*Math.PI/2/this.stacks));
-		this.normals.push(Math.sin(j*Math.PI*2/this.slices)*Math.cos(i*Math.PI/2/this.stacks),-Math.sin(i*Math.PI/2/this.stacks),Math.cos(j*Math.PI*2/this.slices)*Math.cos(i*Math.PI/2/this.stacks));
+		this.vertices.push(this.radius * Math.sin(j*Math.PI*2/this.slices) * Math.cos(i*Math.PI/2/this.stacks), -this.radius * Math.sin(i*Math.PI/2/this.stacks), this.radius * Math.cos(j*Math.PI*2/this.slices)*Math.cos(i*Math.PI/2/this.stacks));
+		this.normals.push(this.radius * Math.sin(j*Math.PI*2/this.slices)*Math.cos(i*Math.PI/2/this.stacks), -this.radius * Math.sin(i*Math.PI/2/this.stacks), this.radius * Math.cos(j*Math.PI*2/this.slices)*Math.cos(i*Math.PI/2/this.stacks));
 		this.texCoords.push(this.sCoord, this.tCoord);
 		this.tCoord += this.texelLengthT;
 	}

@@ -5,11 +5,13 @@
 <LEAF type="cylinder" args="ff ff ff ii ii" /> <!--​ ​height,​ ​bottom​ ​radius,​ ​top​ ​radius, 
 sections​ ​along​ ​height​ ​(stacks),​ ​parts​ ​per​ ​section​ ​(slices)​ ​--> 
 */
-    this.height = args[0];
-    this.botRadius = args[1];
-	this.topRadius = args[2];
-	this.stacks = args[3];
-	this.slices = args[4];
+	args = args.split(" ");
+
+    this.height = parseFloat(args[0]);
+    this.botRadius = parseFloat(args[1]);
+	this.topRadius = parseFloat(args[2]);
+	this.stacks = parseFloat(args[3]);
+	this.slices = parseFloat(args[4]);
 	this.heightIncrement = this.height/this.stacks;
 
 	this.minS = 0.0;
@@ -33,14 +35,15 @@ sections​ ​along​ ​height​ ​(stacks),​ ​parts​ ​per​ ​se
 	this.normals = [];
 	this.texCoords = [];
 
-	var stack_h = 1 / this.stacks;
+	//var stack_h = 1 / this.stacks;
+	var stack_h = this.heightIncrement;
 
 	//BASE INFERIOR
 	//gerar os vertices da base
 	for(i = 0; i < this.slices; i++){
 		this.vertices.push(
-		Math.sin(this.botRadius * i * Math.PI*2/this.slices),
-		Math.cos(this.botRadius * i * Math.PI*2/this.slices),
+		this.botRadius * Math.sin(i * Math.PI*2/this.slices),
+		this.botRadius * Math.cos(i * Math.PI*2/this.slices),
 		0);
 		this.normals.push(0,0,-1);
 	}
@@ -115,8 +118,8 @@ var tCoord = this.maxT;
 for(i = 0; i < this.slices; i++){
 
 	this.vertices.push(
-	Math.sin(this.topRadius * i * Math.PI*2/this.slices),
-	Math.cos(this.topRadius * i * Math.PI*2/this.slices),
+	this.topRadius * Math.sin(i * Math.PI*2/this.slices),
+	this.topRadius * Math.cos(i * Math.PI*2/this.slices),
 	1);
 
 	this.normals.push(0,0,1);
