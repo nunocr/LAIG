@@ -1,26 +1,18 @@
+/**
+ * MyCylinder
+ * @constructor
+ */
  function MyCylinder(scene, args) {
  	CGFobject.call(this,scene);
 	
-/*
-<LEAF type="cylinder" args="ff ff ff ii ii" /> <!--​ ​height,​ ​bottom​ ​radius,​ ​top​ ​radius, 
-sections​ ​along​ ​height​ ​(stacks),​ ​parts​ ​per​ ​section​ ​(slices)​ ​--> 
-*/
 	args = args.split(" ");
 
-    this.height = parseFloat(args[0]);
-    this.botRadius = parseFloat(args[1]);
-	this.topRadius = parseFloat(args[2]);
+	this.height = parseFloat(args[0]);
+	this.botRad = parseFloat(args[1]);
+	this.topRad = parseFloat(args[2]);
 	this.stacks = parseFloat(args[3]);
 	this.slices = parseFloat(args[4]);
-	this.heightIncrement = this.height/this.stacks;
-
-	this.minS = 0.0;
-	this.maxS = 1.0;
-	this.minT = 0.0;
-	this.maxT = 1.0;
-	this.texelLengthS = (this.maxS - this.minS) / this.slices;
-	this.texelLengthT = (this.maxT - this.minT) / this.stacks;
-	
+	this.heightInc = this.height/this.stacks;
 
  	this.initBuffers();
  };
@@ -29,111 +21,70 @@ sections​ ​along​ ​height​ ​(stacks),​ ​parts​ ​per​ ​se
  MyCylinder.prototype.constructor = MyCylinder;
 
  MyCylinder.prototype.initBuffers = function() {
+ 	/*
+ 	* TODO:
+ 	* Replace the following lines in order to build a prism with a **single mesh**.
+ 	*
+ 	* How can the vertices, indices and normals arrays be defined to
+ 	* build a prism with varying number of slices and stacks?
+ 	*/
+
+	var angulo = 2*Math.PI/this.slices;
+	var currRad = this.botRad;
+	var radiusInc = (this.topRad - this.botRad)/this.stacks;
+
+ 	this.vertices = [
  	
-	this.vertices = [];
-	this.indices = [];
-	this.normals = [];
-	this.texCoords = [];
+ 	];
 
-	//var stack_h = 1 / this.stacks;
-	var stack_h = this.heightIncrement;
+ 	this.indices = [
 
-	//BASE INFERIOR
-	//gerar os vertices da base
-	for(i = 0; i < this.slices; i++){
-		this.vertices.push(
-		this.botRadius * Math.sin(i * Math.PI*2/this.slices),
-		this.botRadius * Math.cos(i * Math.PI*2/this.slices),
-		0);
-		this.normals.push(0,0,-1);
+ 	];
+
+ 	this.normals = [
+
+ 	];
+
+ 	this.texCoords = [
+
+ 	];
+
+	for(j = 0; j <= this.stacks; j++){
+		for(i = 0; i <= this.slices; i++){
+
+		//vértices
+		//como o prisma é unitário, a altura de cada stack é de 1/stacks.
+		//
+		//cada ciclo faz dois pontos (o actual e o seu consecutivo). assim no final do for, cada 
+		//vértice está duas vezes no vector (para as normais).
+		this.vertices.push(currRad * Math.cos(i*angulo), currRad * Math.sin(i*angulo), j * this.heightInc);
+
+		//normais
+		this.normals.push(currRad * Math.cos(angulo/2 + i*angulo), currRad * Math.sin(angulo/2 + i*angulo), 0);
+
+		this.texCoords.push(i / this.slices, j / this.stacks);
+		}
+		currRad += radiusInc;
 	}
 
-	//gerar os triangulos da base
-	for(i = 0; i < this.slices - 2; i++){
-		//poligono de n lado é decomposto em n-2 triangulos
-		this.indices.push(0,i+1,i+2);
+
+	for(j = 0; j < this.stacks + 1; j++){
+		for(i = 0; i < this.slices; i++){
+			//indices
+			//regra da mão direita e cada vértice é assinalado duas vezes
+			//0, 1, 13
+			//13, 12, 0
+			//é o caso base
+			//this.indices.push(j*this.slices+i,j*this.slices+i+1,(j+1)*this.slices+i+1);
+			//this.indices.push((j+1)*this.slices+i+1,(j+1)*this.slices+i,j*this.slices+i);
+
+			this.indices.push(j*this.slices+i,j*this.slices+((i+1)%this.slices),(j+1)*this.slices+(i+1)%this.slices);
+			this.indices.push(j*this.slices+i,(j+1)*this.slices+((i+1)%this.slices),(j+1)*this.slices+i);
+		}
 	}
 
-
-	this.texelLengthS = (this.maxS - this.minS) / this.slices;
-	this.texelLengthT = (this.maxT - this.minT) / this.stacks;
 	
-var sCoord = this.maxS;
 
-	//CORPO
-	//gerar os vertices das faces
-	for(i = 0; i < this.stacks + 1; i++){
-var tCoord = this.maxT;
-		for(j = 0; j < this.slices; j++){
-			
-		
-			this.vertices.push(
-			Math.sin(j*Math.PI*2/this.slices),
-			Math.cos(j*Math.PI*2/this.slices),
-			i*stack_h
-			);
-
-			this.normals.push(
-			Math.sin(j*Math.PI*2/this.slices),
-			Math.cos(j*Math.PI*2/this.slices),
-			0);
-
-			this.texCoords.push(sCoord, tCoord);
-			tCoord -= this.texelLengthT;	
-		}
-		var sCoord = this.maxS;
-	}
-
-	//gerar triagulos das faces
-	for(i = 0; i < this.stacks; i++){
-		for(j = 0; j < this.slices; j++){
-			
-			this.indices.push
-			(this.slices + this.slices*i + this.slices + j,
-			this.slices + this.slices*i + 1 + j,
-			this.slices + this.slices*i + j);
-
-			this.indices.push(
-			this.slices + this.slices*i + 1 + j,
-			this.slices + this.slices*i + this.slices + j,
-			this.slices + this.slices*i + this.slices + 1 + j);
-		}
-	}
-
-	var s = 0;
-	var t = 0;
-	var sinc = 1/this.slices;
-	var tinc = 1/this.stacks;
-	for(var a = 0; a <= this.stacks; a++) {
-		for(var b = 0; b < this.slices; b++) {
-		this.texCoords.push(s, t);
-		s += sinc;
-	}
-	s = 0;
-	t += tinc;
- }
-
-//BASE SUPERIOR
-//gerar os vertices da base
-for(i = 0; i < this.slices; i++){
-
-	this.vertices.push(
-	this.topRadius * Math.sin(i * Math.PI*2/this.slices),
-	this.topRadius * Math.cos(i * Math.PI*2/this.slices),
-	1);
-
-	this.normals.push(0,0,1);
-}
-
-//gerar os triangulos da base
-for(i = 0; i < this.slices - 2; i++){
-
-	//poligono de n lado é decomposto em n-2 triangulos
-	this.indices.push(
-	this.slices*(this.stacks +1) + i + 2,
-	 this.slices*(this.stacks +1) + i + 1,
-	 this.slices*(this.stacks +1));
-}
  	this.primitiveType = this.scene.gl.TRIANGLES;
  	this.initGLBuffers();
  };
