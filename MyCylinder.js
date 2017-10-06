@@ -49,6 +49,20 @@
 
  	];
 
+
+ 	//tampa 1
+ 	/*for(i = 0; i < this.slices; i++){
+ 
+    this.vertices.push(
+    this.topRad * Math.sin(i * Math.PI*2/this.slices),
+    this.topRad * Math.cos(i * Math.PI*2/this.slices),
+    1);
+ 
+    this.normals.push(0,0,1);
+	}*/
+
+	
+
 	for(j = 0; j <= this.stacks; j++){
 		for(i = 0; i <= this.slices; i++){
 
