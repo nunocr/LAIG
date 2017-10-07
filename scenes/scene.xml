@@ -93,7 +93,7 @@
 	
 	<!-- Road -->
     <TEXTURE id="road">
-        <file path="images/road.jpg" />                
+        <file path="images/teste.jpg" />                
         <amplif_factor s="1" t="1" />                           
     </TEXTURE>
 
@@ -252,48 +252,142 @@
 
     </NODE>
 	
-	<!-- The roads -->
+	<!-- Roads -->
     <NODE id="roads">      
         <MATERIAL id="null" />    
-        <TEXTURE id="road" />       		
+        <TEXTURE id="marble" />       		
 
         <DESCENDANTS>
-			<NODEREF id="road1" />     
-			<NODEREF id="road2" />   			
+			<NODEREF id="road1" />
+			<NODEREF id="road2" />  
+			<NODEREF id="road3" />  			
 		</DESCENDANTS>
 
     </NODE>
-	
-	<!-- The road -->
+
+    <!-- Road 1 -->
     <NODE id="road1">      
         <MATERIAL id="null" />    
-        <TEXTURE id="null" />       			
+        <TEXTURE id="null" />   
 
-		
-        <SCALE sx="1.75" sy="1" sz="1.5" />
-        <TRANSLATION x="12.5" y="0.01" z="9" />
-		<SCALE sx="1" sy="1" sz="1.15" />
-        <ROTATION axis="x" angle="-90" />
-		<ROTATION axis="z" angle="-90" />
-		
+        <TRANSLATION x="21.5" y="0" z="10.69" />
+        <SCALE sx="1.25" sy="1" sz="4.25" />    		
+
         <DESCENDANTS>
-			<LEAF  type="rectangle" args="0 3 9 0" />        
+			<NODEREF id="road" />    			
+		</DESCENDANTS>
+
+    </NODE>
+
+    <!-- Road 2 -->
+    <NODE id="road2">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />   
+
+		<TRANSLATION x="21.5" y="0" z="6" />
+		<SCALE sx="1" sy="1" sz="1.25" />    		
+        <ROTATION axis="y" angle="-90" />  		
+
+        <DESCENDANTS>
+			<NODEREF id="road" />    			
+		</DESCENDANTS>
+
+    </NODE>
+
+    <!-- Road 3 -->
+    <NODE id="road3">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />   	
+
+		<TRANSLATION x="26.81" y="0" z="6" />
+		<SCALE sx="1.25" sy="1" sz="1.25" />   
+		<ROTATION axis="y" angle="-90" />  
+
+        <DESCENDANTS>
+			<NODEREF id="road_special" />    			
+		</DESCENDANTS>
+
+    </NODE>
+
+    <!-- Special Road (connector) -->
+    <NODE id="road_special">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />	
+
+        <DESCENDANTS>
+        	<NODEREF id="road_side1" />   
+			<NODEREF id="road_side3" />
+			<NODEREF id="pavement" />      			
 		</DESCENDANTS>
 
     </NODE>
 	
-	<!-- The road -->
-    <NODE id="road2">      
+	<!-- Generic road -->
+    <NODE id="road">      
         <MATERIAL id="null" />    
-        <TEXTURE id="null" />       			
-
-		
-        <SCALE sx="0.8" sy="1" sz="1.5" />
-        <TRANSLATION x="13.5" y="0.01" z="7" />
-        <ROTATION axis="x" angle="-90" />
+        <TEXTURE id="null" />  
 		
         <DESCENDANTS>
-			<LEAF  type="rectangle" args="0 3 9 0" />        
+			<NODEREF id="road_side1" />
+			<NODEREF id="road_side2" />
+			<NODEREF id="pavement" />     
+		</DESCENDANTS>
+
+    </NODE>
+
+	<!-- Road Side 1 -->
+    <NODE id="road_side1">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />  
+
+        <SCALE sx="0.1" sy="0.02" sz="1" />
+		
+        <DESCENDANTS>
+			<NODEREF id="cube" />     
+		</DESCENDANTS>
+
+    </NODE>
+
+    <!-- Road Side 2 -->
+    <NODE id="road_side2">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />  
+
+		<TRANSLATION x="3.75" y="0" z="0" />
+        <SCALE sx="0.1" sy="0.02" sz="1" />
+  
+		
+        <DESCENDANTS>
+			<NODEREF id="cube" />     
+		</DESCENDANTS>
+
+    </NODE>
+
+    <!-- Road Side 3 -->
+    <NODE id="road_side3">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />  
+
+		
+        <SCALE sx="0.8" sy="0.02" sz="0.1" />
+  
+		
+        <DESCENDANTS>
+			<NODEREF id="cube" />     
+		</DESCENDANTS>
+
+    </NODE>
+
+    <!-- Pavement -->
+    <NODE id="pavement">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="road" />  
+
+		<TRANSLATION x="0" y="0.01" z="0" />
+        <ROTATION axis="x" angle="90" />
+		
+        <DESCENDANTS>
+			<LEAF  type="rectangle" args="4 5 0 0" />      
 		</DESCENDANTS>
 
     </NODE>
@@ -550,7 +644,7 @@
     	<MATERIAL id="null" />
     	<TEXTURE id="null" />
 
-		<TRANSLATION x="4.25" y="0" z="29.5" />
+		<TRANSLATION x="4.25" y="0" z="30.5" />
     	<ROTATION axis="y" angle="90" />
 
     	<DESCENDANTS>
@@ -1157,7 +1251,7 @@
     <!-- Crypt roof front -->
 	<NODE id="crypt_roof_front">      
         <MATERIAL id="null" />    
-        <TEXTURE id="null" /> 
+        <TEXTURE id="banco" /> 
 
         <DESCENDANTS>
 			<LEAF type="triangle" args="8.5 3.5 5.9 8.5 3.5 0 8.5 5.1 2.9" />
@@ -1167,7 +1261,7 @@
     <!-- Crypt roof back -->
 	<NODE id="crypt_roof_back">      
         <MATERIAL id="null" />    
-        <TEXTURE id="null" /> 
+        <TEXTURE id="banco" /> 
 
         <DESCENDANTS>
 			<LEAF type="triangle" args="0.1 5.1 2.9 0.1 3.5 0 0.1 3.5 5.9" />
@@ -1689,7 +1783,7 @@
             <NODEREF id="cube" />
         </DESCENDANTS>
 
-        </NODE>
+     </NODE>
 
 
 
