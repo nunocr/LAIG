@@ -138,6 +138,18 @@
     	<file path="images/candle.jpg" />
     	<amplif_factor s="1" t="1" />
    </TEXTURE>
+
+   <!-- Granite -->
+    <TEXTURE id="granite">
+    	<file path="images/granite.jpg" />
+    	<amplif_factor s="1" t="1" />
+   </TEXTURE>
+
+   <!-- Marble -->
+    <TEXTURE id="marble">
+    	<file path="images/marble.jpg" />
+    	<amplif_factor s="1" t="1" />
+   </TEXTURE>
     
 </TEXTURES>
 
@@ -289,7 +301,7 @@
 	<!-- Crosses -->
 	<NODE id="crosses">      
         <MATERIAL id="null" />    
-        <TEXTURE id="banco" />       			
+        <TEXTURE id="marble" />       			
 
         <TRANSLATION x="7" y="0" z="0" />
 
@@ -915,7 +927,8 @@
         <MATERIAL id="null" />    
         <TEXTURE id="null" />       		
 
-		<TRANSLATION x="2" y="0" z="5" />
+		<TRANSLATION x="4" y="0" z="4" />
+		<SCALE sx="1.5" sy="1.5" sz="1.5" />
 
         <DESCENDANTS>
 			<NODEREF id="crypt" />
@@ -925,7 +938,7 @@
 	<!-- Generic Crypt -->
 	<NODE id="crypt">      
         <MATERIAL id="null" />    
-        <TEXTURE id="banco" />       		
+        <TEXTURE id="marble" />       		
 
         <DESCENDANTS>
 			<NODEREF id="crypt_floor" />
@@ -939,7 +952,7 @@
 	<!-- Crypt floor -->
 	<NODE id="crypt_floor">      
         <MATERIAL id="null" />    
-        <TEXTURE id="null" /> 
+        <TEXTURE id="marble" /> 
 
 		<SCALE sx="1.75" sy="0.075" sz="1.2" />
 
@@ -1044,7 +1057,7 @@
     <!-- Crypt roof -->
 	<NODE id="crypt_roof">      
         <MATERIAL id="null" />    
-        <TEXTURE id="null" />       		
+        <TEXTURE id="marble" />       		
 
         <DESCENDANTS>
 			<NODEREF id="crypt_roof_base" />
@@ -1179,8 +1192,9 @@
         <MATERIAL id="null" />    
         <TEXTURE id="roof" /> 
 
-		<TRANSLATION x="0" y="5.1" z="2.95" />
-		<ROTATION axis="x" angle="120" />
+		<TRANSLATION x="8.5" y="3.35" z="5.95" />
+		<ROTATION axis="y" angle="180" />
+		<ROTATION axis="x" angle="60" />
 
         <DESCENDANTS>
 			<LEAF type="rectangle" args="8.5 3.3 0.1 0" />
@@ -1540,6 +1554,9 @@
         <MATERIAL id="null" />    
         <TEXTURE id="null" />
  
+       	<TRANSLATION x="16.25" y="0.5" z="12.25" /> 
+       	<SCALE sx="0.25" sy="0.25" sz="0.25" />
+
         <DESCENDANTS>
             <NODEREF id="candle" />
         </DESCENDANTS>
