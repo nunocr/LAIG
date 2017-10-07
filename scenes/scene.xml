@@ -96,6 +96,12 @@
         <file path="images/road.jpg" />                
         <amplif_factor s="1" t="1" />                           
     </TEXTURE>
+
+    <!-- Iron -->
+    <TEXTURE id="iron">
+    	<file path="images/iron.jpg" />
+    	<amplif_factor s="1" t="1" />
+    </TEXTURE>
     
 </TEXTURES>
 
@@ -173,6 +179,7 @@
             <NODEREF id="chao" />
 			<NODEREF id="crosses" />
 			<NODEREF id="roads" />
+			<NODEREF id="fences" />
         </DESCENDANTS>
 
     </NODE>
@@ -407,5 +414,203 @@
 					<LEAF  type="rectangle" args="0 5 5 0" />        
         </DESCENDANTS>
     </NODE>
+
+    <!-- Fences -->
+    <NODE id="fences">
+    	<MATERIAL id="null" />
+    	<TEXTURE id="iron" />
+
+    	<DESCENDANTS>
+    		<NODEREF id="fence1" />
+    		<NODEREF id="fence2" />
+    	</DESCENDANTS>
+
+    </NODE>
+
+    <!-- Fence 1 -->
+    <NODE id="fence1">
+    	<MATERIAL id="null" />
+    	<TEXTURE id="null" />
+
+    	<DESCENDANTS>
+    		<NODEREF id="fence" />
+    	</DESCENDANTS>
+
+    </NODE>
+
+     <!-- Fence 2 -->
+    <NODE id="fence2">
+    	<MATERIAL id="null" />
+    	<TEXTURE id="null" />
+
+    	<TRANSLATION x="29" y="0" z="4" />
+
+    	<DESCENDANTS>
+    		<NODEREF id="fence" />
+    	</DESCENDANTS>
+
+    </NODE>
+
+    <!-- Generic fence  -->
+    <NODE id="fence">
+    	<MATERIAL id="null" />
+    	<TEXTURE id="null" />
+
+    	<DESCENDANTS>
+    		<NODEREF id="vert_cylinder1" />
+    		<NODEREF id="vert_cylinder2" />
+    		<NODEREF id="vert_cylinder3" />
+    		<NODEREF id="vert_cylinder4" />
+    		<NODEREF id="horz_cylinder1" />
+    		<NODEREF id="horz_cylinder2" />
+    		<NODEREF id="spike1" />
+    		<NODEREF id="spike2" />
+    		<NODEREF id="spike3" />
+    		<NODEREF id="spike4" />
+    	</DESCENDANTS>
+
+    </NODE>
+
+    <!-- Fence vertical cylinder 1 -->
+    <NODE id="vert_cylinder1">
+    	<MATERIAL id="defaultMaterial" />
+    	<TEXTURE id="null" />
+
+    	<ROTATION axis="x" angle="90" />
+    	<TRANSLATION x="10" y="9" z="-10" />
+
+    	<DESCENDANTS>
+    		<LEAF type="cylinder" args="10 0.1 0.1 20 20" />
+    	</DESCENDANTS>
+
+    </NODE>
+
+     <!-- Fence vertical cylinder 2 -->
+    <NODE id="vert_cylinder2">
+    	<MATERIAL id="defaultMaterial" />
+    	<TEXTURE id="null" />
+
+    	<ROTATION axis="x" angle="90" />
+    	<TRANSLATION x="10" y="10" z="-10" />
+
+    	<DESCENDANTS>
+    		<LEAF type="cylinder" args="10 0.1 0.1 20 20" />
+    	</DESCENDANTS>
+
+    </NODE>
+
+     <!-- Fence vertical cylinder 3 -->
+    <NODE id="vert_cylinder3">
+    	<MATERIAL id="defaultMaterial" />
+    	<TEXTURE id="null" />
+
+    	<ROTATION axis="x" angle="90" />
+    	<TRANSLATION x="10" y="11" z="-10" />
+
+    	<DESCENDANTS>
+    		<LEAF type="cylinder" args="10 0.1 0.1 20 20" />
+    	</DESCENDANTS>
+
+    </NODE>
+
+     <!-- Fence vertical cylinder 4 -->
+    <NODE id="vert_cylinder4">
+    	<MATERIAL id="defaultMaterial" />
+    	<TEXTURE id="null" />
+
+    	<ROTATION axis="x" angle="90" />
+    	<TRANSLATION x="10" y="12" z="-10" />
+
+    	<DESCENDANTS>
+    		<LEAF type="cylinder" args="10 0.1 0.1 20 20" />
+    	</DESCENDANTS>
+
+    </NODE>
+
+     <!-- Fence horizontal cylinder 1 -->
+    <NODE id="horz_cylinder1">
+    	<MATERIAL id="defaultMaterial" />
+    	<TEXTURE id="null" />
+
+    	<TRANSLATION x="10" y="7" z="8" />
+
+    	<DESCENDANTS>
+    		<LEAF type="cylinder" args="5 0.1 0.1 20 20" />
+    	</DESCENDANTS>
+
+    </NODE>
+
+    <!-- Fence horizontal cylinder 2 -->
+    <NODE id="horz_cylinder2">
+    	<MATERIAL id="defaultMaterial" />
+    	<TEXTURE id="null" />
+
+    	<TRANSLATION x="10" y="2" z="8" />
+
+    	<DESCENDANTS>
+    		<LEAF type="cylinder" args="5 0.1 0.1 20 20" />
+    	</DESCENDANTS>
+
+    </NODE>
+
+    <!-- Fence spike cylinder 1 -->
+    <NODE id="spike1">
+    	<MATERIAL id="defaultMaterial" />
+    	<TEXTURE id="null" />
+
+    	<ROTATION axis="x" angle="90" />
+    	<TRANSLATION x="10" y="9" z="-11" />
+
+    	<DESCENDANTS>
+    		<LEAF type="cylinder" args="1 0 0.2 20 20" />
+    	</DESCENDANTS>
+
+    </NODE>
+
+    <!-- Fence spike cylinder 2 -->
+    <NODE id="spike2">
+    	<MATERIAL id="defaultMaterial" />
+    	<TEXTURE id="null" />
+
+    	<ROTATION axis="x" angle="90" />
+    	<TRANSLATION x="10" y="10" z="-11" />
+
+    	<DESCENDANTS>
+    		<LEAF type="cylinder" args="1 0 0.2 20 20" />
+    	</DESCENDANTS>
+
+    </NODE>
+
+    <!-- Fence spike cylinder 3 -->
+    <NODE id="spike3">
+    	<MATERIAL id="defaultMaterial" />
+    	<TEXTURE id="null" />
+
+    	<ROTATION axis="x" angle="90" />
+    	<TRANSLATION x="10" y="11" z="-11" />
+
+    	<DESCENDANTS>
+    		<LEAF type="cylinder" args="1 0 0.2 20 20" />
+    	</DESCENDANTS>
+
+    </NODE>
+
+	<!-- Fence spike cylinder 4 -->
+    <NODE id="spike4">
+    	<MATERIAL id="defaultMaterial" />
+    	<TEXTURE id="null" />
+
+    	<ROTATION axis="x" angle="90" />
+    	<TRANSLATION x="10" y="12" z="-11" />
+
+    	<DESCENDANTS>
+    		<LEAF type="cylinder" args="1 0 0.2 20 20" />
+    	</DESCENDANTS>
+
+    </NODE>
+
+
+
+
 	
 </NODES>
