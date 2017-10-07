@@ -220,6 +220,7 @@
 			<NODEREF id="crypts" />
 			<NODEREF id="columns" />
 			<NODEREF id="candles" />
+			<NODEREF id="walls" />
         </DESCENDANTS>
 
     </NODE>
@@ -460,6 +461,103 @@
     	<MATERIAL id="null" />
     	<TEXTURE id="iron" />
 
+    	<SCALE sx="1" sy="0.8" sz="1" />
+
+    	<DESCENDANTS>
+    		<NODEREF id="fence_wall1" />
+    		<NODEREF id="fence_wall2" />
+    		<NODEREF id="fence_wall3" />
+    		<NODEREF id="fence_wall4" />
+    		<NODEREF id="fence_wall5" />
+    	</DESCENDANTS>
+
+    </NODE>
+
+    <!-- Fence Wall 1 -->
+    <NODE id="fence_wall1">
+    	<MATERIAL id="null" />
+    	<TEXTURE id="null" />
+
+    	<TRANSLATION x="1.5" y="0" z="4.25" />
+
+    	<DESCENDANTS>
+    		<NODEREF id="fence1" />
+    		<NODEREF id="fence2" />
+    		<NODEREF id="fence3" />
+    		<NODEREF id="fence4" />
+    		<NODEREF id="fence5" />
+    		<NODEREF id="fence6" />
+    		<NODEREF id="fence7" />
+    	</DESCENDANTS>
+
+    </NODE>
+
+    <!-- Fence Wall 2 -->
+    <NODE id="fence_wall2">
+    	<MATERIAL id="null" />
+    	<TEXTURE id="null" />
+
+    	<TRANSLATION x="38.5" y="0" z="4.25" />
+
+    	<DESCENDANTS>
+    		<NODEREF id="fence1" />
+    		<NODEREF id="fence2" />
+    		<NODEREF id="fence3" />
+    		<NODEREF id="fence4" />
+    		<NODEREF id="fence5" />
+    		<NODEREF id="fence6" />
+    		<NODEREF id="fence7" />
+    	</DESCENDANTS>
+
+    </NODE>
+
+    <!-- Fence Wall 3 -->
+    <NODE id="fence_wall3">
+    	<MATERIAL id="null" />
+    	<TEXTURE id="null" />
+
+		<TRANSLATION x="4.25" y="0" z="1.5" />
+    	<ROTATION axis="y" angle="90" />
+
+    	<DESCENDANTS>
+    		<NODEREF id="fence1" />
+    		<NODEREF id="fence2" />
+    		<NODEREF id="fence3" />
+    		<NODEREF id="fence4" />
+    		<NODEREF id="fence5" />
+    		<NODEREF id="fence6" />
+    		<NODEREF id="fence7" />
+    		<NODEREF id="fence8" />
+    		<NODEREF id="fence9" />
+    	</DESCENDANTS>
+
+    </NODE>
+
+    <!-- Fence Wall 4 -->
+    <NODE id="fence_wall4">
+    	<MATERIAL id="null" />
+    	<TEXTURE id="null" />
+
+		<TRANSLATION x="4.25" y="0" z="29.5" />
+    	<ROTATION axis="y" angle="90" />
+
+    	<DESCENDANTS>
+    		<NODEREF id="fence1" />
+    		<NODEREF id="fence2" />
+    		<NODEREF id="fence3" />
+    		<NODEREF id="fence4" />
+    	</DESCENDANTS>
+
+    </NODE>
+
+     <!-- Fence Wall 5 -->
+    <NODE id="fence_wall5">
+    	<MATERIAL id="null" />
+    	<TEXTURE id="null" />
+
+		<TRANSLATION x="30" y="0" z="30.5" />
+    	<ROTATION axis="y" angle="90" />
+
     	<DESCENDANTS>
     		<NODEREF id="fence1" />
     		<NODEREF id="fence2" />
@@ -483,7 +581,98 @@
     	<MATERIAL id="null" />
     	<TEXTURE id="null" />
 
-    	<TRANSLATION x="29" y="0" z="4" />
+    	<TRANSLATION x="0" y="0" z="4" />
+
+    	<DESCENDANTS>
+    		<NODEREF id="fence" />
+    	</DESCENDANTS>
+
+    </NODE>
+
+	<!-- Fence 3 -->
+    <NODE id="fence3">
+    	<MATERIAL id="null" />
+    	<TEXTURE id="null" />
+
+    	<TRANSLATION x="0" y="0" z="8" />
+
+    	<DESCENDANTS>
+    		<NODEREF id="fence" />
+    	</DESCENDANTS>
+
+    </NODE>
+
+    <!-- Fence 4 -->
+    <NODE id="fence4">
+    	<MATERIAL id="null" />
+    	<TEXTURE id="null" />
+
+    	<TRANSLATION x="0" y="0" z="12" />
+
+    	<DESCENDANTS>
+    		<NODEREF id="fence" />
+    	</DESCENDANTS>
+
+    </NODE>
+
+    <!-- Fence 5 -->
+    <NODE id="fence5">
+    	<MATERIAL id="null" />
+    	<TEXTURE id="null" />
+
+    	<TRANSLATION x="0" y="0" z="16" />
+
+    	<DESCENDANTS>
+    		<NODEREF id="fence" />
+    	</DESCENDANTS>
+
+    </NODE>
+
+    <!-- Fence 6 -->
+    <NODE id="fence6">
+    	<MATERIAL id="null" />
+    	<TEXTURE id="null" />
+
+    	<TRANSLATION x="0" y="0" z="20" />
+
+    	<DESCENDANTS>
+    		<NODEREF id="fence" />
+    	</DESCENDANTS>
+
+    </NODE>
+
+    <!-- Fence 7 -->
+    <NODE id="fence7">
+    	<MATERIAL id="null" />
+    	<TEXTURE id="null" />
+
+    	<TRANSLATION x="0" y="0" z="21" />
+
+    	<DESCENDANTS>
+    		<NODEREF id="fence" />
+    	</DESCENDANTS>
+
+    </NODE>
+
+    <!-- Fence 8 -->
+    <NODE id="fence8">
+    	<MATERIAL id="null" />
+    	<TEXTURE id="null" />
+
+    	<TRANSLATION x="0" y="0" z="25" />
+
+    	<DESCENDANTS>
+    		<NODEREF id="fence" />
+    	</DESCENDANTS>
+
+    </NODE>
+
+    <!-- Fence 9 -->
+    <NODE id="fence9">
+    	<MATERIAL id="null" />
+    	<TEXTURE id="null" />
+
+    	<TRANSLATION x="0" y="0" z="29" />
 
     	<DESCENDANTS>
     		<NODEREF id="fence" />
@@ -493,7 +682,7 @@
 
     <!-- Generic fence  -->
     <NODE id="fence">
-    	<MATERIAL id="null" />
+    	<MATERIAL id="defaultMaterial" />
     	<TEXTURE id="null" />
 
     	<DESCENDANTS>
@@ -513,11 +702,11 @@
 
     <!-- Fence vertical cylinder 1 -->
     <NODE id="vert_cylinder1">
-    	<MATERIAL id="defaultMaterial" />
+    	<MATERIAL id="null" />
     	<TEXTURE id="null" />
 
     	<ROTATION axis="x" angle="90" />
-    	<TRANSLATION x="10" y="9" z="-10" />
+    	<TRANSLATION x="0" y="0" z="-10" />
 
     	<DESCENDANTS>
     		<LEAF type="cylinder" args="10 0.1 0.1 20 20" />
@@ -527,11 +716,11 @@
 
      <!-- Fence vertical cylinder 2 -->
     <NODE id="vert_cylinder2">
-    	<MATERIAL id="defaultMaterial" />
+    	<MATERIAL id="null" />
     	<TEXTURE id="null" />
 
     	<ROTATION axis="x" angle="90" />
-    	<TRANSLATION x="10" y="10" z="-10" />
+    	<TRANSLATION x="0" y="1" z="-10" />
 
     	<DESCENDANTS>
     		<LEAF type="cylinder" args="10 0.1 0.1 20 20" />
@@ -541,11 +730,11 @@
 
      <!-- Fence vertical cylinder 3 -->
     <NODE id="vert_cylinder3">
-    	<MATERIAL id="defaultMaterial" />
+    	<MATERIAL id="null" />
     	<TEXTURE id="null" />
 
     	<ROTATION axis="x" angle="90" />
-    	<TRANSLATION x="10" y="11" z="-10" />
+    	<TRANSLATION x="0" y="2" z="-10" />
 
     	<DESCENDANTS>
     		<LEAF type="cylinder" args="10 0.1 0.1 20 20" />
@@ -555,11 +744,11 @@
 
      <!-- Fence vertical cylinder 4 -->
     <NODE id="vert_cylinder4">
-    	<MATERIAL id="defaultMaterial" />
+    	<MATERIAL id="null" />
     	<TEXTURE id="null" />
 
     	<ROTATION axis="x" angle="90" />
-    	<TRANSLATION x="10" y="12" z="-10" />
+    	<TRANSLATION x="0" y="3" z="-10" />
 
     	<DESCENDANTS>
     		<LEAF type="cylinder" args="10 0.1 0.1 20 20" />
@@ -569,10 +758,10 @@
 
      <!-- Fence horizontal cylinder 1 -->
     <NODE id="horz_cylinder1">
-    	<MATERIAL id="defaultMaterial" />
+    	<MATERIAL id="null" />
     	<TEXTURE id="null" />
 
-    	<TRANSLATION x="10" y="7" z="8" />
+    	<TRANSLATION x="0" y="7" z="-1" />
 
     	<DESCENDANTS>
     		<LEAF type="cylinder" args="5 0.1 0.1 20 20" />
@@ -582,10 +771,10 @@
 
     <!-- Fence horizontal cylinder 2 -->
     <NODE id="horz_cylinder2">
-    	<MATERIAL id="defaultMaterial" />
+    	<MATERIAL id="null" />
     	<TEXTURE id="null" />
 
-    	<TRANSLATION x="10" y="2" z="8" />
+    	<TRANSLATION x="0" y="2" z="-1" />
 
     	<DESCENDANTS>
     		<LEAF type="cylinder" args="5 0.1 0.1 20 20" />
@@ -595,11 +784,11 @@
 
     <!-- Fence spike cylinder 1 -->
     <NODE id="spike1">
-    	<MATERIAL id="defaultMaterial" />
+    	<MATERIAL id="null" />
     	<TEXTURE id="null" />
 
     	<ROTATION axis="x" angle="90" />
-    	<TRANSLATION x="10" y="9" z="-11" />
+    	<TRANSLATION x="0" y="0" z="-11" />
 
     	<DESCENDANTS>
     		<LEAF type="cylinder" args="1 0 0.2 20 20" />
@@ -609,11 +798,11 @@
 
     <!-- Fence spike cylinder 2 -->
     <NODE id="spike2">
-    	<MATERIAL id="defaultMaterial" />
+    	<MATERIAL id="null" />
     	<TEXTURE id="null" />
 
     	<ROTATION axis="x" angle="90" />
-    	<TRANSLATION x="10" y="10" z="-11" />
+    	<TRANSLATION x="0" y="1" z="-11" />
 
     	<DESCENDANTS>
     		<LEAF type="cylinder" args="1 0 0.2 20 20" />
@@ -623,11 +812,11 @@
 
     <!-- Fence spike cylinder 3 -->
     <NODE id="spike3">
-    	<MATERIAL id="defaultMaterial" />
+    	<MATERIAL id="null" />
     	<TEXTURE id="null" />
 
     	<ROTATION axis="x" angle="90" />
-    	<TRANSLATION x="10" y="11" z="-11" />
+    	<TRANSLATION x="0" y="2" z="-11" />
 
     	<DESCENDANTS>
     		<LEAF type="cylinder" args="1 0 0.2 20 20" />
@@ -637,11 +826,11 @@
 
 	<!-- Fence spike cylinder 4 -->
     <NODE id="spike4">
-    	<MATERIAL id="defaultMaterial" />
+    	<MATERIAL id="null" />
     	<TEXTURE id="null" />
 
     	<ROTATION axis="x" angle="90" />
-    	<TRANSLATION x="10" y="12" z="-11" />
+    	<TRANSLATION x="0" y="3" z="-11" />
 
     	<DESCENDANTS>
     		<LEAF type="cylinder" args="1 0 0.2 20 20" />
@@ -762,7 +951,7 @@
 	<!-- Crypt walls -->
 	<NODE id="crypt_walls">      
         <MATERIAL id="null" />    
-        <TEXTURE id="banco" />       		
+        <TEXTURE id="null" />       		
 
 		<TRANSLATION x="0.5" y="0.375" z="0.5" />
 
@@ -855,7 +1044,7 @@
     <!-- Crypt roof -->
 	<NODE id="crypt_roof">      
         <MATERIAL id="null" />    
-        <TEXTURE id="banco" />       		
+        <TEXTURE id="null" />       		
 
         <DESCENDANTS>
 			<NODEREF id="crypt_roof_base" />
@@ -1001,7 +1190,7 @@
     <!-- Crypt columns -->
 	<NODE id="crypt_columns">      
         <MATERIAL id="null" />    
-        <TEXTURE id="null" />       		
+        <TEXTURE id="column_rock" />       		
 
         <DESCENDANTS>
 			<NODEREF id="crypt_column1" />
@@ -1012,7 +1201,7 @@
     <!-- Crypt column 1 -->
 	<NODE id="crypt_column1">      
         <MATERIAL id="null" />    
-        <TEXTURE id="column_rock" /> 
+        <TEXTURE id="null" /> 
 
 		<TRANSLATION x="7.85" y="0.375" z="1.15" />
 		<ROTATION axis="x" angle="-90" />
@@ -1025,7 +1214,7 @@
     <!-- Crypt column 2 -->
 	<NODE id="crypt_column2">      
         <MATERIAL id="null" />    
-        <TEXTURE id="column_rock" /> 
+        <TEXTURE id="null" /> 
 
 		<TRANSLATION x="7.85" y="0.375" z="4.85" />
 		<ROTATION axis="x" angle="-90" />
@@ -1079,6 +1268,11 @@
 
     	<DESCENDANTS>
     		<NODEREF id="column1" />
+    		<NODEREF id="column2" />
+    		<NODEREF id="column3" />
+    		<NODEREF id="column4" />
+    		<NODEREF id="column5" />
+    		<NODEREF id="column6" />
     	</DESCENDANTS>
 
     </NODE>
@@ -1087,6 +1281,73 @@
     <NODE id="column1">
     	<MATERIAL id="null" />
     	<TEXTURE id="null" />
+
+    	<TRANSLATION x="1" y="0" z="1" />
+
+		<DESCENDANTS>
+			<NODEREF id="column" />
+		</DESCENDANTS>
+
+    </NODE>
+
+    <!-- Column 2 -->
+    <NODE id="column2">
+    	<MATERIAL id="null" />
+    	<TEXTURE id="null" />
+
+    	<TRANSLATION x="36.5" y="0" z="1" />
+
+		<DESCENDANTS>
+			<NODEREF id="column" />
+		</DESCENDANTS>
+
+    </NODE>
+
+    <!-- Column 3 -->
+    <NODE id="column3">
+    	<MATERIAL id="null" />
+    	<TEXTURE id="null" />
+
+    	<TRANSLATION x="1" y="0" z="28.5" />
+
+		<DESCENDANTS>
+			<NODEREF id="column" />
+		</DESCENDANTS>
+
+    </NODE>
+
+    <!-- Column 4 -->
+    <NODE id="column4">
+    	<MATERIAL id="null" />
+    	<TEXTURE id="null" />
+
+    	<TRANSLATION x="36.5" y="0" z="28.5" />
+
+		<DESCENDANTS>
+			<NODEREF id="column" />
+		</DESCENDANTS>
+
+    </NODE>
+
+	<!-- Column 5 -->
+    <NODE id="column5">
+    	<MATERIAL id="null" />
+    	<TEXTURE id="null" />
+
+    	<TRANSLATION x="28" y="0" z="28.5" />
+
+		<DESCENDANTS>
+			<NODEREF id="column" />
+		</DESCENDANTS>
+
+    </NODE>
+
+    <!-- Column 6 -->
+    <NODE id="column6">
+    	<MATERIAL id="null" />
+    	<TEXTURE id="null" />
+
+    	<TRANSLATION x="18.5" y="0" z="28.5" />
 
 		<DESCENDANTS>
 			<NODEREF id="column" />
@@ -1335,7 +1596,7 @@
     <!-- Walls -->
     <NODE id="walls">      
         <MATERIAL id="null" />    
-        <TEXTURE id="banco" />             
+        <TEXTURE id="dark_rocks" />             
  
         <DESCENDANTS>
             <NODEREF id="wall1" />
