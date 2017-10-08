@@ -162,6 +162,18 @@
    		<file path="images/stick.jpg" />
     	<amplif_factor s="1" t="1" />
    </TEXTURE>
+
+   <!-- Wood -->
+    <TEXTURE id="wood">
+   		<file path="images/wood.jpg" />
+    	<amplif_factor s="1" t="1" />
+   </TEXTURE>
+
+   <!-- Mossy Stone -->
+    <TEXTURE id="mossy_stone">
+   		<file path="images/mossy_stone.jpg" />
+    	<amplif_factor s="1" t="1" />
+   </TEXTURE>
     
 </TEXTURES>
 
@@ -246,6 +258,7 @@
 			<NODEREF id="candles" />
 			<NODEREF id="walls" />
 			<NODEREF id="pumpkins" />
+			<NODEREF id="trees" />
         </DESCENDANTS>
 
     </NODE>
@@ -408,7 +421,7 @@
 	<!-- Crosses -->
 	<NODE id="crosses">      
         <MATERIAL id="null" />    
-        <TEXTURE id="marble" />       			
+        <TEXTURE id="mossy_stone" />       			
 
         <TRANSLATION x="7" y="0" z="0" />
 
@@ -960,10 +973,11 @@
         <!-- Tombstones -->
     <NODE id="tombstones">
     	<MATERIAL id="null" />
-    	<TEXTURE id="null" />
+    	<TEXTURE id="mossy_stone" />
 
     	<DESCENDANTS>
     		<NODEREF id="tombstone1" />
+    		<NODEREF id="tombstone2" />
     	</DESCENDANTS>
     
     </NODE>
@@ -973,7 +987,22 @@
     	<MATERIAL id="null" />
     	<TEXTURE id="null" />
 
-    	<TRANSLATION x="15" y="0" z="30" />
+    	<TRANSLATION x="7" y="0" z="25" />
+    	<ROTATION axis="y" angle="90" />
+
+    	<DESCENDANTS>
+    		<NODEREF id="tombstone" />
+    	</DESCENDANTS>
+
+    </NODE>
+
+    <!-- Tombstone 2 -->
+    <NODE id="tombstone2">
+    	<MATERIAL id="null" />
+    	<TEXTURE id="null" />
+
+    	<TRANSLATION x="7" y="0" z="20" />
+    	<ROTATION axis="y" angle="90" />
 
     	<DESCENDANTS>
     		<NODEREF id="tombstone" />
@@ -1814,7 +1843,7 @@
         <MATERIAL id="null" />    
         <TEXTURE id="null" />
 
-        <TRANSLATION x="20" y="0" z="20" />
+        <TRANSLATION x="32.4" y="-4" z="6" />
                
         <DESCENDANTS>
             <NODEREF id="pumpkin" />
@@ -1861,7 +1890,189 @@
             <LEAF type="cylinder" args="4 1 1 20 20" />
         </DESCENDANTS>
 
+    </NODE>
 
+	<!-- Trees -->
+    <NODE id="trees">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="wood" />
+               
+        <DESCENDANTS>
+            <NODEREF id="tree1" />
+        </DESCENDANTS>
+
+    </NODE>
+
+    <!-- Tree 1 -->
+    <NODE id="tree1">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <TRANSLATION x="34" y="0" z="5" />
+               
+        <DESCENDANTS>
+            <NODEREF id="tree" />
+        </DESCENDANTS>
+    </NODE>
+
+    <!-- Generic Tree -->
+    <NODE id="tree">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+               
+        <DESCENDANTS>
+            <NODEREF id="tree_body" />
+            <NODEREF id="tree_branch1" />
+            <NODEREF id="tree_branch2" />
+			<NODEREF id="tree_branch3" />
+			<NODEREF id="tree_branch4" />
+			<NODEREF id="tree_branch5" />
+			<NODEREF id="tree_branch6" />
+			<NODEREF id="tree_branch7" />
+			<NODEREF id="tree_branch8" />
+        </DESCENDANTS>
+
+    </NODE>
+
+    <!-- Tree Body Cylinder -->
+    <NODE id="tree_body">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+		<TRANSLATION x="0" y="28" z="0" />
+		<SCALE sx="1" sy="7" sz="1" />
+        <ROTATION axis="x" angle="90" />
+               
+        <DESCENDANTS>
+            <LEAF type="cylinder" args="4 0 1 20 20" />            
+        </DESCENDANTS>
+            </NODE>
+
+    <!-- Tree Branch 1 -->
+    <NODE id="tree_branch1">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+               
+		<TRANSLATION x="0" y="5" z="0" />
+		<ROTATION axis="x" angle="-25" />
+		<SCALE sx="0.4" sy="0.4" sz="1" />
+
+        <DESCENDANTS>
+            <LEAF type="cylinder" args="7 1 0 20 20" />
+        </DESCENDANTS>
+
+    </NODE>
+
+	<!-- Tree Branch 2 -->
+    <NODE id="tree_branch2">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+               
+		<TRANSLATION x="-3.5" y="6" z="-6" />
+		<ROTATION axis="y" angle="30" />
+		<ROTATION axis="x" angle="20" />
+		<SCALE sx="0.4" sy="0.4" sz="1" />
+
+        <DESCENDANTS>
+            <LEAF type="cylinder" args="7 0 1 20 20" />
+        </DESCENDANTS>
+
+    </NODE>
+
+	<!-- Tree Branch 3 -->
+    <NODE id="tree_branch3">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+               
+		<TRANSLATION x="4" y="9" z="-4.5" />
+		<ROTATION axis="y" angle="-42" />
+		<ROTATION axis="x" angle="20" />
+		<SCALE sx="0.3" sy="0.3" sz="1" />
+
+        <DESCENDANTS>
+            <LEAF type="cylinder" args="6 0 1 20 20" />
+        </DESCENDANTS>
+
+    </NODE>
+
+    <!-- Tree Branch 4 -->
+    <NODE id="tree_branch4">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+               
+		<TRANSLATION x="-5" y="11" z="0" />
+		<ROTATION axis="y" angle="90" />
+		<ROTATION axis="x" angle="20" />
+		<SCALE sx="0.3" sy="0.3" sz="1" />
+
+        <DESCENDANTS>
+            <LEAF type="cylinder" args="5 0 1 20 20" />
+        </DESCENDANTS>
+
+    </NODE>
+
+    <!-- Tree Branch 5 -->
+    <NODE id="tree_branch5">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+               
+		<TRANSLATION x="4" y="13" z="1.5" />
+		<ROTATION axis="y" angle="-111" />
+		<ROTATION axis="x" angle="20" />
+		<SCALE sx="0.3" sy="0.3" sz="1" />
+
+        <DESCENDANTS>
+            <LEAF type="cylinder" args="4 0 1 20 20" />
+        </DESCENDANTS>
+
+    </NODE>
+
+    <!-- Tree Branch 6 -->
+    <NODE id="tree_branch6">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+               
+		<TRANSLATION x="0" y="15" z="-3" />
+		<ROTATION axis="x" angle="20" />
+		<SCALE sx="0.3" sy="0.3" sz="1" />
+
+        <DESCENDANTS>
+            <LEAF type="cylinder" args="3 0 1 20 20" />
+        </DESCENDANTS>
+
+    </NODE>
+
+    <!-- Tree Branch 7 -->
+    <NODE id="tree_branch7">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+               
+		<TRANSLATION x="-1.5" y="17" z="1.5" />
+		<ROTATION axis="y" angle="135" />
+		<ROTATION axis="x" angle="20" />
+		<SCALE sx="0.2" sy="0.2" sz="1" />
+
+        <DESCENDANTS>
+            <LEAF type="cylinder" args="2 0 1 20 20" />
+        </DESCENDANTS>
+
+    </NODE>
+
+    <!-- Tree Branch 8 -->
+    <NODE id="tree_branch8">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+               
+		<TRANSLATION x="1" y="19" z="-0.2" />
+		<ROTATION axis="y" angle="-80" />
+		<ROTATION axis="x" angle="20" />
+		<SCALE sx="0.2" sy="0.2" sz="1" />
+
+        <DESCENDANTS>
+            <LEAF type="cylinder" args="1 0 1 20 20" />
+        </DESCENDANTS>
+
+    </NODE>
 
 
 
