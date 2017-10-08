@@ -150,6 +150,18 @@
     	<file path="images/marble.jpg" />
     	<amplif_factor s="1" t="1" />
    </TEXTURE>
+
+	<!-- Pumpkin -->
+   <TEXTURE id="pumpkin">
+   		<file path="images/pumpkin.jpg" />
+    	<amplif_factor s="1" t="1" />
+   </TEXTURE>
+
+   <!-- Stick -->
+    <TEXTURE id="stick">
+   		<file path="images/stick.jpg" />
+    	<amplif_factor s="1" t="1" />
+   </TEXTURE>
     
 </TEXTURES>
 
@@ -233,6 +245,7 @@
 			<NODEREF id="columns" />
 			<NODEREF id="candles" />
 			<NODEREF id="walls" />
+			<NODEREF id="pumpkins" />
         </DESCENDANTS>
 
     </NODE>
@@ -1785,6 +1798,68 @@
 
      </NODE>
 
+	 <!-- Pumpkins -->
+    <NODE id="pumpkins">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+                
+        <DESCENDANTS>
+            <NODEREF id="pumpkin1" />
+        </DESCENDANTS>
+
+     </NODE>
+
+      <!-- Pumpkin 1 -->
+    <NODE id="pumpkin1">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <TRANSLATION x="20" y="0" z="20" />
+               
+        <DESCENDANTS>
+            <NODEREF id="pumpkin" />
+        </DESCENDANTS>
+
+    </NODE>
+
+     <!-- Generic Pumpkin -->
+    <NODE id="pumpkin">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+               
+        <DESCENDANTS>
+            <NODEREF id="pumpkin_sphere" />
+            <NODEREF id="pumpkin_cylinder" />
+        </DESCENDANTS>
+
+    </NODE>
+
+     <!-- Pumpkin Body Sphere -->
+    <NODE id="pumpkin_sphere">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="pumpkin" />
+
+		<TRANSLATION x="0" y="5" z="0" />
+        <SCALE sx="0.5" sy="0.42" sz="0.5" />
+                
+        <DESCENDANTS>
+            <LEAF type="sphere" args="2 20 20" />
+        </DESCENDANTS>
+
+    </NODE>
+
+     <!-- Pumpkin Stick Cylinder -->
+    <NODE id="pumpkin_cylinder">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="stick" />
+                
+        <TRANSLATION x="0" y="6" z="0" />
+		<ROTATION axis="x" angle="90" />
+		<SCALE sx="0.1" sy="0.1" sz="0.17" />
+
+        <DESCENDANTS>
+            <LEAF type="cylinder" args="4 1 1 20 20" />
+        </DESCENDANTS>
 
 
 
