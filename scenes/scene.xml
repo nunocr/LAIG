@@ -45,11 +45,22 @@
 
     <LIGHT id="light3">                                   
         <enable value ="1" />                   	       
-        <position x="30" y="10" z="20" w="1" />       			
+        <position x="30" y="10" z="20" w="1" />
         <ambient r="0.2" g="0.2" b="0.2" a="1.0" />           	
         <diffuse r="0.6" g="0.6" b="0.6" a="1.0" />       
         <specular r="0.6" g="0.6" b="0.6" a="1.0" />      
     </LIGHT>
+
+<!-- 
+     <LIGHT id="light4">                                   
+        <enable value ="1" />                   	       
+        <position x="24" y="24" z="12.25" w="1" />       			
+        <ambient r="0.2" g="0.2" b="0.2" a="1.0" />           	
+        <diffuse r="0.6" g="0.6" b="0.6" a="1.0" />       
+        <specular r="0.6" g="0.6" b="0.6" a="1.0" />      
+    </LIGHT>
+     -->
+    			
     
 </LIGHTS>
 
@@ -180,6 +191,13 @@
    		<file path="images/sky.jpg" />
     	<amplif_factor s="1" t="1" />
    </TEXTURE>
+
+   <!-- Fire -->
+   <TEXTURE id="fire">
+   		<file path="images/fire.jpg" />
+    	<amplif_factor s="1" t="1" />
+   </TEXTURE>
+
     
 </TEXTURES>
 
@@ -1726,6 +1744,8 @@
  
         <DESCENDANTS>
             <LEAF type="cylinder" args="2 0.5 0.5 20 20" />
+            <NODEREF id="candle_stick1" />
+            <NODEREF id="candle_fire1" />
         </DESCENDANTS>
     </NODE>
  
@@ -1738,6 +1758,8 @@
  
         <DESCENDANTS>
             <LEAF type="cylinder" args="1.5 0.2 0.2 20 20" />
+            <NODEREF id="candle_stick2" />
+			<NODEREF id="candle_fire2" />
         </DESCENDANTS>
     </NODE>
  
@@ -1750,9 +1772,91 @@
  
         <DESCENDANTS>
             <LEAF type="cylinder" args="0.75 0.2 0.2 20 20" />
+            <NODEREF id="candle_stick3" />
+            <NODEREF id="candle_fire3" />
         </DESCENDANTS>
     </NODE>
+
+    <!-- Candle Stick 1 -->
+    <NODE id="candle_stick1">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="stick" />              
  
+        <TRANSLATION x="0" y="0" z="2" />
+ 
+        <DESCENDANTS>
+            <LEAF type="cylinder" args="0.5 0.05 0.05 20 20" />
+        </DESCENDANTS>
+    </NODE>
+
+    <!-- Candle Stick 2 -->
+    <NODE id="candle_stick2">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="stick" />              
+ 
+        <TRANSLATION x="0" y="0" z="1.5" />
+ 
+        <DESCENDANTS>
+            <LEAF type="cylinder" args="0.3 0.02 0.02 20 20" />
+        </DESCENDANTS>
+    </NODE>
+
+    <!-- Candle Stick 3 -->
+    <NODE id="candle_stick3">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="stick" />              
+ 
+        <TRANSLATION x="0" y="0" z="0.7" />
+ 
+        <DESCENDANTS>
+            <LEAF type="cylinder" args="0.3 0.02 0.02 20 20" />
+        </DESCENDANTS>
+    </NODE>
+
+	<!-- Candle Fire 1 -->
+    <NODE id="candle_fire1">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="fire" />              
+ 
+        <TRANSLATION x="0" y="0" z="2.6" />
+ 		<SCALE sx="1" sy="1" sz="2.4" />
+
+        <DESCENDANTS>
+            <LEAF type="sphere" args="0.1 20 20" />
+        </DESCENDANTS>
+    </NODE>
+
+    <!-- Candle Fire 2 -->
+    <NODE id="candle_fire2">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="fire" />              
+ 
+        <TRANSLATION x="0" y="0" z="1.8" />
+ 		<SCALE sx="0.7" sy="0.7" sz="1.8" />
+
+        <DESCENDANTS>
+            <LEAF type="sphere" args="0.1 20 20" />
+        </DESCENDANTS>
+    </NODE>
+
+    <!-- Candle Fire 3 -->
+    <NODE id="candle_fire3">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="fire" />              
+ 
+        <TRANSLATION x="0" y="0" z="1" />
+ 		<SCALE sx="0.7" sy="0.7" sz="1.8" />
+
+        <DESCENDANTS>
+            <LEAF type="sphere" args="0.1 20 20" />
+        </DESCENDANTS>
+    </NODE>
+
+
+
+
+
+   
     <!-- Walls -->
     <NODE id="walls">      
         <MATERIAL id="null" />    
