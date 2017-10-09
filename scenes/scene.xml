@@ -51,15 +51,15 @@
         <specular r="0.6" g="0.6" b="0.6" a="1.0" />      
     </LIGHT>
 
-<!-- 
+
      <LIGHT id="light4">                                   
         <enable value ="1" />                   	       
-        <position x="24" y="24" z="12.25" w="1" />       			
+        <position x="16.25" y="0.5" z="12.25" w="1" />    			
         <ambient r="0.2" g="0.2" b="0.2" a="1.0" />           	
         <diffuse r="0.6" g="0.6" b="0.6" a="1.0" />       
         <specular r="0.6" g="0.6" b="0.6" a="1.0" />      
     </LIGHT>
-     -->
+     
     			
     
 </LIGHTS>
@@ -866,7 +866,7 @@
     	<TRANSLATION x="0" y="0" z="-10" />
 
     	<DESCENDANTS>
-    		<LEAF type="cylinder" args="10 0.1 0.1 20 20" />
+    		<LEAF type="cylinder" args="10 0.1 0.1 20 20 1 1" />
     	</DESCENDANTS>
 
     </NODE>
@@ -880,7 +880,7 @@
     	<TRANSLATION x="0" y="1" z="-10" />
 
     	<DESCENDANTS>
-    		<LEAF type="cylinder" args="10 0.1 0.1 20 20" />
+    		<LEAF type="cylinder" args="10 0.1 0.1 20 20 1 1" />
     	</DESCENDANTS>
 
     </NODE>
@@ -894,7 +894,7 @@
     	<TRANSLATION x="0" y="2" z="-10" />
 
     	<DESCENDANTS>
-    		<LEAF type="cylinder" args="10 0.1 0.1 20 20" />
+    		<LEAF type="cylinder" args="10 0.1 0.1 20 20 1 1" />
     	</DESCENDANTS>
 
     </NODE>
@@ -908,7 +908,7 @@
     	<TRANSLATION x="0" y="3" z="-10" />
 
     	<DESCENDANTS>
-    		<LEAF type="cylinder" args="10 0.1 0.1 20 20" />
+    		<LEAF type="cylinder" args="10 0.1 0.1 20 20 1 1" />
     	</DESCENDANTS>
 
     </NODE>
@@ -921,7 +921,7 @@
     	<TRANSLATION x="0" y="7" z="-1" />
 
     	<DESCENDANTS>
-    		<LEAF type="cylinder" args="5 0.1 0.1 20 20" />
+    		<LEAF type="cylinder" args="5 0.1 0.1 20 20 1 1" />
     	</DESCENDANTS>
 
     </NODE>
@@ -934,7 +934,7 @@
     	<TRANSLATION x="0" y="2" z="-1" />
 
     	<DESCENDANTS>
-    		<LEAF type="cylinder" args="5 0.1 0.1 20 20" />
+    		<LEAF type="cylinder" args="5 0.1 0.1 20 20 1 1" />
     	</DESCENDANTS>
 
     </NODE>
@@ -948,7 +948,7 @@
     	<TRANSLATION x="0" y="0" z="-11" />
 
     	<DESCENDANTS>
-    		<LEAF type="cylinder" args="1 0 0.2 20 20" />
+    		<LEAF type="cylinder" args="1 0 0.2 20 20 1 1" />
     	</DESCENDANTS>
 
     </NODE>
@@ -962,7 +962,7 @@
     	<TRANSLATION x="0" y="1" z="-11" />
 
     	<DESCENDANTS>
-    		<LEAF type="cylinder" args="1 0 0.2 20 20" />
+    		<LEAF type="cylinder" args="1 0 0.2 20 20 1 1" />
     	</DESCENDANTS>
 
     </NODE>
@@ -976,7 +976,7 @@
     	<TRANSLATION x="0" y="2" z="-11" />
 
     	<DESCENDANTS>
-    		<LEAF type="cylinder" args="1 0 0.2 20 20" />
+    		<LEAF type="cylinder" args="1 0 0.2 20 20 1 1" />
     	</DESCENDANTS>
 
     </NODE>
@@ -990,7 +990,7 @@
     	<TRANSLATION x="0" y="3" z="-11" />
 
     	<DESCENDANTS>
-    		<LEAF type="cylinder" args="1 0 0.2 20 20" />
+    		<LEAF type="cylinder" args="1 0 0.2 20 20 1 1" />
     	</DESCENDANTS>
 
     </NODE>
@@ -1068,7 +1068,7 @@
     	<TRANSLATION x="1" y="2.4" z="0" />
 
     	<DESCENDANTS>
-    		<LEAF type ="cylinder" args="0.5 1.01 1.01 20 20" />
+    		<LEAF type ="cylinder" args="0.5 1.01 1.01 20 20 1 1" />
     	</DESCENDANTS>
 
     </NODE>
@@ -1382,7 +1382,7 @@
 		<ROTATION axis="x" angle="-90" />
 
         <DESCENDANTS>
-			<LEAF type="cylinder" args="3 0.4 0.4 20 20" />
+			<LEAF type="cylinder" args="3 0.4 0.4 20 20 1 1" />
 		</DESCENDANTS>
     </NODE>
 
@@ -1395,7 +1395,7 @@
 		<ROTATION axis="x" angle="-90" />
 
         <DESCENDANTS>
-			<LEAF type="cylinder" args="3 0.4 0.4 20 20" />
+			<LEAF type="cylinder" args="3 0.4 0.4 20 20 1 1" />
 		</DESCENDANTS>
     </NODE>
 
@@ -1743,7 +1743,7 @@
         <TEXTURE id="null" />              
  
         <DESCENDANTS>
-            <LEAF type="cylinder" args="2 0.5 0.5 20 20" />
+            <LEAF type="cylinder" args="2 0.5 0.5 20 20 1 1" />
             <NODEREF id="candle_stick1" />
             <NODEREF id="candle_fire1" />
         </DESCENDANTS>
@@ -1757,7 +1757,7 @@
         <TRANSLATION x="1" y="0" z="0" />
  
         <DESCENDANTS>
-            <LEAF type="cylinder" args="1.5 0.2 0.2 20 20" />
+            <LEAF type="cylinder" args="1.5 0.2 0.2 20 20 1 1" />
             <NODEREF id="candle_stick2" />
 			<NODEREF id="candle_fire2" />
         </DESCENDANTS>
@@ -1771,7 +1771,7 @@
         <TRANSLATION x="0" y="1" z="0" />
  
         <DESCENDANTS>
-            <LEAF type="cylinder" args="0.75 0.2 0.2 20 20" />
+            <LEAF type="cylinder" args="0.75 0.2 0.2 20 20 1 1" />
             <NODEREF id="candle_stick3" />
             <NODEREF id="candle_fire3" />
         </DESCENDANTS>
@@ -1785,7 +1785,7 @@
         <TRANSLATION x="0" y="0" z="2" />
  
         <DESCENDANTS>
-            <LEAF type="cylinder" args="0.5 0.05 0.05 20 20" />
+            <LEAF type="cylinder" args="0.5 0.05 0.05 20 20 1 1" />
         </DESCENDANTS>
     </NODE>
 
@@ -1797,7 +1797,7 @@
         <TRANSLATION x="0" y="0" z="1.5" />
  
         <DESCENDANTS>
-            <LEAF type="cylinder" args="0.3 0.02 0.02 20 20" />
+            <LEAF type="cylinder" args="0.3 0.02 0.02 20 20 1 1" />
         </DESCENDANTS>
     </NODE>
 
@@ -1809,7 +1809,7 @@
         <TRANSLATION x="0" y="0" z="0.7" />
  
         <DESCENDANTS>
-            <LEAF type="cylinder" args="0.3 0.02 0.02 20 20" />
+            <LEAF type="cylinder" args="0.3 0.02 0.02 20 20 1 1" />
         </DESCENDANTS>
     </NODE>
 
@@ -1998,7 +1998,7 @@
 		<SCALE sx="0.1" sy="0.1" sz="0.17" />
 
         <DESCENDANTS>
-            <LEAF type="cylinder" args="4 1 1 20 20" />
+            <LEAF type="cylinder" args="4 1 1 20 20 1 1" />
         </DESCENDANTS>
 
     </NODE>
@@ -2055,7 +2055,7 @@
         <ROTATION axis="x" angle="90" />
                
         <DESCENDANTS>
-            <LEAF type="cylinder" args="4 0 1 20 20" />            
+            <LEAF type="cylinder" args="4 0 1 20 20 1 1" />            
         </DESCENDANTS>
             </NODE>
 
@@ -2069,7 +2069,7 @@
 		<SCALE sx="0.4" sy="0.4" sz="1" />
 
         <DESCENDANTS>
-            <LEAF type="cylinder" args="7 1 0 20 20" />
+            <LEAF type="cylinder" args="7 1 0 20 20 1 1" />
         </DESCENDANTS>
 
     </NODE>
@@ -2085,7 +2085,7 @@
 		<SCALE sx="0.4" sy="0.4" sz="1" />
 
         <DESCENDANTS>
-            <LEAF type="cylinder" args="7 0 1 20 20" />
+            <LEAF type="cylinder" args="7 0 1 20 20 1 1" />
         </DESCENDANTS>
 
     </NODE>
@@ -2101,7 +2101,7 @@
 		<SCALE sx="0.3" sy="0.3" sz="1" />
 
         <DESCENDANTS>
-            <LEAF type="cylinder" args="6 0 1 20 20" />
+            <LEAF type="cylinder" args="6 0 1 20 20 1 1" />
         </DESCENDANTS>
 
     </NODE>
@@ -2117,7 +2117,7 @@
 		<SCALE sx="0.3" sy="0.3" sz="1" />
 
         <DESCENDANTS>
-            <LEAF type="cylinder" args="5 0 1 20 20" />
+            <LEAF type="cylinder" args="5 0 1 20 20 1 1" />
         </DESCENDANTS>
 
     </NODE>
@@ -2133,7 +2133,7 @@
 		<SCALE sx="0.3" sy="0.3" sz="1" />
 
         <DESCENDANTS>
-            <LEAF type="cylinder" args="4 0 1 20 20" />
+            <LEAF type="cylinder" args="4 0 1 20 20 1 1" />
         </DESCENDANTS>
 
     </NODE>
@@ -2148,7 +2148,7 @@
 		<SCALE sx="0.3" sy="0.3" sz="1" />
 
         <DESCENDANTS>
-            <LEAF type="cylinder" args="3 0 1 20 20" />
+            <LEAF type="cylinder" args="3 0 1 20 20 1 1" />
         </DESCENDANTS>
 
     </NODE>
@@ -2164,7 +2164,7 @@
 		<SCALE sx="0.2" sy="0.2" sz="1" />
 
         <DESCENDANTS>
-            <LEAF type="cylinder" args="2 0 1 20 20" />
+            <LEAF type="cylinder" args="2 0 1 20 20 1 1" />
         </DESCENDANTS>
 
     </NODE>
@@ -2180,7 +2180,7 @@
 		<SCALE sx="0.2" sy="0.2" sz="1" />
 
         <DESCENDANTS>
-            <LEAF type="cylinder" args="1 0 1 20 20" />
+            <LEAF type="cylinder" args="1 0 1 20 20 1 1" />
         </DESCENDANTS>
 
     </NODE>
@@ -2217,7 +2217,7 @@
         <SCALE sx="-1" sy="1" sz="1" />
 
         <DESCENDANTS>
-            <LEAF type="cylinder" args="1000 200 200 20 20" />
+            <LEAF type="cylinder" args="1000 200 200 20 20 1 1" />
         </DESCENDANTS>
 
     </NODE>
