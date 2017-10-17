@@ -1419,10 +1419,12 @@ MySceneGraph.generateRandomString = function(length) {
 }
 
 
-MySceneGraph.prototype.esbetacl = function(argnode, argmat, argtex) {
+MySceneGraph.prototype.esbetacl = function(argnode, argmat, argtex, argS, argT) {
 
     var material = argmat;
     var textura  = argtex;
+    var ampS = argS;
+    var ampT = argT;
 
     if(argnode.materialID != "null"){
         material = this.materials[argnode.materialID];
@@ -1430,7 +1432,11 @@ MySceneGraph.prototype.esbetacl = function(argnode, argmat, argtex) {
 
     if(argnode.textureID != "null" && argnode.textureID != "clear"){
         textura = this.textures[argnode.textureID][0];
+        ampS = this.textures[argnode.textureID][1];
+        ampT = this.textures[argnode.textureID][2];
     }
+    
+
     else
         if(argnode.textureID == "clear")
             textura = null;
@@ -1441,7 +1447,7 @@ MySceneGraph.prototype.esbetacl = function(argnode, argmat, argtex) {
 
     //nodes
     for(var i = 0; i < argnode.children.length; i++){
-        this.esbetacl(this.nodes[argnode.children[i]], material, textura);    
+        this.esbetacl(this.nodes[argnode.children[i]], material, textura, ampS, ampT);    
     }
 
     for(var i = 0; i < argnode.leaves.length; i++){
@@ -1451,10 +1457,12 @@ MySceneGraph.prototype.esbetacl = function(argnode, argmat, argtex) {
         }
         
         if(textura != null){
+            argnode.leaves[i].scaleTex(ampS, ampT);
             textura.bind();
         }
 
         argnode.leaves[i].display();
+
     }
 
     this.scene.popMatrix();
@@ -1465,5 +1473,5 @@ MySceneGraph.prototype.esbetacl = function(argnode, argmat, argtex) {
 MySceneGraph.prototype.displayScene = function() {
 	//this.log("Graph should be rendered here...");
 
-    this.esbetacl(this.nodes[this.idRoot], null, null);
+    this.esbetacl(this.nodes[this.idRoot], null, null, null, null);
 }

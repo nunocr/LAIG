@@ -58,3 +58,7 @@
  	this.primitiveType = this.scene.gl.TRIANGLES;
  	this.initGLBuffers();
  };
+
+MyCircle.prototype.scaleTex = function(ampS, ampT){
+	
+}

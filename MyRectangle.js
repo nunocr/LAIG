@@ -16,6 +16,8 @@ MyRectangle.prototype.constructor=MyRectangle;
 MyRectangle.prototype.initBuffers = function () {
 
 	var coords = this.args.split(" ");
+	this.dx = coords[2] - coords[0];
+	this.dy = coords[1] - coords[3];
 
 	this.vertices = [
             coords[0], coords[3], 0, //1
@@ -36,18 +38,26 @@ MyRectangle.prototype.initBuffers = function () {
 			0, 0, 1
     	];
 
-    this.texCoords = [    
-		this.minS, this.maxT,
-		this.maxS, this.maxT,
-		this.minS, this.minT,
-		this.maxS, this.minT,    
+    this.texCoords = [
+		coords[0], coords[3], //1
+        coords[2], coords[3],  //2
+        coords[0], coords[1],  //3
+        coords[2], coords[1]
     ];
 		
 	this.primitiveType=this.scene.gl.TRIANGLES;
 	this.initGLBuffers();
 };
 
-
+MyRectangle.prototype.scaleTex = function(ampS, ampT){
+	this.texCoords = [    
+		0, 0,
+		this.dx/ampS, 0,
+		0, this.dy/ampT,
+		this.dx/ampS, this.dy/ampT
+    ];
+	this.updateTexCoordsGLBuffers();
+}
 
 
 /*

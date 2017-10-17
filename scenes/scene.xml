@@ -99,12 +99,12 @@
 	<!-- Grass -->
     <TEXTURE id="grass">
         <file path="images/grass.jpg" />                
-        <amplif_factor s="4" t="5" />                           
+        <amplif_factor s="5" t="5" />                           
     </TEXTURE>
 	
 	<!-- Road -->
     <TEXTURE id="road">
-        <file path="images/teste.jpg" />                
+        <file path="images/road.jpg" />                
         <amplif_factor s="1" t="1" />                           
     </TEXTURE>
 
@@ -117,19 +117,19 @@
 	<!-- Roof -->
     <TEXTURE id="roof">
     	<file path="images/roof.jpg" />
-    	<amplif_factor s="1" t="1" />
+    	<amplif_factor s="4" t="3" />
     </TEXTURE>
 
     <!-- Door -->
     <TEXTURE id="door">
     	<file path="images/door.jpg" />
-    	<amplif_factor s="1" t="1" />
+    	<amplif_factor s="5" t="5" />
     </TEXTURE>
 
     <!-- Brick -->
     <TEXTURE id="brick">
     	<file path="images/brick.jpg" />
-    	<amplif_factor s="1" t="1" />
+    	<amplif_factor s="5" t="5" />
    </TEXTURE>
 
    <!-- Dark Rocks -->
@@ -159,7 +159,7 @@
    <!-- Marble -->
     <TEXTURE id="marble">
     	<file path="images/marble.jpg" />
-    	<amplif_factor s="1" t="1" />
+    	<amplif_factor s="5" t="5" />
    </TEXTURE>
 
 	<!-- Pumpkin -->

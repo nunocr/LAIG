@@ -50,3 +50,9 @@ MyGraphLeaf.prototype.display = function(){
         this.obj.display();
    }
 }
+
+MyGraphLeaf.prototype.scaleTex = function(ampS, ampT){
+	   if(this.obj != null){
+	       this.obj.scaleTex(ampS, ampT);
+	   }
+}

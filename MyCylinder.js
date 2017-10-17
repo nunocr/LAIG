@@ -50,3 +50,7 @@
 
 
  };
+
+ MyCylinder.prototype.scaleTex = function(ampS, ampT){
+	
+}

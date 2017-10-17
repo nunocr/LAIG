@@ -58,3 +58,8 @@
  	this.primitiveType = this.scene.gl.TRIANGLES;
  	this.initGLBuffers();
  };
+
+
+MySphere.prototype.scaleTex = function(ampS, ampT){
+	
+}
