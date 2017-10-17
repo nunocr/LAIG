@@ -105,13 +105,13 @@
 	<!-- Road -->
     <TEXTURE id="road">
         <file path="images/road.jpg" />                
-        <amplif_factor s="1" t="1" />                           
+        <amplif_factor s="5" t="5" />                           
     </TEXTURE>
 
     <!-- Iron -->
     <TEXTURE id="iron">
     	<file path="images/iron.jpg" />
-    	<amplif_factor s="1" t="1" />
+    	<amplif_factor s="5" t="5" />
     </TEXTURE>
 
 	<!-- Roof -->
@@ -135,7 +135,7 @@
    <!-- Dark Rocks -->
     <TEXTURE id="dark_rocks">
     	<file path="images/dark_rocks.jpg" />
-    	<amplif_factor s="1" t="1" />
+    	<amplif_factor s="15" t="40" />
    </TEXTURE>
 
    <!-- Column Rock -->
@@ -183,7 +183,7 @@
    <!-- Mossy Stone -->
     <TEXTURE id="mossy_stone">
    		<file path="images/mossy_stone.jpg" />
-    	<amplif_factor s="1" t="1" />
+    	<amplif_factor s="5" t="5" />
    </TEXTURE>
 
    <!-- Sky -->
@@ -502,7 +502,7 @@
         <MATERIAL id="null" />    
         <TEXTURE id="null" />       			
 
-		<SCALE sx="0.15" sy="0.15" sz="0.8" />
+		<SCALE sx="0.15" sy="0.149" sz="0.8" />
 		
         <DESCENDANTS>
             <NODEREF id="cube" />     	    
@@ -1065,10 +1065,10 @@
     	<MATERIAL id="null" />
     	<TEXTURE id="null" />
 
-    	<TRANSLATION x="1" y="2.4" z="0" />
+    	<TRANSLATION x="1" y="2.5" z="0.0015" />
 
     	<DESCENDANTS>
-    		<LEAF type ="cylinder" args="0.5 1.01 1.01 20 20 1 1" />
+    		<LEAF type ="cylinder" args="0.498 1 1 20 20 1 1" />
     	</DESCENDANTS>
 
     </NODE>

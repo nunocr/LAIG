@@ -51,10 +51,14 @@ MyRectangle.prototype.initBuffers = function () {
 
 MyRectangle.prototype.scaleTex = function(ampS, ampT){
 	this.texCoords = [    
-		0, 0,
+		/*0, 0,
 		this.dx/ampS, 0,
 		0, this.dy/ampT,
-		this.dx/ampS, this.dy/ampT
+		this.dx/ampS, this.dy/ampT*/
+		this.dx/ampS, this.dy/ampT,
+		0, this.dy/ampT,
+		this.dx/ampS, 0,
+		0, 0
     ];
 	this.updateTexCoordsGLBuffers();
 }

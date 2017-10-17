@@ -29,6 +29,10 @@ MyTriangle.prototype.initBuffers = function () {
 	this.b = Math.sqrt(Math.pow(coords[3] - coords[0], 2) + Math.pow(coords[4] - coords[1], 2) + Math.pow(coords[5] - coords[2], 2));
 	this.c = Math.sqrt(Math.pow(coords[6] - coords[3], 2) + Math.pow(coords[7] - coords[4], 2) + Math.pow(coords[8] - coords[5], 2));
 	
+	this.cos_a = Math.cos((- Math.pow(this.a, 2) + Math.pow(this.b, 2) + Math.pow(this.c, 2))/(2 * this.b * this.c));
+	this.cos_b = Math.cos((Math.pow(this.a, 2) - Math.pow(this.b, 2) + Math.pow(this.c, 2))/(2 * this.b * this.c));
+	this.cos_c = Math.cos((Math.pow(this.a, 2) + Math.pow(this.b, 2) - Math.pow(this.c, 2))/(2 * this.b * this.c));
+	this.sin_b = Math.sqrt(1 - Math.pow(this.cos_b, 2));
 
 	this.vertices = [
             coords[0], coords[1], coords[2],
@@ -58,9 +62,13 @@ MyTriangle.prototype.initBuffers = function () {
 };
 
 MyTriangle.prototype.scaleTex = function(ampS, ampT){
-	for(var i = 0; i < this.texCoords.length; i += 2){
-		this.texCoords[i] = this.texCoords[i]/ampS;
-		this.texCoords[i+1] = this.texCoords[i+1]/ampT;
-	}
+	this.texCoords = [
+			/*(this.c - this.a * this.cos_b)/ampS, (1 - this.a * this.sin_b)/ampT,
+			0, 1,
+			this.c/ampS, 1*/
+			0, 1,
+			this.c/ampS, 1,
+			(this.c - this.a * this.cos_b)/ampS, (1 - this.a * this.sin_b)/(ampT)
+		];
 	this.updateTexCoordsGLBuffers();
 }
