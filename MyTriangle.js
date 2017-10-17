@@ -25,6 +25,9 @@ MyTriangle.prototype.constructor=MyTriangle;
 MyTriangle.prototype.initBuffers = function () {
 
 	var coords = this.args.split(" ");
+	this.a = Math.sqrt(Math.pow(coords[0] - coords[6], 2) + Math.pow(coords[1] - coords[7], 2) + Math.pow(coords[2] - coords[8], 2));
+	this.b = Math.sqrt(Math.pow(coords[3] - coords[0], 2) + Math.pow(coords[4] - coords[1], 2) + Math.pow(coords[5] - coords[2], 2));
+	this.c = Math.sqrt(Math.pow(coords[6] - coords[3], 2) + Math.pow(coords[7] - coords[4], 2) + Math.pow(coords[8] - coords[5], 2));
 	
 
 	this.vertices = [
