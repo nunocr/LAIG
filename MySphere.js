@@ -1,7 +1,10 @@
 /**
- * MySphere
+ * Creates an instance of MySphere
+ * 
  * @constructor
- * @args radius, parts along radius(stacks), parts per section(slices)
+ * @this {MySphere}
+ * @param {CGFScene} scene Scene to place this object in.
+ * @param {Array} args Array containing the information needed to draw a MySphere.  
  */
  function MySphere(scene, args) {
  	CGFobject.call(this,scene);
@@ -18,6 +21,11 @@
  MySphere.prototype = Object.create(CGFobject.prototype);
  MySphere.prototype.constructor = MySphere;
 
+ /**
+ * Initializes the MySphere buffers.
+ *
+ * @this {MySphere}
+ */
  MySphere.prototype.initBuffers = function() {
 
 	var stepAng = 2*Math.PI / this.slices; //step in radians
@@ -59,7 +67,13 @@
  	this.initGLBuffers();
  };
 
-
+/**
+* Scales the texture bound on MySphere. Overrides the same function in MyGraphLeaf.
+*
+* @this {MySphere}
+* @param {number} ampS Amplification factor on the S coordinate in the ST coordinate system.
+* @param {number} ampT Amplification factor on the T coordinate in the ST coordinate system.
+*/
 MySphere.prototype.scaleTex = function(ampS, ampT){
 	
 }

@@ -1,3 +1,11 @@
+/**
+ * Creates an instance of MyRectangle
+ * 
+ * @constructor
+ * @this {MyRectangle}
+ * @param {CGFScene} scene Scene to place this object in.
+ * @param {Array} args Array containing the information needed to draw a MyRectangle. 
+ */
 function MyRectangle(scene, args) { //first 2 args: coordinates of top left vertex
 	CGFobject.call(this,scene);		  //second 2 args: coordinates of bottom right vertex
 	this.args = args;
@@ -13,6 +21,11 @@ function MyRectangle(scene, args) { //first 2 args: coordinates of top left vert
 MyRectangle.prototype = Object.create(CGFobject.prototype);
 MyRectangle.prototype.constructor=MyRectangle;
 
+ /**
+ * Initializes the MyRectangle buffers.
+ *
+ * @this {MyRectangle}
+ */
 MyRectangle.prototype.initBuffers = function () {
 
 	var coords = this.args.split(" ");
@@ -49,6 +62,13 @@ MyRectangle.prototype.initBuffers = function () {
 	this.initGLBuffers();
 };
 
+/**
+* Scales the texture bound on MyRectangle. Overrides the same function in MyGraphLeaf.
+*
+* @this {MyRectangle}
+* @param {number} ampS Amplification factor on the S coordinate in the ST coordinate system.
+* @param {number} ampT Amplification factor on the T coordinate in the ST coordinate system.
+*/
 MyRectangle.prototype.scaleTex = function(ampS, ampT){
 	this.texCoords = [    
 		/*0, 0,

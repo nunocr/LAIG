@@ -1,6 +1,10 @@
 /**
- * MyCircle
+ * Creates an instance of MyCircle
+ * 
  * @constructor
+ * @this {MyCircle}
+ * @param {CGFScene} scene Scene to place this object in.
+ * @param {number} slices Slices to divide the circle in for more precise drawing. 
  */
  function MyCircle(scene, slices) {
  	CGFobject.call(this,scene);
@@ -13,15 +17,12 @@
  MyCircle.prototype = Object.create(CGFobject.prototype);
  MyCircle.prototype.constructor = MyCircle;
 
+ /**
+ * Initializes the MyCircle buffers.
+ *
+ * @this {MyCircle}
+ */
  MyCircle.prototype.initBuffers = function() {
- 	/*
- 	* TODO:
- 	* Replace the following lines in order to build a prism with a **single mesh**.
- 	*
- 	* How can the vertices, indices and normals arrays be defined to
- 	* build a prism with varying number of slices and stacks?
- 	*/
-
 	var angulo = 2*Math.PI/this.slices;
 	var currRad = this.botRad;
 	var radiusInc = (this.topRad - this.botRad)/this.stacks;
@@ -59,6 +60,13 @@
  	this.initGLBuffers();
  };
 
+/**
+* Scales the texture bound on MyCircle. Overrides the same function in MyGraphLeaf.
+*
+* @this {MyCircle}
+* @param {number} ampS Amplification factor on the S coordinate in the ST coordinate system.
+* @param {number} ampT Amplification factor on the T coordinate in the ST coordinate system.
+*/
 MyCircle.prototype.scaleTex = function(ampS, ampT){
 	
 }

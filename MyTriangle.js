@@ -1,11 +1,13 @@
+//args="2 0 12 12 0 2 0 0 0" />
+
 /**
- * MyTriangle
- * @param gl {WebGLRenderingContext}
+ * Creates an instance of MyTriangle
+ * 
  * @constructor
+ * @this {MyTriangle}
+ * @param {CGFScene} scene Scene to place this object in.
+ * @param {Array} args Array containing the information needed to draw a MyTriangle.  
  */
-
- //args="2 0 12 12 0 2 0 0 0" />
-
 function MyTriangle(scene, args) {
 	CGFobject.call(this,scene);
 
@@ -22,6 +24,11 @@ function MyTriangle(scene, args) {
 MyTriangle.prototype = Object.create(CGFobject.prototype);
 MyTriangle.prototype.constructor=MyTriangle;
 
+/**
+ * Initializes the MyTriangle buffers.
+ *
+ * @this {MyTriangle}
+ */
 MyTriangle.prototype.initBuffers = function () {
 
 	var coords = this.args.split(" ");
@@ -61,6 +68,13 @@ MyTriangle.prototype.initBuffers = function () {
 	this.initGLBuffers();
 };
 
+/**
+* Scales the texture bound on MyTriangle. Overrides the same function in MyGraphLeaf.
+*
+* @this {MyTriangle}
+* @param {number} ampS Amplification factor on the S coordinate in the ST coordinate system.
+* @param {number} ampT Amplification factor on the T coordinate in the ST coordinate system.
+*/
 MyTriangle.prototype.scaleTex = function(ampS, ampT){
 	this.texCoords = [
 			/*(this.c - this.a * this.cos_b)/ampS, (1 - this.a * this.sin_b)/ampT,

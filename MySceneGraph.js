@@ -1418,7 +1418,17 @@ MySceneGraph.generateRandomString = function(length) {
     return String.fromCharCode.apply(null, numbers);
 }
 
-
+/**
+ * Processes the node being currently read, assigning to it a material, texture and respective scaling factors.
+ * It's called recursively from the root node until the end of the scene graph
+ *
+ * @this {MySceneGraph}
+ * @param {string} argnode nodeID of the node being processed.
+ * @param {string} argmat Current material of the node being processed.
+ * @param {string} argtex Current texture of the node being processed.
+ * @param {number} argS Current S scaling factor of the texture of the node being processed.
+ * @param {number} argT Current T scaling factor of the texture of the node being processed.
+ */
 MySceneGraph.prototype.esbetacl = function(argnode, argmat, argtex, argS, argT) {
 
     var material = argmat;

@@ -1,6 +1,14 @@
 /**
- * MyCylinderAux
+ * Creates an instance of MyCylinderAux, which creates the body of a cylinder.
+ * 
  * @constructor
+ * @this {MyCylinderAux}
+ * @param {CGFScene} scene Scene to place this object in.
+ * @param {number} height Cylinder's height value. 
+ * @param {number} botRad Cylinder's bottom radius value. 
+ * @param {number} topRad Cylinder's top radius value. 
+ * @param {number} stacks Number of stacks to divide the cylinder into. 
+ * @param {number} slices Number of slices to divide the cylinder into. 
  */
  function MyCylinderAux(scene, height, botRad, topRad, stacks, slices) {
  	CGFobject.call(this,scene);
@@ -19,6 +27,11 @@
  MyCylinderAux.prototype = Object.create(CGFobject.prototype);
  MyCylinderAux.prototype.constructor = MyCylinderAux;
 
+ /**
+ * Initializes the MyCylinderAux buffers.
+ *
+ * @this {MyCylinderAux}
+ */
  MyCylinderAux.prototype.initBuffers = function() {
  	/*
  	* TODO:
@@ -102,6 +115,13 @@
  	this.initGLBuffers();
  };
 
+/**
+* Scales the texture bound on MyCylinderAux. Overrides the same function in MyGraphLeaf.
+*
+* @this {MyCylinderAux}
+* @param {number} ampS Amplification factor on the S coordinate in the ST coordinate system.
+* @param {number} ampT Amplification factor on the T coordinate in the ST coordinate system.
+*/
 MyCylinderAux.prototype.scaleTex = function(ampS, ampT){
 	
 }

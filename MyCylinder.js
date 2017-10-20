@@ -1,6 +1,10 @@
 /**
- * MyCylinder
+ * Creates an instance of MyCylinder, which creates instances of the cylinder's body and top and bottom caps.
+ * 
  * @constructor
+ * @this {MyCylinder}
+ * @param {CGFScene} scene Scene to place this object in.
+ * @param {Array} args Array containing the information needed to draw a MyCylinder. 
  */
  function MyCylinder(scene, args) {
  	CGFobject.call(this,scene);
@@ -25,6 +29,11 @@
  MyCylinder.prototype = Object.create(CGFobject.prototype);
  MyCylinder.prototype.constructor = MyCylinder;
 
+ /**
+ * Displays the pretended MyCylinder, drawing a top and/or bottom cap if wanted.
+ *
+ * @this {MyCylinder}
+ */
  MyCylinder.prototype.display = function() {
  	
  	this.scene.pushMatrix();
@@ -51,6 +60,13 @@
 
  };
 
+ /**
+* Scales the texture bound on MyCylinder. Overrides the same function in MyGraphLeaf.
+*
+* @this {MyCylinder}
+* @param {number} ampS Amplification factor on the S coordinate in the ST coordinate system.
+* @param {number} ampT Amplification factor on the T coordinate in the ST coordinate system.
+*/
  MyCylinder.prototype.scaleTex = function(ampS, ampT){
 	
 }

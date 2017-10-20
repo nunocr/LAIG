@@ -1,8 +1,11 @@
 /**
- * MyGraphLeaf class, representing a leaf in the scene graph.
- * @constructor
-**/
-
+* MyGraphLeaf class, representing a leaf in the scene graph.
+*
+* @constructor
+* @this {MyGraphLeaf}
+* @param {MySceneGraph} graph Graph where the leaves info is being read from.
+* @param {Array} info Array containing the information about which type of primitive to create and its' arguments.
+*/
 function MyGraphLeaf(graph, info) {
    /*
     leafs come with id, type, args OR type, args
@@ -45,12 +48,24 @@ function MyGraphLeaf(graph, info) {
     }
 }
 
+/**
+ * Displays the pretended primitive created on the MyGraphLeaf constructor.
+ *
+ * @this {MyGraphLeaf}
+ */
 MyGraphLeaf.prototype.display = function(){
    if(this.obj != null){
         this.obj.display();
    }
 }
 
+/**
+* Scales the texture bound on the primitive created, calling the same prototype existing on the primitives' class.
+*
+* @this {MyGraphLeaf}
+* @param {number} ampS Amplification factor on the S coordinate in the ST coordinate system.
+* @param {number} ampT Amplification factor on the T coordinate in the ST coordinate system.
+*/
 MyGraphLeaf.prototype.scaleTex = function(ampS, ampT){
 	   if(this.obj != null){
 	       this.obj.scaleTex(ampS, ampT);
