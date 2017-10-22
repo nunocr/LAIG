@@ -7,6 +7,7 @@ function Patch(scene, id, orderU, orderV, partsU, partsV, controlPoints){
     this.partsU = partsU;
     this.partsV = partsV;
     this.controlPoints = controlPoints;
+    
 
     this.nurbsObj = scene.makeSurface(orderU, orderV, controlPoints, partsU, partsV);
 };

@@ -2239,6 +2239,7 @@
 
         <DESCENDANTS>
             <NODEREF id="torch1" />
+            <NODEREF id="torch2" />
         </DESCENDANTS>
 
     </NODE>
@@ -2247,6 +2248,21 @@
     <NODE id="torch1">      
         <MATERIAL id="null" />    
         <TEXTURE id="null" />
+
+        <TRANSLATION x="-10.3" y="1.8" z="3" />
+
+        <DESCENDANTS>
+            <NODEREF id="torch" />
+        </DESCENDANTS>
+
+    </NODE>
+
+    <!-- Torch 2 -->
+    <NODE id="torch2">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <TRANSLATION x="-0.7" y="1.8" z="3" />
 
         <DESCENDANTS>
             <NODEREF id="torch" />
@@ -2264,6 +2280,8 @@
             <NODEREF id="torch_cup" />
             <NODEREF id="torch_plate1" />
             <NODEREF id="torch_plate2" />
+            <NODEREF id="torch_flame" />
+            <NODEREF id="torch_handler" />
         </DESCENDANTS>
 
     </NODE>
@@ -2271,10 +2289,10 @@
     <!-- Torch Stick Cyllinder -->
     <NODE id="torch_stick">      
         <MATERIAL id="null" />    
-        <TEXTURE id="null" />
+        <TEXTURE id="wood" />
 
         <TRANSLATION x="30" y="5" z="25" />
-        <ROTATION axis="x" angle="74" />
+        <ROTATION axis="x" angle="90" />
 
         <DESCENDANTS>
             <LEAF type="cylinder" args="2 0.1 0.05 20 20 1 1" />
@@ -2285,10 +2303,10 @@
 	<!-- Torch Cup Cyllinder -->
     <NODE id="torch_cup">      
         <MATERIAL id="null" />    
-        <TEXTURE id="null" />
+        <TEXTURE id="iron" />
 
         <TRANSLATION x="30" y="5" z="25" />
-        <ROTATION axis="x" angle="74" />
+        <ROTATION axis="x" angle="90" />
 
         <DESCENDANTS>
             <LEAF type="cylinder" args="0.2 0.2 0.0999 20 20 1 1" />
@@ -2325,15 +2343,20 @@
     <!-- Torch Generic Plate -->
     <NODE id="torch_plate">      
         <MATERIAL id="null" />    
-        <TEXTURE id="null" />
+        <TEXTURE id="iron" />
 
         <TRANSLATION x="30" y="5" z="25" />
-        <ROTATION axis="x" angle="74" />
+        <ROTATION axis="x" angle="90" />
 
         <DESCENDANTS>
             <NODEREF id="plate_base" />
             <NODEREF id="plate_base2" />
 			<NODEREF id="plate_body" />
+			<NODEREF id="plate_body2" />
+			<NODEREF id="plate_body3" />
+			<NODEREF id="plate_body4" />
+			<NODEREF id="plate_outer_ring" />
+			<NODEREF id="plate_inner_ring" />
         </DESCENDANTS>
 
     </NODE>
@@ -2343,9 +2366,9 @@
         <MATERIAL id="null" />    
         <TEXTURE id="null" />
 
-        <TRANSLATION x="-0.05" y="0" z="0" />
-        <SCALE sx="0.02" sy="0.06" sz="0.01" />
-        <ROTATION axis="x" angle="74" />
+        <TRANSLATION x="-0.05" y="0.25" z="-0.05" />
+        <SCALE sx="0.02" sy="0.10" sz="0.01" />
+        <ROTATION axis="x" angle="90" />
 
         <DESCENDANTS>
             <NODEREF id="cube" />
@@ -2358,10 +2381,10 @@
         <MATERIAL id="null" />    
         <TEXTURE id="null" />
 
-        <ROTATION axis="y" angle="180" />
-        <TRANSLATION x="-0.05" y="0.2" z="-0.07" />
-        <SCALE sx="0.02" sy="0.06" sz="0.01" />
-        <ROTATION axis="x" angle="74" />
+		<TRANSLATION x="-0.25" y="-0.05" z="-0.05" />
+        <ROTATION axis="z" angle="90" />
+        <SCALE sx="0.02" sy="0.10" sz="0.01" />
+        <ROTATION axis="x" angle="90" />
 
         <DESCENDANTS>
             <NODEREF id="cube" />
@@ -2375,16 +2398,147 @@
         <MATERIAL id="null" />    
         <TEXTURE id="null" />
 
+		<TRANSLATION x="-0.05" y="-0.2" z="-0.35" />
 		<ROTATION axis="x" angle="90" />
-        <TRANSLATION x="-0.05" y="-0.28" z="0.237" />
         <SCALE sx="0.02" sy="0.06" sz="0.01" />
-        <ROTATION axis="x" angle="0" />
 
         <DESCENDANTS>
             <NODEREF id="cube" />
         </DESCENDANTS>
 
     </NODE>
+
+    <!-- Torch Generic Plate Body -->
+    <NODE id="plate_body2">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+		<TRANSLATION x="-0.05" y="0.25" z="-0.35" />
+		<ROTATION axis="x" angle="90" />
+        <SCALE sx="0.02" sy="0.06" sz="0.01" />
+
+        <DESCENDANTS>
+            <NODEREF id="cube" />
+        </DESCENDANTS>
+
+    </NODE>
+
+    <!-- Torch Generic Plate Body -->
+    <NODE id="plate_body3">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+		<TRANSLATION x="-0.25" y="-0.05" z="-0.35" />
+		<ROTATION axis="z" angle="90" />
+		<ROTATION axis="x" angle="90" />
+        <SCALE sx="0.02" sy="0.06" sz="0.01" />
+
+        <DESCENDANTS>
+            <NODEREF id="cube" />
+        </DESCENDANTS>
+
+    </NODE>
+
+    <!-- Torch Generic Plate Body -->
+    <NODE id="plate_body4">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+		<TRANSLATION x="0.2" y="-0.05" z="-0.35" />
+		<ROTATION axis="z" angle="90" />
+		<ROTATION axis="x" angle="90" />
+        <SCALE sx="0.02" sy="0.06" sz="0.01" />
+
+        <DESCENDANTS>
+            <NODEREF id="cube" />
+        </DESCENDANTS>
+
+    </NODE>
+
+     <!-- Torch Generic Plate Ring -->
+    <NODE id="plate_outer_ring">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+		<TRANSLATION x="0" y="-0.0" z="-0.24" />
+		<ROTATION axis="z" angle="90" />
+
+        <DESCENDANTS>
+    		<LEAF type="cylinder" args="0.05 0.24 0.24 20 20 0 0" />
+        </DESCENDANTS>
+
+    </NODE>
+
+     <!-- Torch Generic Plate Ring -->
+    <NODE id="plate_inner_ring">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+		<TRANSLATION x="0" y="-0.0" z="-0.24" />
+		<SCALE sx="1" sy="-1" sz="1" />
+		<ROTATION axis="z" angle="90" />
+
+        <DESCENDANTS>
+    		<LEAF type="cylinder" args="0.05 0.24 0.24 20 20 0 0" />
+        </DESCENDANTS>
+
+    </NODE>
+
+     <!-- Torch Flame -->
+    <NODE id="torch_flame">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="fire" />
+
+        <DESCENDANTS>
+    		<NODEREF id="flame_base" />
+    		<NODEREF id="flame_body" />
+        </DESCENDANTS>
+
+    </NODE>
+
+      <!-- Torch Flame -->
+    <NODE id="flame_base">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <TRANSLATION x="30" y="5.4" z="25" />
+        <SCALE sx="1" sy="2" sz="1" />
+
+        <DESCENDANTS>
+            <LEAF type="sphere" args="0.1 20 20" />
+        </DESCENDANTS>
+
+    </NODE>
+
+     <!-- Torch Flame -->
+    <NODE id="flame_body">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <TRANSLATION x="30" y="5.93" z="25" />
+        <ROTATION axis="x" angle="90" />
+
+        <DESCENDANTS>
+    		<LEAF type="cylinder" args="0.5 0 0.1 20 20 1 1" />
+        </DESCENDANTS>
+
+    </NODE>
+
+    <!-- Torch Handler -->
+    <NODE id="torch_handler">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="iron" />
+
+        <TRANSLATION x="30" y="4" z="25" />
+        <ROTATION axis="y" angle="0" />
+
+        <DESCENDANTS>
+    		<LEAF type="cylinder" args="1 0.04 0.04 20 20 1 1" />
+        </DESCENDANTS>
+
+    </NODE>
+
+
 
 
 
