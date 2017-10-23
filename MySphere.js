@@ -28,43 +28,44 @@
  */
  MySphere.prototype.initBuffers = function() {
 
-	var stepAng = 2*Math.PI / this.slices; //step in radians
-	this.vertices = new Array();
-	this.indices = new Array();
-	this.normals = new Array();
-	this.texCoords = new Array();
-	//var depth = 1.0/this.stacks;
-	var radius = Math.PI / this.stacks; //Radius
-	var currtRadius;
+	this.vertices = [];
+    this.indices = [];
+    this.normals = [];
+    this.texCoords = [];
 
- 	for (var i = 0; i <this.stacks; i++){
-		currtRadius = i * radius;
-		for (var j = 0; j < this.slices; j++){
-			//vertices and normals
-			this.vertices.push(this.radius * Math.sin(currtRadius) * Math.cos(j*stepAng), this.radius * Math.sin(currtRadius) * Math.sin(j*stepAng), this.radius * Math.cos(currtRadius));
-			this.normals.push(this.radius * Math.sin(currtRadius) * Math.cos(j*stepAng), this.radius * Math.sin(currtRadius) * Math.sin(j*stepAng), this.radius * Math.cos(currtRadius));
+    var R = 1/(this.stacks-1);
+    var S = 1/(this.slices-1);
+    var r, s;
+    var M_PI_2 = Math.PI / 2;
+    var M_PI = Math.PI;
 
-			this.vertices.push(this.radius * Math.sin(currtRadius + radius) * Math.cos(j*stepAng), this.radius * Math.sin(currtRadius + radius) * Math.sin(j*stepAng), this.radius * Math.cos(radius * (i+1)));
-			this.normals.push(this.radius * Math.sin(currtRadius + radius) * Math.cos(j*stepAng), this.radius * Math.sin(currtRadius + radius) * Math.sin(j*stepAng), this.radius * Math.cos(radius * (i+1))); //Normals in line with the vertexes
+    for(r = 0; r < this.stacks; r++) 
 
-			this.texCoords.push(((i + 1)/this.stacks) * (Math.cos(j*stepAng)/2 + 0.5), (i + 1)/this.stacks) * (1- (Math.sin(j*stepAng)/2 + 0.5));
-			this.texCoords.push(((i + 1)/this.stacks) * (Math.cos(j*stepAng)/2 + 0.5), (i + 2)/this.stacks) * (1- (Math.sin(j*stepAng)/2 + 0.5));
+    	for(s = 0; s < this.slices; s++) {
 
+			var y = Math.sin( -M_PI_2 + M_PI * r * R );
+			var x = Math.cos(2*M_PI * s * S) * Math.sin( M_PI * r * R );
+			var z = Math.sin(2*M_PI * s * S) * Math.sin( M_PI * r * R );
+			
+			this.texCoords.push(s*S, r*R);
+			this.vertices.push(x * this.radius, y * this.radius, z * this.radius);
+			this.normals.push(x, y, z);
+    }
 
-      		this.indices.push((i*2*this.slices)+(2*j)+0);
-			this.indices.push((i*2*this.slices)+(2*j)+1);
-      		this.indices.push((i*2*this.slices)+(((2*j)+3)% (this.slices * 2)));
+    for (r = 0; r < this.stacks-1; r++) 
 
-      		this.indices.push((i*2*this.slices)+(((2*j)+2) % (this.slices * 2)));	
-			this.indices.push((i*2*this.slices)+(((2*j)+0) % (this.slices * 2))); //This doesn't need integer division
-      		this.indices.push((i*2*this.slices)+(((2*j)+3) % (this.slices * 2)));
+    	for (s = 0; s < this.slices-1; s++) {
 
-		}
- 	}
+			this.indices.push(s + (r+1)*this.slices);
+			this.indices.push(s + r*this.slices+1);
+			this.indices.push(s + r*this.slices);
+			this.indices.push(s + (r+1)*this.slices);
+			this.indices.push(s + (r+1)*this.slices+1);
+			this.indices.push(s + r*this.slices+1);
+    }
 
-
- 	this.primitiveType = this.scene.gl.TRIANGLES;
- 	this.initGLBuffers();
+    this.primitiveType = this.scene.gl.TRIANGLES;
+    this.initGLBuffers();
  };
 
 /**
