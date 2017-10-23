@@ -294,6 +294,7 @@
 			<NODEREF id="trees" />
 			<NODEREF id="backgrounds" />
 			<NODEREF id="torches" />
+			<NODEREF id="grass_patches" />
         </DESCENDANTS>
 
     </NODE>
@@ -2539,7 +2540,85 @@
     </NODE>
 
 
+		<!-- Grass Patches -->
+    <NODE id="grass_patches">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
 
+        <DESCENDANTS>
+            <NODEREF id="grass_patch" />
+            <NODEREF id="grass_patch" />
+        </DESCENDANTS>
+
+    </NODE>
+
+	<!-- Grass Patch 1 -->
+    <NODE id="grass_patch1">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <DESCENDANTS>
+            <NODEREF id="grass_patch" />
+        </DESCENDANTS>
+
+    </NODE>
+
+	<!-- Grass Patch 2 -->
+    <NODE id="grass_patch2">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <DESCENDANTS>
+            <NODEREF id="grass_patch" />
+        </DESCENDANTS>
+
+    </NODE>
+
+	<!-- Generic Grass Patch -->
+    <NODE id="grass_patch">      
+        <MATERIAL id="grass" />    
+        <TEXTURE id="grass" />
+
+        <DESCENDANTS>
+            <LEAF type="patch" args="4 4" />
+            	<CPLINE>
+                    <CPOINT xx="-1.0" yy="-2.0" zz="0.0" ww="1"/>
+                    <CPOINT xx="-1.0" yy="-1.0" zz="0.0" ww="1"/>
+                    <CPOINT xx="-1.0" yy="0.0" zz="0.0" ww="1"/>
+                    <CPOINT xx="-1.0" yy="1.0" zz="0.0" ww="1"/>
+                    <CPOINT xx="-1.0" yy="2.0" zz="0.0" ww="1"/>
+                </CPLINE>
+                <CPLINE>
+                    <CPOINT xx="-0.5" yy="-2.0" zz="0.0" ww="1"/>
+                    <CPOINT xx="-0.5" yy="-1.0" zz="0.25" ww="1"/>
+                    <CPOINT xx="-0.5" yy="0.0" zz="0.25" ww="1"/>
+                    <CPOINT xx="-0.5" yy="1.0" zz="0.25" ww="1"/>
+                    <CPOINT xx="-0.5" yy="2.0" zz="0.0" ww="1"/>
+                </CPLINE>
+                <CPLINE>
+                    <CPOINT xx="0.0" yy="-2.0" zz="0.0" ww="1"/>
+                    <CPOINT xx="0.0" yy="-1.0" zz="0.5" ww="1"/>
+                    <CPOINT xx="0.0" yy="0.0" zz="0.5" ww="1"/>
+                    <CPOINT xx="0.0" yy="1.0" zz="0.5" ww="1"/>
+                    <CPOINT xx="0.0" yy="2.0" zz="0.0" ww="1"/>
+                </CPLINE>
+                <CPLINE>
+                    <CPOINT xx="0.5" yy="-2.0" zz="0.0" ww="1"/>
+                    <CPOINT xx="0.5" yy="-1.0" zz="0.25" ww="1"/>
+                    <CPOINT xx="0.5" yy="0.0" zz="0.25" ww="1"/>
+                    <CPOINT xx="0.5" yy="1.0" zz="0.25" ww="1"/>
+                    <CPOINT xx="0.5" yy="2.0" zz="0.0" ww="1"/>
+                </CPLINE>
+                <CPLINE>
+                    <CPOINT xx="1.0" yy="-2.0" zz="0.0" ww="1"/>
+                    <CPOINT xx="1.0" yy="-1.0" zz="0.0" ww="1"/>
+                    <CPOINT xx="1.0" yy="0.0" zz="0.0" ww="1"/>
+                    <CPOINT xx="1.0" yy="1.0" zz="0.0" ww="1"/>
+                    <CPOINT xx="1.0" yy="2.0" zz="0.0" ww="1"/>
+                </CPLINE>
+        </DESCENDANTS>
+
+    </NODE>
 
 
 
