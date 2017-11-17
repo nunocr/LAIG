@@ -6,8 +6,9 @@ var ILLUMINATION_INDEX = 1;
 var LIGHTS_INDEX = 2;
 var TEXTURES_INDEX = 3;
 var MATERIALS_INDEX = 4;
-var LEAVES_INDEX = 5;
-var NODES_INDEX = 6;
+var ANIMATIONS_INDEX = 5;
+var LEAVES_INDEX = 6;
+var NODES_INDEX = 7;
 
 /**
  * MySceneGraph class, representing the scene graph.
@@ -136,6 +137,18 @@ MySceneGraph.prototype.parseLSXFile = function(rootElement) {
             this.onXMLMinorError("tag <MATERIALS> out of order");
         
         if ((error = this.parseMaterials(nodes[index])) != null )
+            return error;
+    }
+
+    //ADDED
+    // <ANIMATIONS>
+    if ((index = nodeNames.indexOf("ANIMATIONS")) == -1)
+        return "tag <ANIMATIONS> missing";
+    else {
+        if (index != ANIMATIONS_INDEX)
+            this.onXMLMinorError("tag <ANIMATIONS> out of order");
+        
+        if ((error = this.parseAnimations(nodes[index])) != null )
             return error;
     }
     
@@ -1158,6 +1171,103 @@ MySceneGraph.prototype.parseMaterials = function(materialsNode) {
     console.log("Parsed materials");
 }
 
+//ADDED
+MySceneGraph.prototype.parseAnimations = function(animationsNode) {
+    this.animations = [];
+
+    var children = animationsNode.children;
+
+    for(var i = 0; i < children.length; i++){
+        if(children[i].nodeName != "ANIMATION"){
+            this.onXMLMinorError("unknown tag name <" + children[i].nodeName + ">");
+            continue;
+        }
+
+        //ID
+        var animationID = this.reader.getString(children[i], 'id');
+        if (animationID == null )
+            return "no ID defined for animation";
+
+        if (this.animations[animationID] != null )
+            return "ID must be unique for each animation (conflict: ID = " + animationID + ")";
+
+        //speed
+        var animationSpeed = this.reader.getString(children[i], 'speed');
+        if (animationSpeed == null )
+            return "no speed defined for animation";
+
+        //type
+        var animationType = this.reader.getString(children[i], 'type');
+        if (animationType == null )
+            return "no type defined for animation";
+        if (animationType != "linear" && animationType != "circular" && animationType != "bezier" && animationType != "combo")
+            return "unknown animation type";
+
+        //linear animations
+        if(animationType == "linear"){
+            var linearSpecs = children[i].children;
+            var linearControlPoints = [];
+
+            //getting animation control points
+            for(var j = 0; j < linearSpecs.length; j++){
+                var controlPoint = [];
+
+                var controlX = this.reader.getString(linearSpecs[j], 'xx');
+                var controlY = this.reader.getString(linearSpecs[j], 'yy');
+                var controlZ = this.reader.getString(linearSpecs[j], 'zz');
+
+                controlPoint.push(controlX, controlY, controlZ);
+                linearControlPoints.push(controlPoint);
+            }
+
+            //QUANDO AS CLASSES DE ANIMACOES TIVEREM DEFINIDAS, CHAMAR AQUI O CONSTRUTOR
+            //constructor call
+        }
+
+        //circular animations
+        if(animationType == "circular"){
+            var centerX = this.reader.getString(children[i], 'centerx');
+            var centerY = this.reader.getString(children[i], 'centery');
+            var centerZ = this.reader.getString(children[i], 'centerz');
+            var radius = this.reader.getString(children[i], 'radius');
+            var startAng = this.reader.getString(children[i], 'startang');
+            var rotAng = this.reader.getString(children[i], 'rotang');
+
+            //QUANDO AS CLASSES DE ANIMACOES TIVEREM DEFINIDAS, CHAMAR AQUI O CONSTRUTOR
+            //this.animations[animationID] = [animationSpeed, animationType, centerX, centerY, centerZ, radius, startAng, rotAng];
+        }
+
+        if(animationType == "bezier"){
+            var bezierSpecs = children[i].children;
+            var bezierControlPoints = [];
+            var counter = 0;
+
+            //getting animation control points (only 4 possible control points)
+            for(var j = 0; j < bezierSpecs.length; j++){
+                var controlPoint = [];
+
+                var controlX = this.reader.getString(linearSpecs[j], 'xx');
+                var controlY = this.reader.getString(linearSpecs[j], 'yy');
+                var controlZ = this.reader.getString(linearSpecs[j], 'zz');
+
+                controlPoint.push(controlX, controlY, controlZ);
+                bezierControlPoints.push(controlPoint);
+                counter++;
+            }
+
+            if(counter == 4){
+                //QUANDO AS CLASSES DE ANIMACOES TIVEREM DEFINIDAS, CHAMAR AQUI O CONSTRUTOR
+                //constructor call
+            }
+            else{
+                return "A bezier animation only has 4 points!";
+            }
+        }
+
+    }
+
+    console.log("Parsed animations");
+}
 
 /**
  * Parses the <NODES> block.
