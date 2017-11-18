@@ -298,6 +298,7 @@
 			<NODEREF id="backgrounds" />
 			<NODEREF id="torches" />
 			<NODEREF id="grass_patches" />
+			<NODEREF id="arms" />
         </DESCENDANTS>
 
     </NODE>
@@ -2624,7 +2625,156 @@
 
     </NODE>
 
+	
+	<!-- Arms -->
+    <NODE id="arms">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
 
+        <DESCENDANTS>
+            <NODEREF id="arm1" />
+        </DESCENDANTS>
+
+    </NODE>
+
+    <!-- Arm1 -->
+    <NODE id="arm1">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <DESCENDANTS>
+            <NODEREF id="arm" />
+        </DESCENDANTS>
+
+    </NODE>
+
+    <!-- Generic Arm -->
+    <NODE id="arm">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+		<TRANSLATION x="20" y="10" z="20" />
+
+        <DESCENDANTS>
+    		<NODEREF id="wrist" />
+    		<NODEREF id="hand1" />
+        </DESCENDANTS>
+
+    </NODE>
+
+     <!-- Wrist -->
+    <NODE id="wrist">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+		<SCALE sx="0.6" sy="1" sz="1" />
+		<ROTATION axis="x" angle="90" />
+
+        <DESCENDANTS>
+    		<LEAF type="cylinder" args="1 0.12 0.15 20 20 1 1" />
+        </DESCENDANTS>
+
+    </NODE>
+
+     <!-- Hand 1 -->
+    <NODE id="hand1">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <DESCENDANTS>
+            <NODEREF id="hand" />
+        </DESCENDANTS>
+
+    </NODE>
+
+     <!-- Generic Hand -->
+    <NODE id="hand">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <DESCENDANTS>
+            <NODEREF id="palm" />
+            <NODEREF id = "fingers" />
+        </DESCENDANTS>
+
+    </NODE>
+
+	 <!-- Palm -->
+    <NODE id="palm">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+		<TRANSLATION x="-0.045" y="0" z="-0.15" />
+        <SCALE sx="0.02" sy="0.08" sz="0.06" />
+
+        <DESCENDANTS>
+            <NODEREF id="cube" />
+        </DESCENDANTS>
+
+    </NODE>
+
+
+	<!-- Fingers -->
+    <NODE id="fingers">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <DESCENDANTS>
+            <NODEREF id="finger1" />
+        </DESCENDANTS>
+
+    </NODE>
+
+    <!-- Finger 1 -->
+    <NODE id="finger1">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <DESCENDANTS>
+            <NODEREF id="finger" />
+        </DESCENDANTS>
+
+    </NODE>
+
+     <!-- Finger-->
+    <NODE id="finger">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <DESCENDANTS>
+    		<NODEREF id="topfinger" />
+    		<NODEREF id="botfinger" />
+        </DESCENDANTS>
+
+    </NODE>
+
+       <!-- Finger Top -->
+    <NODE id="topfinger">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <TRANSLATION x="0" y="1" z="0" />
+        <ROTATION axis="x" angle="90" />
+
+        <DESCENDANTS>
+    		<LEAF type="cylinder" args="0.3 0.02 0.03 20 20 1 1" />
+        </DESCENDANTS>
+
+    </NODE>
+
+       <!-- Finger Bot -->
+    <NODE id="botfinger">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+		<TRANSLATION x="0" y="0.7" z="0" />
+		<ROTATION axis="x" angle="90" />
+
+        <DESCENDANTS>
+    		<LEAF type="cylinder" args="0.3 0.04 0.05 20 20 1 1" />
+        </DESCENDANTS>
+
+    </NODE>
 
 
 	
