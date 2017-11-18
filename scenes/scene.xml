@@ -2721,6 +2721,8 @@
 
         <DESCENDANTS>
             <NODEREF id="finger1" />
+			<NODEREF id="finger2" />
+			<NODEREF id="finger3" />
         </DESCENDANTS>
 
     </NODE>
@@ -2729,6 +2731,32 @@
     <NODE id="finger1">      
         <MATERIAL id="null" />    
         <TEXTURE id="null" />
+
+        <DESCENDANTS>
+            <NODEREF id="finger" />
+        </DESCENDANTS>
+
+    </NODE>
+
+        <!-- Finger 2 -->
+    <NODE id="finger2">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <TRANSLATION x="0" y="0" z="0.1" />
+
+        <DESCENDANTS>
+            <NODEREF id="finger" />
+        </DESCENDANTS>
+
+    </NODE>
+
+        <!-- Finger 3 -->
+    <NODE id="finger3">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <TRANSLATION x="0" y="0" z="-0.1" />
 
         <DESCENDANTS>
             <NODEREF id="finger" />
