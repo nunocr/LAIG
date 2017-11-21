@@ -299,6 +299,7 @@
 			<NODEREF id="torches" />
 			<NODEREF id="grass_patches" />
 			<NODEREF id="arms" />
+			<NODEREF id="birds" />
         </DESCENDANTS>
 
     </NODE>
@@ -2653,7 +2654,7 @@
         <MATERIAL id="null" />    
         <TEXTURE id="null" />
 
-		<TRANSLATION x="20" y="10" z="20" />
+		<TRANSLATION x="9" y="1" z="19" />
 
         <DESCENDANTS>
     		<NODEREF id="wrist" />
@@ -2863,6 +2864,159 @@
 
         <DESCENDANTS>
     		<LEAF type="cylinder" args="0.3 0.04 0.05 20 20 1 1" />
+        </DESCENDANTS>
+
+    </NODE>
+
+	<!-- Birds -->
+    <NODE id="birds">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <TRANSLATION x="20" y="10" z="20" />
+
+        <DESCENDANTS>
+            <NODEREF id="bird1" />
+        </DESCENDANTS>
+
+    </NODE>
+
+    <!-- Bird 1 -->
+    <NODE id="bird1">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <DESCENDANTS>
+            <NODEREF id="bird" />
+        </DESCENDANTS>
+
+    </NODE>
+
+    <!-- Generic Bird -->
+    <NODE id="bird">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <DESCENDANTS>
+			<NODEREF id="bird_body" />
+			<NODEREF id="bird_head" />
+			<NODEREF id="bird_tail" />
+        </DESCENDANTS>
+
+    </NODE>
+
+    <!-- Bird Body -->
+    <NODE id="bird_body">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <SCALE sx="0.7" sy="0.6" sz="1" />
+
+        <DESCENDANTS>
+            <LEAF type="sphere" args="0.5 20 20" />
+        </DESCENDANTS>
+
+    </NODE>
+
+      <!-- Bird Head -->
+    <NODE id="bird_head">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <TRANSLATION x="0" y="0.1" z="0.7" />
+
+        <DESCENDANTS>
+            <NODEREF id="bird_head_sphere" />
+			<NODEREF id="bird_beak" />
+        </DESCENDANTS>
+
+    </NODE>
+
+	   <!-- Bird Head Sphere -->
+    <NODE id="bird_head_sphere">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+		<SCALE sx="0.8" sy="0.6" sz="1" />
+
+        <DESCENDANTS>
+            <LEAF type="sphere" args="0.3 20 20" />
+        </DESCENDANTS>
+
+    </NODE>
+
+    <!-- Bird Beak -->
+    <NODE id="bird_beak">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+		<TRANSLATION x="0" y="0" z="0.25" />
+		<SCALE sx="1" sy="0.7" sz="1" />
+
+        <DESCENDANTS>
+    		<LEAF type="cylinder" args="0.4 0.1 0 20 20 1 1" />
+        </DESCENDANTS>
+
+    </NODE>
+
+     <!-- Bird Tail -->
+    <NODE id="bird_tail">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <TRANSLATION x="-0.1" y="0" z="0.07" />
+        <ROTATION axis="x" angle="20" />
+
+        <DESCENDANTS>
+			<NODEREF id="bird_tail_middle" />
+			<NODEREF id="bird_tail_left" />
+			<NODEREF id="bird_tail_right" />
+        </DESCENDANTS>
+
+    </NODE>
+
+
+     <!-- Bird Tail Middle -->
+    <NODE id="bird_tail_middle">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+		<TRANSLATION x="0" y="0" z="-1" />
+        <SCALE sx="0.05" sy="0.001" sz="0.1" />
+
+        <DESCENDANTS>
+			<NODEREF id="cube" />
+        </DESCENDANTS>
+
+    </NODE>
+
+        <!-- Bird Tail Left -->
+    <NODE id="bird_tail_left">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <TRANSLATION x="-0.215" y="0" z="-0.875" />
+        <ROTATION axis="y" angle="30" />
+        <SCALE sx="0.05" sy="0.001" sz="0.1" />
+
+        <DESCENDANTS>
+			<NODEREF id="cube" />
+        </DESCENDANTS>
+
+    </NODE>
+
+        <!-- Bird Tail Right -->
+    <NODE id="bird_tail_right">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+		<TRANSLATION x="0.25" y="0" z="-1" />
+        <ROTATION axis="y" angle="-30" />
+        <SCALE sx="0.05" sy="0.001" sz="0.1" />
+
+
+        <DESCENDANTS>
+			<NODEREF id="cube" />
         </DESCENDANTS>
 
     </NODE>
