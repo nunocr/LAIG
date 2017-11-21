@@ -2704,8 +2704,35 @@
         <MATERIAL id="null" />    
         <TEXTURE id="null" />
 
-		<TRANSLATION x="-0.045" y="0" z="-0.15" />
-        <SCALE sx="0.02" sy="0.08" sz="0.06" />
+        <DESCENDANTS>
+        	<NODEREF id="palm_base" />
+            <NODEREF id="thumb_base" />
+        </DESCENDANTS>
+
+    </NODE>
+
+     <!-- Palm Base -->
+    <NODE id="palm_base">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+		<TRANSLATION x="-0.045" y="0" z="-0.20" />
+        <SCALE sx="0.02" sy="0.08" sz="0.08" />
+
+        <DESCENDANTS>
+            <NODEREF id="cube" />
+        </DESCENDANTS>
+
+    </NODE>
+
+     <!-- Thumb Base -->
+    <NODE id="thumb_base">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+		<TRANSLATION x="-0.045" y="0.07" z="0.06" />
+		<ROTATION axis="x" angle="25" />
+        <SCALE sx="0.02" sy="0.05" sz="0.03" />
 
         <DESCENDANTS>
             <NODEREF id="cube" />
@@ -2723,27 +2750,32 @@
             <NODEREF id="finger1" />
 			<NODEREF id="finger2" />
 			<NODEREF id="finger3" />
+			<NODEREF id="finger4" />
+			<NODEREF id="finger5" />
         </DESCENDANTS>
 
     </NODE>
 
-    <!-- Finger 1 -->
+    <!-- Finger 1 - Ring (Middle Right) --> 
     <NODE id="finger1">      
         <MATERIAL id="null" />    
         <TEXTURE id="null" />
 
+        <TRANSLATION x="0" y="0" z="-0.05" />
+		<SCALE sx="1" sy="0.95" sz="1" />
+
         <DESCENDANTS>
             <NODEREF id="finger" />
         </DESCENDANTS>
 
     </NODE>
 
-        <!-- Finger 2 -->
+        <!-- Finger 2 - Middle (Middle Left) -->
     <NODE id="finger2">      
         <MATERIAL id="null" />    
         <TEXTURE id="null" />
 
-        <TRANSLATION x="0" y="0" z="0.1" />
+        <TRANSLATION x="0" y="0" z="0.05" />
 
         <DESCENDANTS>
             <NODEREF id="finger" />
@@ -2751,18 +2783,49 @@
 
     </NODE>
 
-        <!-- Finger 3 -->
+        <!-- Finger 3 - Pinky (Right) -->
     <NODE id="finger3">      
         <MATERIAL id="null" />    
         <TEXTURE id="null" />
 
-        <TRANSLATION x="0" y="0" z="-0.1" />
+        <TRANSLATION x="0" y="0" z="-0.15" />
+        <SCALE sx="1" sy="0.8" sz="1" />
 
         <DESCENDANTS>
             <NODEREF id="finger" />
         </DESCENDANTS>
 
     </NODE>
+
+		<!-- Finger 4 - Index (Left) -->
+    <NODE id="finger4">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <TRANSLATION x="0" y="0" z="0.15" />
+        <SCALE sx="1" sy="0.95" sz="1" />
+
+        <DESCENDANTS>
+            <NODEREF id="finger" />
+        </DESCENDANTS>
+
+    </NODE>
+
+    	<!-- Finger 5 - Thumb (Even more to the Left) -->
+    <NODE id="finger5">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <TRANSLATION x="0" y="-0.05" z="0.25" />
+        <SCALE sx="1" sy="0.7" sz="1" />
+
+        <DESCENDANTS>
+            <NODEREF id="finger" />
+        </DESCENDANTS>
+
+    </NODE>
+
+
 
      <!-- Finger-->
     <NODE id="finger">      
