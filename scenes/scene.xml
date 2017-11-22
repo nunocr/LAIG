@@ -2902,6 +2902,7 @@
 			<NODEREF id="bird_head" />
 			<NODEREF id="bird_tail" />
 			<NODEREF id="bird_wings" />
+			<NODEREF id="bird_legs" />
         </DESCENDANTS>
 
     </NODE>
@@ -3098,6 +3099,156 @@
 
         <DESCENDANTS>
         	<LEAF type="cylinder" args="1 0 0.3 20 20 1 1" />
+        </DESCENDANTS>
+
+    </NODE>
+
+     <!-- Bird Legs -->
+    <NODE id="bird_legs">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <DESCENDANTS>
+        	<NODEREF id="bird_leg_left" />
+        	<NODEREF id="bird_leg_right" />
+        </DESCENDANTS>
+
+    </NODE>
+
+      <!-- Bird Leg Left -->
+    <NODE id="bird_leg_left">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <TRANSLATION x="-0.1" y="-0.7" z="-2.35" />
+        <ROTATION axis="x" angle="75" />
+
+        <DESCENDANTS>
+        	<NODEREF id="bird_leg" />
+        </DESCENDANTS>
+
+    </NODE>
+
+     <!-- Bird Leg Right -->
+    <NODE id="bird_leg_right">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <TRANSLATION x="0.1" y="-0.7" z="-2.35" />
+        <ROTATION axis="x" angle="75" />
+
+        <DESCENDANTS>
+        	<NODEREF id="bird_leg" />
+        </DESCENDANTS>
+
+    </NODE>
+
+     <!-- Generic Bird Leg -->
+    <NODE id="bird_leg">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <DESCENDANTS>
+        	<NODEREF id="bird_leg_thigh" />
+        	<NODEREF id="bird_leg_feet" />
+        </DESCENDANTS>
+
+    </NODE>
+
+      <!-- Generic Bird Leg  Thigh -->
+    <NODE id="bird_leg_thigh">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+		<TRANSLATION x="0" y="2" z="0" />
+		<ROTATION axis="x" angle="0" />
+        <SCALE sx="0.4" sy="1" sz="0.4" />
+
+        <DESCENDANTS>
+            <LEAF type="sphere" args="0.1 20 20" />
+        </DESCENDANTS>
+
+    </NODE>
+
+       <!-- Generic Bird Leg Feet -->
+    <NODE id="bird_leg_feet">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <DESCENDANTS>
+        	<NODEREF id="bird_leg_feet_ankle" />
+			<NODEREF id="bird_leg_feet_finger_middle" />
+			<NODEREF id="bird_leg_feet_finger_left" />
+			<NODEREF id="bird_leg_feet_finger_right" />
+			<NODEREF id="bird_leg_feet_finger_back" />
+        </DESCENDANTS>
+
+    </NODE>
+
+       <!-- Generic Bird Leg Feet Ankle -->
+    <NODE id="bird_leg_feet_ankle">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <TRANSLATION x="0" y="1.92" z="0" />
+		<ROTATION axis="x" angle="30" />
+
+        <DESCENDANTS>
+        	<LEAF type="cylinder" args="0.3 0.01 0.01 20 20 1 1" />
+        </DESCENDANTS>
+
+    </NODE>
+
+       <!-- Generic Bird Leg Feet Finger Middle -->
+    <NODE id="bird_leg_feet_finger_middle">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <TRANSLATION x="0" y="1.77" z="0.25" />
+
+        <DESCENDANTS>
+        	<LEAF type="cylinder" args="0.1 0.01 0.01 20 20 1 1" />
+        </DESCENDANTS>
+
+    </NODE>
+
+      <!-- Generic Bird Leg Feet Finger Left -->
+    <NODE id="bird_leg_feet_finger_left">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <TRANSLATION x="0" y="1.77" z="0.25" />
+		<ROTATION axis="y" angle="40" />
+
+        <DESCENDANTS>
+        	<LEAF type="cylinder" args="0.1 0.01 0.01 20 20 1 1" />
+        </DESCENDANTS>
+
+    </NODE>
+
+     <!-- Generic Bird Leg Feet Finger Right -->
+    <NODE id="bird_leg_feet_finger_right">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <TRANSLATION x="0" y="1.77" z="0.25" />
+		<ROTATION axis="y" angle="-40" />
+
+        <DESCENDANTS>
+        	<LEAF type="cylinder" args="0.1 0.01 0.01 20 20 1 1" />
+        </DESCENDANTS>
+
+    </NODE>
+
+          <!-- Generic Bird Leg Feet Finger Back -->
+    <NODE id="bird_leg_feet_finger_back">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <TRANSLATION x="0" y="1.77" z="0.20" />
+
+        <DESCENDANTS>
+        	<LEAF type="cylinder" args="0.07 0.01 0.01 20 20 1 1" />
         </DESCENDANTS>
 
     </NODE>
