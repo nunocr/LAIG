@@ -2930,6 +2930,8 @@
         <DESCENDANTS>
             <NODEREF id="bird_head_sphere" />
 			<NODEREF id="bird_beak" />
+			<NODEREF id="bird_eye_left" />
+			<NODEREF id="bird_eye_right" />
         </DESCENDANTS>
 
     </NODE>
@@ -2957,6 +2959,32 @@
 
         <DESCENDANTS>
     		<LEAF type="cylinder" args="0.4 0.1 0 20 20 1 1" />
+        </DESCENDANTS>
+
+    </NODE>
+
+       <!-- Bird Eye Left -->
+    <NODE id="bird_eye_left">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <TRANSLATION x="-0.08" y="0.1" z="0.225" />
+
+        <DESCENDANTS>
+        	<LEAF type="sphere" args="0.015 20 20" />
+        </DESCENDANTS>
+
+    </NODE>
+
+       <!-- Bird Eye Right -->
+    <NODE id="bird_eye_right">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" />
+
+        <TRANSLATION x="0.08" y="0.1" z="0.225" />
+
+        <DESCENDANTS>
+        	<LEAF type="sphere" args="0.015 20 20" />
         </DESCENDANTS>
 
     </NODE>
