@@ -293,6 +293,22 @@
 
 <!-- The Animations -->
 <ANIMATIONS>
+	<ANIMATION id="testecircular" speed="10" type="circular"
+			   centerx="10" centery="10" centerz="10"
+			   radius="5" startang="40" rotang="20" />
+	
+	<ANIMATION id="testelinear" speed="10" type="linear">
+		<controlpoint xx="0" yy="0" zz="0" />
+		<controlpoint xx="1" yy="0" zz="0" />
+		<controlpoint xx="1" yy="1" zz="0" />
+	</ANIMATION>
+	
+	<ANIMATION id="testebezier" speed="10" type="bezier">
+		<controlpoint xx="0" yy="0" zz="0" />
+		<controlpoint xx="1" yy="0" zz="0" />
+		<controlpoint xx="1" yy="1" zz="0" />
+		<controlpoint xx="1" yy="1" zz="1" />
+	</ANIMATION>
 </ANIMATIONS>
 
 <!-- The leaves -->
@@ -2917,6 +2933,9 @@
     <NODE id="bird1">      
         <MATERIAL id="null" />    
         <TEXTURE id="null" />
+		<ANIMATIONREFS>
+			<ANIMATIONREF id="testecircular" />
+		</ANIMATIONREFS>
 
         <DESCENDANTS>
             <NODEREF id="bird" />

@@ -1219,7 +1219,8 @@ MySceneGraph.prototype.parseAnimations = function(animationsNode) {
                 controlPoint.push(controlX, controlY, controlZ);
                 linearControlPoints.push(controlPoint);
             }
-
+            
+            this.animations[animationID] = new LinearAnimation(this.scene, animationID, animationSpeed, linearControlPoints);
             //QUANDO AS CLASSES DE ANIMACOES TIVEREM DEFINIDAS, CHAMAR AQUI O CONSTRUTOR
             //constructor call
         }
@@ -1232,6 +1233,8 @@ MySceneGraph.prototype.parseAnimations = function(animationsNode) {
             var radius = this.reader.getString(children[i], 'radius');
             var startAng = this.reader.getString(children[i], 'startang');
             var rotAng = this.reader.getString(children[i], 'rotang');
+
+            this.animations[animationID] = new CircularAnimation(this.scene, animationID, animationSpeed, centerX, centerY, centerZ, radius, startAng * DEGREE_TO_RAD, rotAng * DEGREE_TO_RAD);
 
             //QUANDO AS CLASSES DE ANIMACOES TIVEREM DEFINIDAS, CHAMAR AQUI O CONSTRUTOR
             //this.animations[animationID] = [animationSpeed, animationType, centerX, centerY, centerZ, radius, startAng, rotAng];
@@ -1256,6 +1259,7 @@ MySceneGraph.prototype.parseAnimations = function(animationsNode) {
             }
 
             if(counter == 4){
+                this.animations[animationID] = new BezierAnimation(this.scene, animationID, animationSpeed, bezierControlPoints);
                 //QUANDO AS CLASSES DE ANIMACOES TIVEREM DEFINIDAS, CHAMAR AQUI O CONSTRUTOR
                 //constructor call
             }
@@ -1307,7 +1311,7 @@ MySceneGraph.prototype.parseNodes = function(nodesNode) {
             // Gathers child nodes.
             var nodeSpecs = children[i].children;
             var specsNames = [];
-            var possibleValues = ["MATERIAL", "TEXTURE", "TRANSLATION", "ROTATION", "SCALE", "DESCENDANTS"];
+            var possibleValues = ["MATERIAL", "TEXTURE", "ANIMATIONREFS", "TRANSLATION", "ROTATION", "SCALE", "DESCENDANTS"];
             for (var j = 0; j < nodeSpecs.length; j++) {
                 var name = nodeSpecs[j].nodeName;
                 specsNames.push(nodeSpecs[j].nodeName);
@@ -1334,6 +1338,7 @@ MySceneGraph.prototype.parseNodes = function(nodesNode) {
             if (textureIndex == -1)
                 return "texture must be defined (node ID = " + nodeID + ")";
             var textureID = this.reader.getString(nodeSpecs[textureIndex], 'id');
+
             if (textureID == null )
                 return "unable to parse texture ID (node ID = " + nodeID + ")";
             if (textureID != "null" && textureID != "clear" && this.textures[textureID] == null )
@@ -1419,6 +1424,27 @@ MySceneGraph.prototype.parseNodes = function(nodesNode) {
                     break;
                 default:
                     break;
+                }
+            }
+
+            var animationsIndex = specsNames.indexOf("ANIMATIONREFS");
+            
+            if(animationsIndex > 0){
+                var animationDescendants = nodeSpecs[animationsIndex].children;
+
+                var animationChildren = 0;
+                for(var z = 0; z < animationDescendants.length; z++){
+                    if(animationDescendants[z].nodeName == "ANIMATIONREF"){
+                        var aniID = this.reader.getString(animationDescendants[z], 'id');
+                        this.log("    Descendant: " + aniID);
+
+                        if(aniID == null){
+                            this.onXMLMinorError("unable to parse animation id");
+                        }
+                        else{
+                            this.nodes[nodeID].animationID = aniID;
+                        }
+                    }
                 }
             }
             

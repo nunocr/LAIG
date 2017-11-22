@@ -1,8 +1,7 @@
 class Animation{
-    constructor(scene, id, speed, type){
+    constructor(scene, id, speed){
         this.scene = scene;
         this.id = id;
         this.speed = speed;
-        this.type = type;
     }
 }
