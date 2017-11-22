@@ -1,3 +1,3 @@
-function LinearAnimation(controlpoints) extends Animation{
-    this.controlpoints = controlpoints;
+class LinearAnimation extends Animation{
+    
 }
