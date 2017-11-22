@@ -198,6 +198,30 @@
     	<amplif_factor s="1" t="1" />
    </TEXTURE>
 
+   <!-- Bone -->
+   <TEXTURE id="bone">
+   		<file path="images/bone.jpg" />
+    	<amplif_factor s="5" t="5" />
+   </TEXTURE>
+
+   <!-- Feathers -->
+   <TEXTURE id="feathers">
+   		<file path="images/feathers.jpg" />
+    	<amplif_factor s="1" t="1" />
+   </TEXTURE>
+
+    <!-- Eyes -->
+   <TEXTURE id="eyes">
+   		<file path="images/eyes.jpg" />
+    	<amplif_factor s="1" t="1" />
+   </TEXTURE>
+
+    <!-- Beak -->
+   <TEXTURE id="beak">
+   		<file path="images/beak.jpg" />
+    	<amplif_factor s="1" t="1" />
+   </TEXTURE>
+
     
 </TEXTURES>
 
@@ -2630,7 +2654,7 @@
 	<!-- Arms -->
     <NODE id="arms">      
         <MATERIAL id="null" />    
-        <TEXTURE id="null" />
+        <TEXTURE id="bone" />
 
         <DESCENDANTS>
             <NODEREF id="arm1" />
@@ -2910,7 +2934,7 @@
     <!-- Bird Body -->
     <NODE id="bird_body">      
         <MATERIAL id="null" />    
-        <TEXTURE id="null" />
+        <TEXTURE id="feathers" />
 
         <SCALE sx="0.7" sy="0.6" sz="1" />
 
@@ -2939,7 +2963,7 @@
 	   <!-- Bird Head Sphere -->
     <NODE id="bird_head_sphere">      
         <MATERIAL id="null" />    
-        <TEXTURE id="null" />
+        <TEXTURE id="feathers" />
 
 		<SCALE sx="0.8" sy="0.6" sz="1" />
 
@@ -2952,7 +2976,7 @@
     <!-- Bird Beak -->
     <NODE id="bird_beak">      
         <MATERIAL id="null" />    
-        <TEXTURE id="null" />
+        <TEXTURE id="beak" />
 
 		<TRANSLATION x="0" y="0" z="0.25" />
 		<SCALE sx="1" sy="0.7" sz="1" />
@@ -2966,9 +2990,10 @@
        <!-- Bird Eye Left -->
     <NODE id="bird_eye_left">      
         <MATERIAL id="null" />    
-        <TEXTURE id="null" />
+        <TEXTURE id="eyes" />
 
         <TRANSLATION x="-0.08" y="0.1" z="0.225" />
+        <ROTATION axis="y" angle="90" />
 
         <DESCENDANTS>
         	<LEAF type="sphere" args="0.015 20 20" />
@@ -2979,9 +3004,10 @@
        <!-- Bird Eye Right -->
     <NODE id="bird_eye_right">      
         <MATERIAL id="null" />    
-        <TEXTURE id="null" />
+        <TEXTURE id="eyes" />
 
         <TRANSLATION x="0.08" y="0.1" z="0.225" />
+        <ROTATION axis="y" angle="90" />
 
         <DESCENDANTS>
         	<LEAF type="sphere" args="0.015 20 20" />
@@ -2992,7 +3018,7 @@
      <!-- Bird Tail -->
     <NODE id="bird_tail">      
         <MATERIAL id="null" />    
-        <TEXTURE id="null" />
+        <TEXTURE id="feathers" />
 
         <TRANSLATION x="-0.1" y="0" z="0.07" />
         <ROTATION axis="x" angle="20" />
@@ -3054,7 +3080,7 @@
 	<!-- Bird Wings -->
     <NODE id="bird_wings">      
         <MATERIAL id="null" />    
-        <TEXTURE id="null" />
+        <TEXTURE id="feathers" />
 
         <DESCENDANTS>
 			<NODEREF id="bird_left_wing" />
@@ -3120,7 +3146,7 @@
         <MATERIAL id="null" />    
         <TEXTURE id="null" />
 
-        <TRANSLATION x="1.839" y="-0.04" z="0" />
+        <TRANSLATION x="1.837" y="-0.04" z="0" />
         <ROTATION axis="z" angle="-20" />
         <ROTATION axis="y" angle="-90" />
         <SCALE sx="1" sy="0.001" sz="1" />
@@ -3174,7 +3200,7 @@
      <!-- Generic Bird Leg -->
     <NODE id="bird_leg">      
         <MATERIAL id="null" />    
-        <TEXTURE id="null" />
+        <TEXTURE id="beak" />
 
         <DESCENDANTS>
         	<NODEREF id="bird_leg_thigh" />
@@ -3186,7 +3212,7 @@
       <!-- Generic Bird Leg  Thigh -->
     <NODE id="bird_leg_thigh">      
         <MATERIAL id="null" />    
-        <TEXTURE id="null" />
+        <TEXTURE id="feathers" />
 
 		<TRANSLATION x="0" y="2" z="0" />
 		<ROTATION axis="x" angle="0" />
