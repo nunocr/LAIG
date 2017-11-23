@@ -2934,7 +2934,7 @@
         <MATERIAL id="null" />    
         <TEXTURE id="null" />
 		<ANIMATIONREFS>
-			<ANIMATIONREF id="testecircular" />
+			<ANIMATIONREF id="testelinear" />
 		</ANIMATIONREFS>
 
         <DESCENDANTS>
