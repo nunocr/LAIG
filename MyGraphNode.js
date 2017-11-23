@@ -25,10 +25,21 @@ function MyGraphNode(graph, nodeID) {
     this.textureID = null ;
 
     // The animation ID.
-    this.animationID = null;
+    this.animationsID = [];
+
+    // The animation Index
+    this.animationIndex = 0;
 
     this.transformMatrix = mat4.create();
     mat4.identity(this.transformMatrix);
+
+    // Animation Matrix
+    this.animationMatrix = mat4.create();
+    mat4.identity(this.animationMatrix);
+
+    // Animation Time
+    this.animationTime = 0;
+    this.animationSection = 0;
 }
 
 /**
@@ -49,6 +60,29 @@ MyGraphNode.prototype.addChild = function(nodeID) {
  */
 MyGraphNode.prototype.addLeaf = function(leaf) {
     this.leaves.push(leaf);
+}
+
+MyGraphNode.prototype.updateAnimation = function(deltaTime){
+    this.animationTime = deltaTime;
+    if(this.animationIndex < this.animationsID.length){
+        //gets animation being processed
+        var currAnimation = this.graph.animations[this.animationsID[this.animationIndex]]
+        
+        //gets currAnimation matrix
+        this.animationMatrix = currAnimation.getAnimationMatrix(this.animationTime, this.animationSection);
+        
+        //finished processing current animation 
+        if(this.animationTime >= currAnimation.getAnimationSpan()){
+           this.animationSection = 0;
+           this.animationTime = 0;
+           this.animationIndex++; 
+        }
+
+        //finished processing all sections of the current animation (useful for animation with multiple sections, such as linear and combo animations)
+        else if(this.animationTime >= currAnimation.sectionTimes[this.animationSection]){
+            this.animationIndex++;
+        }
+    }
 }
 
 

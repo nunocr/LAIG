@@ -294,7 +294,7 @@
 <!-- The Animations -->
 <ANIMATIONS>
 	<ANIMATION id="testecircular" speed="10" type="circular"
-			   centerx="10" centery="10" centerz="10"
+			   centerx="20" centery="10" centerz="20"
 			   radius="5" startang="40" rotang="20" />
 	
 	<ANIMATION id="testelinear" speed="10" type="linear">

@@ -1442,7 +1442,7 @@ MySceneGraph.prototype.parseNodes = function(nodesNode) {
                             this.onXMLMinorError("unable to parse animation id");
                         }
                         else{
-                            this.nodes[nodeID].animationID = aniID;
+                            this.nodes[nodeID].animationsID.push(aniID);
                         }
                     }
                 }
@@ -1589,6 +1589,7 @@ MySceneGraph.prototype.esbetacl = function(argnode, argmat, argtex, argS, argT) 
 
     this.scene.pushMatrix();
     this.scene.multMatrix(argnode.transformMatrix);
+    this.scene.multMatrix(argnode.animationMatrix);
 
 
     //nodes

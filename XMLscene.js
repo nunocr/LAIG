@@ -31,6 +31,9 @@ XMLscene.prototype.init = function(application) {
     this.gl.depthFunc(this.gl.LEQUAL);
     
     this.axis = new CGFaxis(this);
+
+    this.setUpdatePeriod(20);
+    this.lastUpdateTime = 0;
 }
 
 /**
@@ -152,4 +155,12 @@ XMLscene.prototype.display = function() {
     
     // ---- END Background, camera and axis setup
     
+}
+
+XMLscene.prototype.update = function(currTime){
+	var deltaTime = (currTime - this.lastUpdateTime) / 1000;
+	this.lastUpdateTime = currTime;
+	for(var node in this.graph.nodes){
+		this.graph.nodes[node].updateAnimation(deltaTime);
+	}
 }
