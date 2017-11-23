@@ -293,9 +293,9 @@
 
 <!-- The Animations -->
 <ANIMATIONS>
-	<ANIMATION id="testecircular" speed="10" type="circular"
-			   centerx="20" centery="10" centerz="20"
-			   radius="5" startang="40" rotang="20" />
+	<ANIMATION id="testecircular" speed="5" type="circular"
+			   centerx="0" centery="0" centerz="0"
+			   radius="5" startang="40" rotang="20000" />
 	
 	<ANIMATION id="testelinear" speed="10" type="linear">
 		<controlpoint xx="0" yy="0" zz="0" />
@@ -1142,7 +1142,7 @@
      <!-- Crypts -->
 	<NODE id="crypt1">      
         <MATERIAL id="null" />    
-        <TEXTURE id="null" />       		
+        <TEXTURE id="null" /> 	
 
 		<TRANSLATION x="4" y="0" z="4" />
 		<SCALE sx="1.5" sy="1.5" sz="1.5" />

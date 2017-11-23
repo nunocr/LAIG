@@ -32,7 +32,7 @@ XMLscene.prototype.init = function(application) {
     
     this.axis = new CGFaxis(this);
 
-    this.setUpdatePeriod(20);
+    this.setUpdatePeriod(16);
     this.lastUpdateTime = 0;
 }
 
