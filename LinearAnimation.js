@@ -2,76 +2,66 @@ class LinearAnimation extends Animation{
     constructor(scene, id, speed, controlPoints){
         super(scene, id, speed);
         this.controlPoints = controlPoints;
-        this.sectionValues = [];
-
-        this.pathDistance = 0;
         this.animationMatrix = mat4.create();
-    
+        
+        this.sectionValues = [];
+        this.finalDistance = 0;
         for(var i = 0; i < this.controlPoints.length - 1; i++){
-            var dist = Math.sqrt(Math.pow((this.controlPoints[i+1][0] - this.controlPoints[i][0]), 2)+
-                                 Math.pow((this.controlPoints[i+1][1] - this.controlPoints[i][1]), 2)+
-                                 Math.pow((this.controlPoints[i+1][2] - this.controlPoints[i][2]), 2));
-            this.pathDistance += dist; //incrementar o counter da distancia
-            
-            this.sectionTimes.push(dist/this.speed); //tempo demorado nesta seccao
-            var angSin = (this.controlPoints[i+1][2] - this.controlPoints[i][2])/dist; 
-            var angCos = (this.controlPoints[i+1][0] - this.controlPoints[i][0])/dist;
-            var deltay = (this.controlPoints[i+1][1] - this.controlPoints[i][1]);
-            if(deltay != 0){
-                deltay /= Math.abs(this.controlPoints[i+1][1] - this.controlPoints[i][1]);
-            }
-            var vx = this.speed * angCos;
-            var vz = this.speed * angSin;
+            var distance = Math.sqrt(
+                                Math.pow(this.controlPoints[i+1][0] - this.controlPoints[i][0], 2)+
+                                Math.pow(this.controlPoints[i+1][1] - this.controlPoints[i][1], 2)+
+                                Math.pow(this.controlPoints[i+1][2] - this.controlPoints[i][2], 2));
+            this.finalDistance += distance;
+            this.sectionTimes.push(distance/this.speed);
 
-            var currSectionValues = [this.speed * angCos, Math.sqrt(this.speed * this.speed - vx*vx - vz*vz), this.speed * angSin, Math.acos(angCos)];
-            this.sectionValues.push(currSectionValues);
+            var angCos = (this.controlPoints[i+1][0] - this.controlPoints[i][0])/distance;
+            var angSin = (this.controlPoints[i+1][2] - this.controlPoints[i][2])/distance;
+            var deltay = this.controlPoints[i+1][1] - this.controlPoints[i][1];
+
+            if(deltay !== 0){
+                deltay /= Math.abs(Math.Round(this.controlPoints[i+1][1] - this.controlPoints[i][1]));
+            }
+
+            var ang = Math.acos(angCos);
+
+            var xVelocity = this.speed * angCos;
+            var zVelocity = this.speed * angSin;
+            var yVelocity = Math.sqrt(Math.pow(this.speed, 2) - Math.pow(xVelocity, 2) - Math.pow(zVelocity, 2))*deltay;
+
+            this.sectionValues.push([xVelocity, yVelocity, zVelocity, ang]);
         }
-        this.animationSpan = this.pathDistance / this.speed;
+        this.animationSpan = this.finalDistance / this.speed;
+
     }
 
     getAnimationMatrix(time, section){
-        var sectionTime = time;
-        for(var j = 0; j < section; j++){
-            sectionTime -= this.sectionTimes[i]; //ignores the time spent on other sections
-        }
-        console.log("Curr section: " + section);
+       var sectionTime = time;
+    
+       for(var i = 0; i < section; i++){
+           sectionTime -= this.sectionTimes[i];
+       }
 
-        mat4.identity(this.animationMatrix);
+       if(section < this.controlPoints.length - 1){
 
-        //while still processing the animation
-        if(section < this.controlPoints.length - 1){
+           //console.log("sectiontime: " + sectionTime);
 
-            var aux = [0, 0, 0];
-            aux[0] += sectionTime * this.sectionValues[section][0]; //linha 20 - está a multiplicar pelo speed
-            aux[1] += sectionTime * this.sectionValues[section][1];
-            aux[2] += sectionTime * this.sectionValues[section][2];
+           var deltax = sectionTime * this.sectionValues[section][0];
+           var deltay = sectionTime * this.sectionValues[section][1];
+           var deltaz = sectionTime * this.sectionValues[section][2];
 
+           //console.log("deltas: " + [deltax, deltay, deltaz]);
 
-            mat4.translate(this.animationMatrix, this.animationMatrix, aux);
-            mat4.translate(this.animationMatrix, this.animationMatrix, [this.controlPoints[section][0], this.controlPoints[section][1], this.controlPoints[section][2]]);
-            mat4.rotate(this.animationMatrix, this.animationMatrix, this.sectionValues[section][3], [0, 1, 0]);
-        }
-        else{
-            this.finished = true;
-        }
-        return this.animationMatrix;
-        /*for(var i = 1; i < this.sectionTimes.length; i++){
-            if(time < this.sectionTimes[i]){
-                var segTime = this.sectionTimes[i] - this.sectionTimes[i-1];
-                var segElapsedTime = time - this.sectionTimes[i-1];
-                var seg = i;
-                break;
-            }
-        }
-        var perTime = segElapsedTime/segTime;
+           mat4.identity(this.animationMatrix);
+           mat4.translate(this.animationMatrix, this.animationMatrix, [deltax, deltay, deltaz]);
+           mat4.translate(this.animationMatrix, this.animationMatrix, [this.controlPoints[section][0], this.controlPoints[section][1], this.controlPoints[section][2]]);
+           mat4.rotate(this.animationMatrix, this.animationMatrix, this.sectionValues[section][3], [0, 1, 0]);
+       }
+       else{
+          this.finished = true;
+       }
 
-        var segVector = [
-            this.controlPoints[seg][0] - this.controlPoints[seg-1][0],
-            this.controlPoints[seg][1] - this.controlPoints[seg-1][1],
-            this.controlPoints[seg][2] - this.controlPoints[seg-1][2]
-        ];
+       console.log("matrix: " + this.animationMatrix);
 
-        var coords = [0, 0, 0];
-        coords[0] +=*/
+       return this.animationMatrix;
     }
 }

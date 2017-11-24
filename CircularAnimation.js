@@ -49,7 +49,7 @@ class CircularAnimation extends Animation{
         }
     }*/
 
-    getAnimationMatrix(time, animationSection){
+    getAnimationMatrix(time, section){
         this.currAng += this.angularVelocity * time;
         if(this.currAng >= this.rotAng){
             this.finished = true;

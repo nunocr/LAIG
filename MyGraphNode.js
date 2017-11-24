@@ -40,6 +40,7 @@ function MyGraphNode(graph, nodeID) {
     // Animation Time
     this.animationTime = 0;
     this.animationSection = 0;
+    this.animationIndex = 0;
 }
 
 /**
@@ -63,11 +64,14 @@ MyGraphNode.prototype.addLeaf = function(leaf) {
 }
 
 MyGraphNode.prototype.updateAnimation = function(deltaTime){
-    this.animationTime = deltaTime;
+    this.animationTime += deltaTime;
     if(this.animationIndex < this.animationsID.length){
         //gets animation being processed
         var currAnimation = this.graph.animations[this.animationsID[this.animationIndex]]
         
+        console.log("Time: " + this.animationTime);
+        console.log("Section: " + this.animationSection);
+
         //gets currAnimation matrix
         this.animationMatrix = currAnimation.getAnimationMatrix(this.animationTime, this.animationSection);
         

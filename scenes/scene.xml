@@ -297,10 +297,15 @@
 			   centerx="0" centery="0" centerz="0"
 			   radius="5" startang="40" rotang="20000" />
 	
-	<ANIMATION id="testelinear" speed="2" type="linear">
+	<ANIMATION id="testelinear1" speed="4" type="linear">
 		<controlpoint xx="0" yy="0" zz="0" />
-		<controlpoint xx="1" yy="0" zz="0" />
-		<controlpoint xx="1" yy="1" zz="0" />
+		<controlpoint xx="10" yy="0" zz="0" />
+		<controlpoint xx="10" yy="0" zz="10" />
+	</ANIMATION>
+
+	<ANIMATION id="testelinear2" speed="4" type="linear">
+		<controlpoint xx="0" yy="0" zz="0" />
+		<controlpoint xx="10" yy="0" zz="10" />
 	</ANIMATION>
 	
 	<ANIMATION id="testebezier" speed="10" type="bezier">
@@ -2934,7 +2939,8 @@
         <MATERIAL id="null" />    
         <TEXTURE id="null" />
 		<ANIMATIONREFS>
-			<ANIMATIONREF id="testelinear" />
+			<ANIMATIONREF id="testelinear1" />
+			<ANIMATIONREF id="testelinear2" />
 		</ANIMATIONREFS>
 
         <DESCENDANTS>
