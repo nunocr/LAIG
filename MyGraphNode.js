@@ -67,13 +67,14 @@ MyGraphNode.prototype.updateAnimation = function(deltaTime){
     this.animationTime += deltaTime;
     if(this.animationIndex < this.animationsID.length){
         //gets animation being processed
-        var currAnimation = this.graph.animations[this.animationsID[this.animationIndex]]
+        var currAnimation = this.graph.animations[this.animationsID[this.animationIndex]];
         
-        console.log("Time: " + this.animationTime);
+        //console.log("Time: " + this.animationTime);
         console.log("Section: " + this.animationSection);
 
         //gets currAnimation matrix
         this.animationMatrix = currAnimation.getAnimationMatrix(this.animationTime, this.animationSection);
+        
         
         //finished processing current animation 
         if(this.animationTime >= currAnimation.getAnimationSpan()){
@@ -84,6 +85,7 @@ MyGraphNode.prototype.updateAnimation = function(deltaTime){
 
         //moving to next section of the current animation (useful for animation with multiple sections, such as linear and combo animations)
         else if(this.animationTime >= currAnimation.sectionTimes[this.animationSection]){
+            //this.animationTime = 0;
             this.animationSection++;
         }
     }

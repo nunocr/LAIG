@@ -12,7 +12,7 @@ class LinearAnimation extends Animation{
                                 Math.pow(this.controlPoints[i+1][1] - this.controlPoints[i][1], 2)+
                                 Math.pow(this.controlPoints[i+1][2] - this.controlPoints[i][2], 2));
             this.finalDistance += distance;
-            this.sectionTimes.push(distance/this.speed);
+            this.sectionTimes.push(this.finalDistance/this.speed);
 
             var angCos = (this.controlPoints[i+1][0] - this.controlPoints[i][0])/distance;
             var angSin = (this.controlPoints[i+1][2] - this.controlPoints[i][2])/distance;
@@ -36,20 +36,20 @@ class LinearAnimation extends Animation{
 
     getAnimationMatrix(time, section){
        var sectionTime = time;
-    
-       for(var i = 0; i < section; i++){
-           sectionTime -= this.sectionTimes[i];
+        
+       if (section >= 1) {
+           sectionTime -= this.sectionTimes[section - 1];
        }
 
        if(section < this.controlPoints.length - 1){
 
-           //console.log("sectiontime: " + sectionTime);
+           console.log("sectiontime: " + sectionTime);
 
            var deltax = sectionTime * this.sectionValues[section][0];
            var deltay = sectionTime * this.sectionValues[section][1];
            var deltaz = sectionTime * this.sectionValues[section][2];
 
-           //console.log("deltas: " + [deltax, deltay, deltaz]);
+           console.log("deltas: " + [deltax, deltay, deltaz]);
 
            var sectionVector = [
                 this.controlPoints[section+1][0]-this.controlPoints[section][0],
@@ -66,7 +66,7 @@ class LinearAnimation extends Animation{
           this.finished = true;
        }
 
-       console.log("matrix: " + this.animationMatrix);
+       //console.log("matrix: " + this.animationMatrix);
 
        return this.animationMatrix;
     }
