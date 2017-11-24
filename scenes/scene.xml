@@ -304,7 +304,7 @@
 	</ANIMATION>
 
 	<ANIMATION id="testelinear2" speed="4" type="linear">
-		<controlpoint xx="0" yy="0" zz="0" />
+		<controlpoint xx="10" yy="0" zz="0" />
 		<controlpoint xx="10" yy="0" zz="10" />
 	</ANIMATION>
 	

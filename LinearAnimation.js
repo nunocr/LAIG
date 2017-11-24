@@ -19,7 +19,7 @@ class LinearAnimation extends Animation{
             var deltay = this.controlPoints[i+1][1] - this.controlPoints[i][1];
 
             if(deltay !== 0){
-                deltay /= Math.abs(Math.Round(this.controlPoints[i+1][1] - this.controlPoints[i][1]));
+                deltay /= Math.abs(this.controlPoints[i+1][1] - this.controlPoints[i][1]);
             }
 
             var ang = Math.acos(angCos);
@@ -51,10 +51,16 @@ class LinearAnimation extends Animation{
 
            //console.log("deltas: " + [deltax, deltay, deltaz]);
 
+           var sectionVector = [
+                this.controlPoints[section+1][0]-this.controlPoints[section][0],
+                this.controlPoints[section+1][1]-this.controlPoints[section][1],
+                this.controlPoints[section+1][2]-this.controlPoints[section][2]
+           ];
+
            mat4.identity(this.animationMatrix);
            mat4.translate(this.animationMatrix, this.animationMatrix, [deltax, deltay, deltaz]);
            mat4.translate(this.animationMatrix, this.animationMatrix, [this.controlPoints[section][0], this.controlPoints[section][1], this.controlPoints[section][2]]);
-           mat4.rotate(this.animationMatrix, this.animationMatrix, this.sectionValues[section][3], [0, 1, 0]);
+           mat4.rotate(this.animationMatrix, this.animationMatrix, Math.atan(-sectionVector[2], sectionVector[0]) + Math.PI/2, [0, 1, 0]);
        }
        else{
           this.finished = true;
