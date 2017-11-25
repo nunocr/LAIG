@@ -24,6 +24,8 @@ class CircularAnimation extends Animation{
 
         //animationMatrix
         this.animationMatrix = mat4.create();
+
+        this.sectionTimes.push(this.animationSpan);
     }
 
     /*display(){

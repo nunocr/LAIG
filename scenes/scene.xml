@@ -324,8 +324,8 @@
 
 	<ANIMATION id="testecombo" type="combo">
 		<SPANREF id="testelinear1" />
-		<SPANREF id="testelinear2" />
 		<SPANREF id="testebezier" />
+		<SPANREF id="testelinear2" />
 	</ANIMATION>
 </ANIMATIONS>
 

@@ -27,6 +27,7 @@ class BezierAnimation extends Animation{
                              this.getDistanceBetweenPoints(p234, p34) + this.getDistanceBetweenPoints(p34, this.p4);
     
         this.animationSpan = this.totalDistance/this.speed;
+        this.sectionTimes.push(this.animationSpan);
         //console.log("Animation Span: " + this.animationSpan);
     }
 
