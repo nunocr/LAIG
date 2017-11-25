@@ -1,6 +1,7 @@
 class LinearAnimation extends Animation{
-    constructor(scene, id, speed, controlPoints){
-        super(scene, id, speed);
+    constructor(scene, id, type, speed, controlPoints){
+        super(scene, id, type);
+        this.speed = speed;
         this.controlPoints = controlPoints;
         this.animationMatrix = mat4.create();
         

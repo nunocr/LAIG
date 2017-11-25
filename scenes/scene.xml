@@ -321,6 +321,11 @@
 		<controlpoint xx="10" yy="10" zz="0" />
 		<controlpoint xx="10" yy="10" zz="10" />
 	</ANIMATION>
+
+	<ANIMATION id="testecombo" speed="2" type="combo">
+		<SPANREF id="testelinear1" />
+		<SPANREF id="testelinear2" />
+	</ANIMATION>
 </ANIMATIONS>
 
 <!-- The leaves -->

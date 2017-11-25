@@ -1,8 +1,8 @@
 class Animation{
-    constructor(scene, id, speed){
+    constructor(scene, id, type){
         this.scene = scene;
         this.id = id;
-        this.speed = speed;
+        this.type = type;
         this.sectionTimes = []; //useful to store each section animation time, useful for linear and combo animations
 
         this.animationSpan = 0;

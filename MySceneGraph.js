@@ -1221,7 +1221,7 @@ MySceneGraph.prototype.parseAnimations = function(animationsNode) {
                 linearControlPoints.push(controlPoint);
             }
             
-            this.animations[animationID] = new LinearAnimation(this.scene, animationID, animationSpeed, linearControlPoints);
+            this.animations[animationID] = new LinearAnimation(this.scene, animationID, animationType, animationSpeed, linearControlPoints);
             //QUANDO AS CLASSES DE ANIMACOES TIVEREM DEFINIDAS, CHAMAR AQUI O CONSTRUTOR
             //constructor call
         }
@@ -1235,7 +1235,7 @@ MySceneGraph.prototype.parseAnimations = function(animationsNode) {
             var startAng = this.reader.getFloat(children[i], 'startang');
             var rotAng = this.reader.getFloat(children[i], 'rotang');
 
-            this.animations[animationID] = new CircularAnimation(this.scene, animationID, animationSpeed, centerX, centerY, centerZ, radius, startAng * DEGREE_TO_RAD, rotAng * DEGREE_TO_RAD);
+            this.animations[animationID] = new CircularAnimation(this.scene, animationID, animationType, animationSpeed, centerX, centerY, centerZ, radius, startAng * DEGREE_TO_RAD, rotAng * DEGREE_TO_RAD);
 
             //QUANDO AS CLASSES DE ANIMACOES TIVEREM DEFINIDAS, CHAMAR AQUI O CONSTRUTOR
             //this.animations[animationID] = [animationSpeed, animationType, centerX, centerY, centerZ, radius, startAng, rotAng];
@@ -1260,13 +1260,36 @@ MySceneGraph.prototype.parseAnimations = function(animationsNode) {
             }
 
             if(counter == 4){
-                this.animations[animationID] = new BezierAnimation(this.scene, animationID, animationSpeed, bezierControlPoints);
+                this.animations[animationID] = new BezierAnimation(this.scene, animationID, animationType, animationSpeed, bezierControlPoints);
                 //QUANDO AS CLASSES DE ANIMACOES TIVEREM DEFINIDAS, CHAMAR AQUI O CONSTRUTOR
                 //constructor call
             }
             else{
                 return "A bezier animation only has 4 points!";
             }
+        }
+        if(animationType == "combo"){
+            var animationSpecs = children[i].children;
+            var animationRefs = [];
+            for(var j = 0; j < animationSpecs.length; j++){
+                if(animationSpecs[j].nodeName == "SPANREF"){
+                    var refID = this.reader.getString(animationSpecs[j], 'id');
+                    if(refID == null){
+                        return "failed to parse SPANREF id";
+                    }
+                    if(this.animations[refID] == null){
+                        return "the animation in SPANREF id doesnt exist!"
+                    }
+                    if(this.animations[refID].type == "combo"){
+                        return "you cannot have a combo animation inside another combo animation!"
+                    }
+                    animationRefs.push(refID);
+                }
+                else{
+                    this.onXMLMinorError("unknown tag name <" + animationSpecs[j].nodeName + ">");
+                }
+            }
+            this.animations[animationID] = new ComboAnimation(this.scene, animationID, animationType, animationRefs);
         }
 
     }
