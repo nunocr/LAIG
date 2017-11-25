@@ -1213,9 +1213,9 @@ MySceneGraph.prototype.parseAnimations = function(animationsNode) {
             for(var j = 0; j < linearSpecs.length; j++){
                 var controlPoint = [];
 
-                var controlX = this.reader.getString(linearSpecs[j], 'xx');
-                var controlY = this.reader.getString(linearSpecs[j], 'yy');
-                var controlZ = this.reader.getString(linearSpecs[j], 'zz');
+                var controlX = this.reader.getFloat(linearSpecs[j], 'xx');
+                var controlY = this.reader.getFloat(linearSpecs[j], 'yy');
+                var controlZ = this.reader.getFloat(linearSpecs[j], 'zz');
 
                 controlPoint.push(controlX, controlY, controlZ);
                 linearControlPoints.push(controlPoint);
@@ -1228,12 +1228,12 @@ MySceneGraph.prototype.parseAnimations = function(animationsNode) {
 
         //circular animations
         if(animationType == "circular"){
-            var centerX = this.reader.getString(children[i], 'centerx');
-            var centerY = this.reader.getString(children[i], 'centery');
-            var centerZ = this.reader.getString(children[i], 'centerz');
-            var radius = this.reader.getString(children[i], 'radius');
-            var startAng = this.reader.getString(children[i], 'startang');
-            var rotAng = this.reader.getString(children[i], 'rotang');
+            var centerX = this.reader.getFloat(children[i], 'centerx');
+            var centerY = this.reader.getFloat(children[i], 'centery');
+            var centerZ = this.reader.getFloat(children[i], 'centerz');
+            var radius = this.reader.getFloat(children[i], 'radius');
+            var startAng = this.reader.getFloat(children[i], 'startang');
+            var rotAng = this.reader.getFloat(children[i], 'rotang');
 
             this.animations[animationID] = new CircularAnimation(this.scene, animationID, animationSpeed, centerX, centerY, centerZ, radius, startAng * DEGREE_TO_RAD, rotAng * DEGREE_TO_RAD);
 
@@ -1250,9 +1250,9 @@ MySceneGraph.prototype.parseAnimations = function(animationsNode) {
             for(var j = 0; j < bezierSpecs.length; j++){
                 var controlPoint = [];
 
-                var controlX = this.reader.getString(linearSpecs[j], 'xx');
-                var controlY = this.reader.getString(linearSpecs[j], 'yy');
-                var controlZ = this.reader.getString(linearSpecs[j], 'zz');
+                var controlX = this.reader.getFloat(bezierSpecs[j], 'xx');
+                var controlY = this.reader.getFloat(bezierSpecs[j], 'yy');
+                var controlZ = this.reader.getFloat(bezierSpecs[j], 'zz');
 
                 controlPoint.push(controlX, controlY, controlZ);
                 bezierControlPoints.push(controlPoint);
