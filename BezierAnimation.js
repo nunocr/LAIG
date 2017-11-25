@@ -26,7 +26,7 @@ class BezierAnimation extends Animation{
                              this.getDistanceBetweenPoints(p234, p34) + this.getDistanceBetweenPoints(p34, this.p4);
     
         this.animationSpan = this.totalDistance/this.speed;
-        console.log("Animation Span: " + this.animationSpan);
+        //console.log("Animation Span: " + this.animationSpan);
     }
 
     getDistanceBetweenPoints(P1, P2){
@@ -36,7 +36,7 @@ class BezierAnimation extends Animation{
     getAnimationMatrix(time, section){
         var t = time / this.animationSpan;
 
-        console.log("t: " + t);
+        //console.log("t: " + t);
 
         if(t <= 1){
             var x = Math.pow(1 - t, 3) * this.p1[0] 
@@ -71,10 +71,10 @@ class BezierAnimation extends Animation{
              mat4.rotate(this.animationMatrix, this.animationMatrix, Math.atan(-deltaz, deltax) + Math.PI/2, [0, 1, 0]);
         }
         else{
-            //this.finished = true;
+            this.finished = true;
         }
 
-        console.log(this.animationMatrix);
+        //console.log(this.animationMatrix);
 
         return this.animationMatrix;
     }
