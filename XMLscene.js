@@ -10,6 +10,12 @@ function XMLscene(interface) {
     this.interface = interface;
 
     this.lightValues = {};
+
+    //ADDED for shaders. get system date to serve as seed for the vertex scaling and coloring
+	var startDate = new Date();
+	this.sceneStartingTime = startDate.getTime() / 1000;
+
+	this.selectableNodes = "None";
 }
 
 XMLscene.prototype = Object.create(CGFscene.prototype);
@@ -20,7 +26,11 @@ XMLscene.prototype.constructor = XMLscene;
  */
 XMLscene.prototype.init = function(application) {
     CGFscene.prototype.init.call(this, application);
-    
+
+    //ADDED for shaders
+    this.shader = new CGFshader(this.gl, "shaders/uScale.vert", "shaders/uScale.frag");
+    this.shader.setUniformsValues({red: 0.0, green: 1.0, blue: 0.0}); //sends rgb values to the shader, for it to calculate the object color (changes with time)
+
     this.initCameras();
 
     this.enableTextures(true);
@@ -34,6 +44,10 @@ XMLscene.prototype.init = function(application) {
 
     this.setUpdatePeriod(16);
     this.lastUpdateTime = 0;
+}
+
+XMLscene.prototype.updateTimeFactor = function(date){
+	this.shader.setUniformsValues({timeFactor: date});
 }
 
 /**
@@ -95,6 +109,8 @@ XMLscene.prototype.onGraphLoaded = function()
 
     // Adds lights group.
     this.interface.addLightsGroup(this.graph.lights);
+
+    this.interface.addSelectableNodes(this.graph.selectableNodes);
 }
 
 /**
@@ -139,6 +155,15 @@ XMLscene.prototype.display = function() {
                 i++;
             }
         }
+
+        //ADDED for shaders
+		var currDate = new Date();
+		var currDateTime = currDate.getTime() / 1000;
+		if(this.sceneStartingTime == null){
+			this.sceneStartingTime = currDateTime;
+		}
+		var deltaTime = currDateTime - this.sceneStartingTime;
+		this.updateTimeFactor(deltaTime);
 
         // Displays the scene.
         this.graph.displayScene();

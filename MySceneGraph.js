@@ -22,6 +22,7 @@ function MySceneGraph(filename, scene) {
     scene.graph = this;
     
     this.nodes = [];
+    this.selectableNodes = ["None"];
     
     this.idRoot = null;                    // The id of the root element.
 
@@ -1302,11 +1303,20 @@ MySceneGraph.prototype.parseNodes = function(nodesNode) {
             // Checks if ID is valid.
             if (this.nodes[nodeID] != null )
                 return "node ID must be unique (conflict: ID = " + nodeID + ")";
-            
+            //ADDED shader flag
+            var selectableFlag = false;
+            if(this.reader.hasAttribute(children[i], 'selectable')){
+                var selectableFlag = this.reader.getString(children[i], 'selectable');
+            } 
+
             this.log("Processing node "+nodeID);
 
             // Creates node.
             this.nodes[nodeID] = new MyGraphNode(this,nodeID);
+            if (selectableFlag != false){
+                this.nodes[nodeID].selectable = selectableFlag;
+                this.selectableNodes.push(nodeID);
+            }
 
             // Gathers child nodes.
             var nodeSpecs = children[i].children;
@@ -1591,10 +1601,18 @@ MySceneGraph.prototype.esbetacl = function(argnode, argmat, argtex, argS, argT) 
     this.scene.multMatrix(argnode.transformMatrix);
     this.scene.multMatrix(argnode.animationMatrix);
 
+    if (this.scene.selectableNodes == argnode.nodeID) {
+        this.scene.setActiveShader(this.scene.shader);
+    }
+
 
     //nodes
     for(var i = 0; i < argnode.children.length; i++){
         this.esbetacl(this.nodes[argnode.children[i]], material, textura, ampS, ampT);    
+    }
+
+    if (this.scene.selectableNodes == argnode.nodeID && argnode.children.length != 0) {
+        this.scene.setActiveShader(this.scene.defaultShader);
     }
 
     for(var i = 0; i < argnode.leaves.length; i++){
@@ -1609,6 +1627,9 @@ MySceneGraph.prototype.esbetacl = function(argnode, argmat, argtex, argS, argT) 
         }
 
         argnode.leaves[i].display();
+
+        if (this.scene.selectableNodes == argnode.nodeID && argnode.children.length == 0)
+            this.scene.setActiveShader(this.scene.defaultShader);
 
     }
 

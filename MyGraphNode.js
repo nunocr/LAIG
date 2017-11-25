@@ -41,6 +41,9 @@ function MyGraphNode(graph, nodeID) {
     this.animationTime = 0;
     this.animationSection = 0;
     this.animationIndex = 0;
+
+    // Selectable for shaders (default is false)
+    this.selectable = false;
 }
 
 /**
@@ -70,7 +73,7 @@ MyGraphNode.prototype.updateAnimation = function(deltaTime){
         var currAnimation = this.graph.animations[this.animationsID[this.animationIndex]];
         
         //console.log("Time: " + this.animationTime);
-        console.log("Section: " + this.animationSection);
+        //console.log("Section: " + this.animationSection);
 
         //gets currAnimation matrix
         this.animationMatrix = currAnimation.getAnimationMatrix(this.animationTime, this.animationSection);

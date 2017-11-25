@@ -1152,7 +1152,7 @@
     </NODE>
 
      <!-- Crypts -->
-	<NODE id="crypt1">      
+	<NODE id="crypt1" selectable="true">      
         <MATERIAL id="null" />    
         <TEXTURE id="null" /> 	
 

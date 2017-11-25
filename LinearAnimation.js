@@ -43,13 +43,13 @@ class LinearAnimation extends Animation{
 
        if(section < this.controlPoints.length - 1){
 
-           console.log("sectiontime: " + sectionTime);
+           //console.log("sectiontime: " + sectionTime);
 
            var deltax = sectionTime * this.sectionValues[section][0];
            var deltay = sectionTime * this.sectionValues[section][1];
            var deltaz = sectionTime * this.sectionValues[section][2];
 
-           console.log("deltas: " + [deltax, deltay, deltaz]);
+           //console.log("deltas: " + [deltax, deltay, deltaz]);
 
            var sectionVector = [
                 this.controlPoints[section+1][0]-this.controlPoints[section][0],
