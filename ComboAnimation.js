@@ -4,6 +4,7 @@ class ComboAnimation extends Animation{
         this.animationRefs = animationRefs;
         this.animationTimes = [];
         this.currAnimation = 0;
+        this.animationMatrix = mat4.create();
 
         var timeAux = 0;
         for(var i = 0; i < animationRefs.length; i++){
@@ -16,29 +17,39 @@ class ComboAnimation extends Animation{
 
     getAnimationMatrix(time, section){
         var sectionTime = time;
+        //var animationMatrix;
 
         //console.log("CurrAnimation: " + this.currAnimation);
         //console.log("animation playing: " + this.animationRefs[this.currAnimation]);
+        //console.log("sectionTime: " + sectionTime);
 
         if(this.currAnimation >= 1){
             sectionTime -= this.animationTimes[this.currAnimation - 1];
+            //currAnimationSpan = this.animationTimes[this.currAnimation] - this.animationTimes[this.currAnimation-1]
+            if(sectionTime < (this.animationTimes[this.currAnimation] - this.animationTimes[this.currAnimation-1])){
+                this.animationMatrix = this.scene.graph.animations[this.animationRefs[this.currAnimation]].getAnimationMatrix(sectionTime, section);
+            }   
+            else{
+                this.currAnimation++;
+            }
+
+            if(this.currAnimation > this.animationRefs.length - 1){
+                this.finished = true;
+            }
         }
-
-        //console.log("sectionTime: " + sectionTime);
-
-        if(sectionTime <= this.animationTimes[this.currAnimation]){
-            var animationMatrix = this.scene.graph.animations[this.animationRefs[this.currAnimation]].getAnimationMatrix(sectionTime, section);
-        }   
-        else{
-            this.currAnimation++;
-        }
-
-        if(this.currAnimation > this.animationRefs.length - 1){
-            this.finished = true;
+        else if(this.currAnimation == 0){
+            if(sectionTime < this.animationTimes[this.currAnimation]){
+                this.animationMatrix = this.scene.graph.animations[this.animationRefs[this.currAnimation]].getAnimationMatrix(sectionTime, section);
+            }   
+            else{
+                this.currAnimation++;
+            }
         }
 
         //console.log("finished: " + this.finished);
 
-        return animationMatrix;
+        //console.log("matrix: " + this.animationMatrix);
+
+        return this.animationMatrix;
     }
 }
