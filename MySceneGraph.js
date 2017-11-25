@@ -1192,11 +1192,6 @@ MySceneGraph.prototype.parseAnimations = function(animationsNode) {
         if (this.animations[animationID] != null )
             return "ID must be unique for each animation (conflict: ID = " + animationID + ")";
 
-        //speed
-        var animationSpeed = this.reader.getString(children[i], 'speed');
-        if (animationSpeed == null )
-            return "no speed defined for animation";
-
         //type
         var animationType = this.reader.getString(children[i], 'type');
         if (animationType == null )
@@ -1206,6 +1201,11 @@ MySceneGraph.prototype.parseAnimations = function(animationsNode) {
 
         //linear animations
         if(animationType == "linear"){
+            //speed
+            var animationSpeed = this.reader.getString(children[i], 'speed');
+            if (animationSpeed == null )
+                return "no speed defined for animation";
+
             var linearSpecs = children[i].children;
             var linearControlPoints = [];
 
@@ -1228,6 +1228,11 @@ MySceneGraph.prototype.parseAnimations = function(animationsNode) {
 
         //circular animations
         if(animationType == "circular"){
+            //speed
+            var animationSpeed = this.reader.getString(children[i], 'speed');
+            if (animationSpeed == null )
+                return "no speed defined for animation";
+
             var centerX = this.reader.getFloat(children[i], 'centerx');
             var centerY = this.reader.getFloat(children[i], 'centery');
             var centerZ = this.reader.getFloat(children[i], 'centerz');
@@ -1242,6 +1247,11 @@ MySceneGraph.prototype.parseAnimations = function(animationsNode) {
         }
 
         if(animationType == "bezier"){
+            //speed
+            var animationSpeed = this.reader.getString(children[i], 'speed');
+            if (animationSpeed == null )
+                return "no speed defined for animation";
+                
             var bezierSpecs = children[i].children;
             var bezierControlPoints = [];
             var counter = 0;

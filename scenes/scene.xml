@@ -305,7 +305,7 @@
 		<controlpoint xx="0" yy="0" zz="0" />
 	</ANIMATION>
 
-	<ANIMATION id="testelinear2" speed="4" type="linear">
+	<ANIMATION id="testelinear2" speed="1" type="linear">
 		<controlpoint xx="10" yy="0" zz="0" />
 		<controlpoint xx="10" yy="0" zz="10" />
 	</ANIMATION>
@@ -322,7 +322,7 @@
 		<controlpoint xx="10" yy="10" zz="10" />
 	</ANIMATION>
 
-	<ANIMATION id="testecombo" speed="2" type="combo">
+	<ANIMATION id="testecombo" type="combo">
 		<SPANREF id="testelinear1" />
 		<SPANREF id="testelinear2" />
 	</ANIMATION>
@@ -2957,7 +2957,7 @@
         <MATERIAL id="null" />    
         <TEXTURE id="null" />
 		<ANIMATIONREFS>
-			<ANIMATIONREF id="testebezier" />
+			<ANIMATIONREF id="testecombo" />
 		</ANIMATIONREFS>
 
         <DESCENDANTS>
