@@ -31,10 +31,10 @@ class ComboAnimation extends Animation{
     getAnimationMatrix(time, section){
         var sectionTime = time;
 
-        console.log("CurrAnimation: " + this.currAnimation);
-        console.log("animation playing: " + this.animationRefs[this.currAnimation]);
-        console.log("sectionTime: " + sectionTime);
-        console.log("Section: " + section);
+        //console.log("CurrAnimation: " + this.currAnimation);
+        //console.log("animation playing: " + this.animationRefs[this.currAnimation]);
+        //console.log("sectionTime: " + sectionTime);
+        //console.log("Section: " + section);
 
         if(this.currAnimation >= 1){
             sectionTime -= this.animationTimes[this.currAnimation - 1];
@@ -61,9 +61,9 @@ class ComboAnimation extends Animation{
             }
         }
 
-        console.log("finished: " + this.finished);
+        //console.log("finished: " + this.finished);
 
-        console.log("matrix: " + this.animationMatrix);
+        //console.log("matrix: " + this.animationMatrix);
 
         return this.animationMatrix;
     }

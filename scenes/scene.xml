@@ -295,7 +295,7 @@
 <ANIMATIONS>
 	<ANIMATION id="testecircular" speed="5" type="circular"
 			   centerx="0" centery="0" centerz="0"
-			   radius="5" startang="40" rotang="20000" />
+			   radius="2" startang="40" rotang="250" />
 	
 	<ANIMATION id="testelinear1" speed="4" type="linear">
 		<controlpoint xx="0" yy="0" zz="0" />
@@ -2958,7 +2958,7 @@
         <MATERIAL id="null" />    
         <TEXTURE id="null" />
 		<ANIMATIONREFS>
-			<ANIMATIONREF id="testecombo" />
+			<ANIMATIONREF id="testelinear1" />
 		</ANIMATIONREFS>
 
         <DESCENDANTS>
