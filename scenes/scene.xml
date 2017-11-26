@@ -333,7 +333,7 @@
 	</ANIMATION>
 
 	<ANIMATION id="bird_circular1" speed="4" type="circular"
-			   centerx="1" centery="0" centerz="10"
+			   centerx="2" centery="0" centerz="10"
 			   radius="2" startang="180" rotang="540" />
 
 	<ANIMATION id="bird_linear2" speed="4" type="linear">
@@ -345,14 +345,14 @@
 		   centerx="1" centery="0" centerz="-10"
 		   radius="2" startang="0" rotang="20000000" />
 
-	<ANIMATION id="bird_bezier" speed="5" type="bezier">
+	<ANIMATION id="bird_bezier" speed="10" type="bezier">
 		<controlpoint xx="4" yy="0" zz="-10" />
 		<controlpoint xx="0" yy="10" zz="0" />
 		<controlpoint xx="10" yy="10" zz="0" />
 		<controlpoint xx="17" yy="10" zz="10" />
 	</ANIMATION>
 
-	<ANIMATION id="bird_circular3" speed="4" type="circular"
+	<ANIMATION id="bird_circular3" speed="7" type="circular"
 		   centerx="10" centery="10" centerz="10"
 		   radius="7" startang="0" rotang="20000000" />	   
 
