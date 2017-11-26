@@ -299,7 +299,7 @@
 
    <ANIMATION id="circular_door" speed="0.05" type="circular"
 			   centerx="0" centery="0" centerz="0"
-			   radius="1" startang="0" rotang="100" />
+			   radius="0.1" startang="0" rotang="90" />
 	
 	<ANIMATION id="testelinear1" speed="4" type="linear">
 		<controlpoint xx="0" yy="0" zz="0" />
@@ -345,11 +345,23 @@
 		   centerx="1" centery="0" centerz="-10"
 		   radius="2" startang="0" rotang="20000000" />
 
+	<ANIMATION id="bird_bezier" speed="5" type="bezier">
+		<controlpoint xx="4" yy="0" zz="-10" />
+		<controlpoint xx="0" yy="10" zz="0" />
+		<controlpoint xx="10" yy="10" zz="0" />
+		<controlpoint xx="17" yy="10" zz="10" />
+	</ANIMATION>
+
+	<ANIMATION id="bird_circular3" speed="4" type="circular"
+		   centerx="10" centery="10" centerz="10"
+		   radius="7" startang="0" rotang="20000000" />	   
+
 	<ANIMATION id="birdo_combo" type="combo">
 		<SPANREF id="bird_linear1"/>
 		<SPANREF id="bird_circular1"/>
 		<SPANREF id="bird_linear2"/>
-		<SPANREF id="bird_circular2"/>
+		<SPANREF id="bird_bezier"/>
+		<SPANREF id="bird_circular3"/>
 	</ANIMATION>
 
 	<ANIMATION id="arm_linear1" speed="0.4" type="linear">
@@ -366,9 +378,17 @@
 		<controlpoint xx="0" yy="0" zz="0"/>
 	</ANIMATION>
 
+	 <ANIMATION id="arm_bezier" speed="1" type="bezier">
+        <controlpoint xx="0" yy="1" zz="0" />
+        <controlpoint xx="1" yy="1.5" zz="0" />
+        <controlpoint xx="1" yy="1" zz="-1" />
+        <controlpoint xx="0" yy="1.5" zz="0" />
+    </ANIMATION>
+
 	<ANIMATION id="arm_combo" type="combo">
 		<SPANREF id="arm_linear1"/>
-		<SPANREF id="bird_circular1"/>
+		<!-- <SPANREF id="bird_circular1"/> -->
+		<SPANREF id="arm_bezier"/>
 		<SPANREF id="arm_linear2"/>
 	</ANIMATION>
 
@@ -390,6 +410,37 @@
 	<ANIMATION id="combo1" type="combo">
 		<SPANREF id="bezier1"/>	
 		<SPANREF id="linear1"/>
+	</ANIMATION>
+
+	<ANIMATION id="pumpkin_linear1" speed="2" type="linear">
+		<controlpoint xx="0" yy="0" zz="0" />
+		<controlpoint xx="0" yy="0" zz="3" />
+		<controlpoint xx="-14" yy="0" zz="3" />
+	</ANIMATION>
+
+	    
+    <ANIMATION id="pumpkin_bezier" speed="100" type="bezier">
+        <controlpoint xx="-14" yy="0" zz="3" />
+        <controlpoint xx="-14.5" yy="2" zz="3" />
+        <controlpoint xx="-15" yy="0.5" zz="3" />
+        <controlpoint xx="-15.1" yy="0.5" zz="3" />
+    </ANIMATION>
+
+    <ANIMATION id="pumpkin_linear2" speed="2" type="linear">
+		<controlpoint xx="-15.1" yy="0.5" zz="3" />
+		<controlpoint xx="-20" yy="0.5" zz="3" />
+	</ANIMATION>
+
+
+	<ANIMATION id="pumpkin_circular1" speed="1" type="circular"
+		   centerx="-20" centery="0.5" centerz="3"
+		   radius="0.1" startang="0" rotang="200000" />
+
+	<ANIMATION id="pumpkin_combo" type="combo">
+		<SPANREF id="pumpkin_linear1"/>
+		<SPANREF id="pumpkin_bezier"/>
+		<SPANREF id="pumpkin_linear2"/>
+		<SPANREF id="pumpkin_circular1"/>
 	</ANIMATION>
 
 </ANIMATIONS>
@@ -1557,7 +1608,7 @@
 			<ANIMATIONREF id="circular_door" />
 		</ANIMATIONREFS>
 
-		<TRANSLATION x="7" y="0.37" z="3" />
+		<TRANSLATION x="7" y="0.37" z="4.1" />
 
         <DESCENDANTS>
 			<NODEREF id="door" />
@@ -2105,6 +2156,9 @@
     <NODE id="pumpkin1">      
         <MATERIAL id="null" />    
         <TEXTURE id="null" />
+        <ANIMATIONREFS>
+			<ANIMATIONREF id="pumpkin_combo" />
+		</ANIMATIONREFS>
 
         <TRANSLATION x="32.4" y="-4" z="6" />
                
@@ -2780,6 +2834,9 @@
     <NODE id="arm1">      
         <MATERIAL id="null" />    
         <TEXTURE id="null" />
+        <ANIMATIONREFS>
+			<ANIMATIONREF id="arm_combo" />
+		</ANIMATIONREFS>
 
         
         <TRANSLATION x="9" y="1" z="19" />
@@ -3036,7 +3093,7 @@
         <MATERIAL id="null" />    
         <TEXTURE id="null" />
 		<ANIMATIONREFS>
-			<ANIMATIONREF id="testecombo" />
+			<ANIMATIONREF id="birdo_combo" />
 		</ANIMATIONREFS>
 
         <DESCENDANTS>
