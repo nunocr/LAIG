@@ -431,13 +431,19 @@
 		<controlpoint xx="-20" yy="0.5" zz="3" />
 	</ANIMATION>
 
+	<ANIMATION id="pumpkin_bezier0" speed="5" type="bezier">
+        <controlpoint xx="0" yy="0" zz="0" />
+        <controlpoint xx="1" yy="0" zz="10" />
+        <controlpoint xx="-14" yy="0" zz="-2" />
+        <controlpoint xx="-14" yy="0" zz="3" />
+    </ANIMATION>
 
 	<ANIMATION id="pumpkin_circular1" speed="1" type="circular"
 		   centerx="-20" centery="0.5" centerz="3"
 		   radius="0.1" startang="0" rotang="200000" />
 
 	<ANIMATION id="pumpkin_combo" type="combo">
-		<SPANREF id="pumpkin_linear1"/>
+		<SPANREF id="pumpkin_bezier0"/>
 		<SPANREF id="pumpkin_bezier"/>
 		<SPANREF id="pumpkin_linear2"/>
 		<SPANREF id="pumpkin_circular1"/>
