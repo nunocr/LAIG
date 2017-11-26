@@ -372,6 +372,26 @@
 		<SPANREF id="arm_linear2"/>
 	</ANIMATION>
 
+	<ANIMATION id="linear1" speed="4" type="linear">
+        <controlpoint xx="0" yy="0" zz="0" />
+        <controlpoint xx="10" yy="0" zz="0" />
+        <controlpoint xx="10" yy="0" zz="10" />
+		<controlpoint xx="0" yy="0" zz="10" />
+		<controlpoint xx="0" yy="0" zz="0" />
+    </ANIMATION>
+    
+    <ANIMATION id="bezier1" speed="4" type="bezier">
+        <controlpoint xx="0" yy="0" zz="0" />
+        <controlpoint xx="0" yy="10" zz="0" />
+        <controlpoint xx="10" yy="10" zz="0" />
+        <controlpoint xx="10" yy="0" zz="0" />
+    </ANIMATION>
+
+	<ANIMATION id="combo1" type="combo">
+		<SPANREF id="bezier1"/>	
+		<SPANREF id="linear1"/>
+	</ANIMATION>
+
 </ANIMATIONS>
 
 <!-- The leaves -->
@@ -2760,9 +2780,6 @@
     <NODE id="arm1">      
         <MATERIAL id="null" />    
         <TEXTURE id="null" />
-        <ANIMATIONREFS>
-			<ANIMATIONREF id="arm_combo" />
-		</ANIMATIONREFS>
 
         
         <TRANSLATION x="9" y="1" z="19" />
@@ -3019,7 +3036,7 @@
         <MATERIAL id="null" />    
         <TEXTURE id="null" />
 		<ANIMATIONREFS>
-			<ANIMATIONREF id="birdo_combo" />
+			<ANIMATIONREF id="testecombo" />
 		</ANIMATIONREFS>
 
         <DESCENDANTS>

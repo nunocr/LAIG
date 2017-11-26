@@ -88,7 +88,9 @@ MyGraphNode.prototype.updateAnimation = function(deltaTime){
 
         //moving to next section of the current animation (useful for animation with multiple sections, such as linear and combo animations)
         else if(this.animationTime >= currAnimation.sectionTimes[this.animationSection]){
-            //this.animationTime = 0;
+            if(currAnimation.type == "combo"){
+                currAnimation.sectionsPassed++;
+            }
             this.animationSection++;
         }
     }

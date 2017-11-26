@@ -11,7 +11,7 @@ class ComboAnimation extends Animation{
         for(var i = 0; i < this.animationRefs.length; i++){
             for(var j = 0; j < this.scene.graph.animations[this.animationRefs[i]].sectionTimes.length - 1; j++){
                 if(this.scene.graph.animations[this.animationRefs[i]].sectionTimes.length > 1){
-                    this.sectionTimes.push(this.scene.graph.animations[this.animationRefs[i]].sectionTimes[j]);
+                    this.sectionTimes.push(timeAux + this.scene.graph.animations[this.animationRefs[i]].sectionTimes[j]);
                 }
             }
             var teste = this.scene.graph.animations[this.animationRefs[i]].sectionTimes[this.scene.graph.animations[this.animationRefs[i]].sectionTimes.length - 1];
@@ -31,19 +31,20 @@ class ComboAnimation extends Animation{
     getAnimationMatrix(time, section){
         var sectionTime = time;
 
-        //console.log("CurrAnimation: " + this.currAnimation);
-        //console.log("animation playing: " + this.animationRefs[this.currAnimation]);
-        //console.log("sectionTime: " + sectionTime);
-        //console.log("Section: " + section);
+        console.log("CurrAnimation: " + this.currAnimation);
+        console.log("animation playing: " + this.animationRefs[this.currAnimation]);
+        console.log("sectionTime: " + sectionTime);
+        console.log("Section: " + section);
+        console.log("Sections passed: " + this.sectionsPassed);
 
         if(this.currAnimation >= 1){
             sectionTime -= this.animationTimes[this.currAnimation - 1];
             //currAnimationSpan = this.animationTimes[this.currAnimation] - this.animationTimes[this.currAnimation-1]
             if(sectionTime < (this.animationTimes[this.currAnimation] - this.animationTimes[this.currAnimation-1])){
-                this.animationMatrix = this.scene.graph.animations[this.animationRefs[this.currAnimation]].getAnimationMatrix(sectionTime, section - this.sectionsPassed);
+                this.animationMatrix = this.scene.graph.animations[this.animationRefs[this.currAnimation]].getAnimationMatrix(sectionTime, this.sectionsPassed);
             }   
             else{
-                 this.sectionsPassed += this.scene.graph.animations[this.animationRefs[this.currAnimation]].sectionTimes.length;
+                this.sectionsPassed -= this.scene.graph.animations[this.animationRefs[this.currAnimation]].sectionTimes.length;
                 this.currAnimation++;
             }
 
@@ -53,17 +54,17 @@ class ComboAnimation extends Animation{
         }
         else if(this.currAnimation == 0){
             if(sectionTime < this.animationTimes[this.currAnimation]){
-                this.animationMatrix = this.scene.graph.animations[this.animationRefs[this.currAnimation]].getAnimationMatrix(sectionTime, section - this.sectionsPassed);
+                this.animationMatrix = this.scene.graph.animations[this.animationRefs[this.currAnimation]].getAnimationMatrix(sectionTime, this.sectionsPassed);
             }   
             else{
-                 this.sectionsPassed += this.scene.graph.animations[this.animationRefs[this.currAnimation]].sectionTimes.length;
+                this.sectionsPassed -= this.scene.graph.animations[this.animationRefs[this.currAnimation]].sectionTimes.length;
                 this.currAnimation++;
             }
         }
 
-        //console.log("finished: " + this.finished);
+        console.log("finished: " + this.finished);
 
-        //console.log("matrix: " + this.animationMatrix);
+        console.log("matrix: " + this.animationMatrix);
 
         return this.animationMatrix;
     }
