@@ -1538,10 +1538,9 @@
 		</ANIMATIONREFS>
 
 		<TRANSLATION x="7" y="0.37" z="3" />
-		<SCALE sx="0.05" sy="0.4" sz="0.25" />
 
         <DESCENDANTS>
-			<NODEREF id="cube" />
+			<NODEREF id="door" />
 		</DESCENDANTS>
     </NODE>
 
@@ -1551,6 +1550,17 @@
         <TEXTURE id="null" /> 
 
 		<TRANSLATION x="7" y="0.37" z="1.75" />
+
+        <DESCENDANTS>
+			<NODEREF id="door" />
+		</DESCENDANTS>
+    </NODE>
+
+    <!-- Generic Door -->
+	<NODE id="door">      
+        <MATERIAL id="null" />    
+        <TEXTURE id="null" /> 
+
 		<SCALE sx="0.05" sy="0.4" sz="0.25" />
 
         <DESCENDANTS>
