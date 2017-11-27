@@ -66,14 +66,16 @@ MyGraphNode.prototype.addLeaf = function(leaf) {
     this.leaves.push(leaf);
 }
 
+/**
+ * Updates the animation present in this node.
+ * @this {MyGraphNode}
+ * @param {number} deltaTime Time elapsed since the last animation update.
+ */
 MyGraphNode.prototype.updateAnimation = function(deltaTime){
     this.animationTime += deltaTime;
     if(this.animationIndex < this.animationsID.length){
         //gets animation being processed
         var currAnimation = this.graph.animations[this.animationsID[this.animationIndex]];
-        
-        //console.log("Time: " + this.animationTime);
-        //console.log("Section: " + this.animationSection);
 
         //gets currAnimation matrix
         this.animationMatrix = currAnimation.getAnimationMatrix(this.animationTime, this.animationSection);

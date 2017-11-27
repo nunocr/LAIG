@@ -48,6 +48,11 @@ MyInterface.prototype.addLightsGroup = function(lights) {
     }
 }
 
+/**
+ * Adds the nodes with the attribute 'selectable' true to the drop down menu in the interface.
+ * @this {MyInterface}
+ * @param {Array} nodes Array containing the selectable nodes.
+ */
 MyInterface.prototype.addSelectableNodes = function(nodes)
 {
     var shadersGroup = this.gui.addFolder("Shaders");

@@ -653,7 +653,7 @@
     </NODE>
 	
 	<!-- Cross 1 -->
-    <NODE id="cross1">       
+    <NODE id="cross1" selectable="true">       
         <MATERIAL id="null" />    
         <TEXTURE id="null" />       			
 
@@ -668,7 +668,7 @@
     </NODE>
 	
 	<!-- Cross 2 -->
-    <NODE id="cross2">       
+    <NODE id="cross2" selectable="true">       
         <MATERIAL id="null" />    
         <TEXTURE id="null" />       			
 
@@ -810,7 +810,7 @@
     </NODE>
 
     <!-- Fences -->
-    <NODE id="fences">
+    <NODE id="fences" selectable="true">
     	<MATERIAL id="iron" />
     	<TEXTURE id="iron" />
 
@@ -1204,7 +1204,7 @@
     </NODE>
 
     <!-- Tombstone 1 -->
-    <NODE id="tombstone1">
+    <NODE id="tombstone1" selectable="true">
     	<MATERIAL id="null" />
     	<TEXTURE id="null" />
 
@@ -1218,7 +1218,7 @@
     </NODE>
 
     <!-- Tombstone 2 -->
-    <NODE id="tombstone2">
+    <NODE id="tombstone2" selectable="true">
     	<MATERIAL id="null" />
     	<TEXTURE id="null" />
 
@@ -1920,7 +1920,7 @@
     </NODE>
  
      <!-- Candles 1 -->
-    <NODE id="candles1">      
+    <NODE id="candles1" selectable="true">      
         <MATERIAL id="null" />    
         <TEXTURE id="null" />
  
@@ -2060,11 +2060,6 @@
             <LEAF type="sphere" args="0.1 20 20" />
         </DESCENDANTS>
     </NODE>
-
-
-
-
-
    
     <!-- Walls -->
     <NODE id="walls">      
@@ -2159,7 +2154,7 @@
      </NODE>
 
       <!-- Pumpkin 1 -->
-    <NODE id="pumpkin1">      
+    <NODE id="pumpkin1" selectable="true">      
         <MATERIAL id="null" />    
         <TEXTURE id="null" />
         <ANIMATIONREFS>
@@ -2228,7 +2223,7 @@
     </NODE>
 
     <!-- Tree 1 -->
-    <NODE id="tree1">      
+    <NODE id="tree1" selectable="true">      
         <MATERIAL id="null" />    
         <TEXTURE id="null" />
 
@@ -3095,7 +3090,7 @@
     </NODE>
 
     <!-- Bird 1 -->
-    <NODE id="bird1">      
+    <NODE id="bird1" selectable="true">      
         <MATERIAL id="null" />    
         <TEXTURE id="null" />
 		<ANIMATIONREFS>

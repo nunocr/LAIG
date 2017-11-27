@@ -1,4 +1,19 @@
+/**
+ * Class BezierAnimation.
+ * Creates a BezierAnimation, receiving four control points to create a bezier curve with.
+ */
 class BezierAnimation extends Animation{
+    /**
+     * BezierAnimation constructor
+     *
+     * @constructor
+     * @this {BezierAnimation}
+     * @param {CGFScene} scene Scene where BezierAnimation is being created in.
+     * @param {string} id BezierAnimation ID.
+     * @param {string} type BezierAnimation type.
+     * @param {number} speed Object's speed when being animated with this BezierAnimation.
+     * @param {Array} controlPoints Array containing the four points needed to create the BezierAnimation's trajectory.
+     */
     constructor(scene, id, type, speed, controlPoints){
         super(scene, id, type);
         this.speed = speed;
@@ -22,23 +37,38 @@ class BezierAnimation extends Animation{
 
         var p1234 = [(p123[0] - p234[0])/2, (p123[1] - p234[1])/2, (p123[2] - p234[2])/2];
     
+        //calculates total distance
         this.totalDistance = this.getDistanceBetweenPoints(this.p1, p12) + this.getDistanceBetweenPoints(p12, p123) +
                              this.getDistanceBetweenPoints(p123, p1234) + this.getDistanceBetweenPoints(p1234, p234) +
                              this.getDistanceBetweenPoints(p234, p34) + this.getDistanceBetweenPoints(p34, this.p4);
     
         this.animationSpan = this.totalDistance/this.speed;
         this.sectionTimes.push(this.animationSpan);
-        //console.log("Animation Span: " + this.animationSpan);
     }
 
+    /**
+     * Calculates the distance between two points.
+     * 
+     * @this {BezierAnimation}
+     * @param {Array} P1 First point.
+     * @param {Array} P2 Second point.
+     * @return Returns the distance between P1 and P2. 
+     */
     getDistanceBetweenPoints(P1, P2){
         return Math.sqrt(Math.pow(P2[0]-P1[0], 2) + Math.pow(P2[1]-P1[1], 2) + Math.pow(P2[2]-P1[2], 2));
     }
 
+    /**
+     * Gets the BezierAnimation's animation matrix
+     * 
+     * @this {BezierAnimation}
+     * @param {number} time Current time of the BezierAnimation.
+     * @param {number} section Current section of the BezierAnimation.
+     * @return {matrix} Returns the current BezierAnimation animation matrix, at the given time and section.
+     */
     getAnimationMatrix(time, section){
+        //normalizes the BezierAnimation t (so the coordinates update can be done according to the Bezier curve's formula)
         var t = time / this.animationSpan;
-
-        //console.log("t: " + t);
 
         if(t <= 1){
             var x = Math.pow(1 - t, 3) * this.p1[0] 
@@ -75,8 +105,6 @@ class BezierAnimation extends Animation{
         else{
             this.finished = true;
         }
-
-        //console.log(this.animationMatrix);
 
         return this.animationMatrix;
     }

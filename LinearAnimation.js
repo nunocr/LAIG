@@ -1,4 +1,19 @@
+/**
+ * Class LinearAnimation.
+ * Creates a LinearAnimation, receiving control points to create the linear trajectory with.
+ */
 class LinearAnimation extends Animation{
+    /**
+     * LinearAnimation constructor
+     *
+     * @constructor
+     * @this {LinearAnimation}
+     * @param {CGFScene} scene Scene where LinearAnimation is being created in.
+     * @param {string} id LinearAnimation ID.
+     * @param {string} type LinearAnimation type.
+     * @param {number} speed Object's speed when being animated with this LinearAnimation.
+     * @param {Array} controlPoints Array containing the points needed to create the LinearAnimation's trajectory.
+     */
     constructor(scene, id, type, speed, controlPoints){
         super(scene, id, type);
         this.speed = speed;
@@ -35,6 +50,14 @@ class LinearAnimation extends Animation{
 
     }
 
+    /**
+     * Gets the LinearAnimation's animation matrix
+     * 
+     * @this {LinearAnimation}
+     * @param {number} time Current time of the LinearAnimation.
+     * @param {number} section Current section of the LinearAnimation.
+     * @return {matrix} Returns the current LinearAnimation animation matrix, at the given time and section.
+     */
     getAnimationMatrix(time, section){
        var sectionTime = time;
         
@@ -44,13 +67,9 @@ class LinearAnimation extends Animation{
 
        if(section < this.controlPoints.length - 1){
 
-           //console.log("sectiontime: " + sectionTime);
-
            var deltax = sectionTime * this.sectionValues[section][0];
            var deltay = sectionTime * this.sectionValues[section][1];
            var deltaz = sectionTime * this.sectionValues[section][2];
-
-           //console.log("deltas: " + [deltax, deltay, deltaz]);
 
            var sectionVector = [
                 this.controlPoints[section+1][0]-this.controlPoints[section][0],
@@ -66,8 +85,6 @@ class LinearAnimation extends Animation{
        else{
           this.finished = true;
        }
-
-       //console.log("matrix: " + this.animationMatrix);
 
        return this.animationMatrix;
     }
